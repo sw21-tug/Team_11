@@ -10,6 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JustGo">
+        <activity
+            android:name=".ActivitySingleTrip"
+            android:label="@string/title_activity_single_trip"
+            android:theme="@style/Theme.JustGo.NoActionBar"></activity>
         <activity android:name=".CreateTrip"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>

@@ -59,4 +59,16 @@
         app:layout_constraintVertical_bias="0.912"
         app:srcCompat="@android:drawable/ic_menu_search" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/goto_trip"
+        android:text="Test trip"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        android:onClick="sendMessage"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
