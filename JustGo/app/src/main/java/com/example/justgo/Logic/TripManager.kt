@@ -1,20 +1,29 @@
-package com.example.justgo.Entitys
+package com.example.justgo.Logic
+
+import com.example.justgo.Entitys.Trip
+import com.example.justgo.Entitys.TripType
 
 class TripManager {
     companion object{
         private var trips: ArrayList<Trip> = ArrayList()
-
-        fun createTrip(name:String,tripType:TripType){
-            var trip:Trip = Trip(name,tripType)
+        fun createSampleTrips(){
+            createTrip("Barcelona",TripType.created_by_others)
+            createTrip("New York",TripType.self_created)
+            createTrip("Paris",TripType.shared_ones)
+        }
+        fun createTrip(name:String,tripType: TripType){
+            var trip: Trip = Trip(name,tripType)
             trips.add(trip)
         }
-        fun getTripbyName(name:String):Trip?{
+        fun getTripbyName(name:String): ArrayList<Trip>{
+            var tripsbyName:ArrayList<Trip>
+            tripsbyName = ArrayList()
             trips.forEach {
                 if(it.nameofTrip==name){
-                    return it;
+                    tripsbyName.add(it)
                 }
             }
-            return null;
+            return tripsbyName;
         }
         fun getTripsbyType(type: TripType):ArrayList<Trip>{
             var tripsbyType : ArrayList<Trip> = ArrayList();

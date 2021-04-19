@@ -6,20 +6,8 @@ class Trip(name:String,tripType: TripType){
     //props
     private var tripInformations: ArrayList<TripInformation> = ArrayList()
     var nameofTrip:String
-        get() {
-            return nameofTrip
-        }
-        set(value) {
-            nameofTrip=value
-        }
 
     var tripType:TripType
-        get() {
-            return tripType
-        }
-        set(value) {
-            tripType=value
-        }
 
     //Constructor
 
@@ -43,4 +31,9 @@ class Trip(name:String,tripType: TripType){
         }
         return null
     }
+
+    override fun toString(): String {
+        return "$nameofTrip,"
+    }
+
 }
