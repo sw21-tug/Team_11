@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val arrayAdapter : ArrayAdapter<*>
-        TripManager.createSampleTrips();
+ //       TripManager.createSampleTrips();
         list_view_of_trips = findViewById(R.id.list_view_of_trips)
 
         val trips = mutableListOf("TripObject1\npicture", "TripObject2\npicture", "TripObject3\npicture",

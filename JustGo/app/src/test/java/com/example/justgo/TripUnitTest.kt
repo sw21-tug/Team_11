@@ -13,6 +13,7 @@ class TripUnitTest {
        TripManager.createTrip("New York", TripType.self_created)
        val result: Trip = TripManager.getAllTrips().first()
        assertEquals(result.toString(), "New York")
+       TripManager.clearTrips()
    }
 
     @Test
@@ -29,6 +30,7 @@ class TripUnitTest {
         trips.forEach {
             assertEquals(it.toString(), "New York")
         }
+        TripManager.clearTrips()
     }
 
     @Test
@@ -45,6 +47,7 @@ class TripUnitTest {
         trips.forEach {
             assertEquals(it.toString(), "New York")
         }
+        TripManager.clearTrips()
     }
 
     @Test
@@ -58,5 +61,6 @@ class TripUnitTest {
         trips = TripManager.getAllTrips()
 
         assertEquals(3, trips.size)
+        TripManager.clearTrips()
     }
 }
