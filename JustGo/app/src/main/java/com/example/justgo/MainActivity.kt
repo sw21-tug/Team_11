@@ -56,9 +56,9 @@ class MainActivity : AppCompatActivity() {
 
     fun sendMessage(view: View) {
 
-        var templateTrip = Trip("Template Trip for testing", TripType.self_created)
-        var date = TripDate("Date", "October 2022")
-        var dest = TripDestination("Destination", "Wien")
+        val templateTrip = Trip("Template Trip for testing", TripType.self_created)
+        val date = TripDate("Date", "October 2022")
+        val dest = TripDestination("Destination", "Wien")
         templateTrip.addTripInformation(date)
         templateTrip.addTripInformation(dest)
         templateTrip.addTripInformation((TripDestination("Duration", "5 days")))

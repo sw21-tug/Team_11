@@ -10,4 +10,7 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="save_text">save</string>
+    <string name="test_trip">Test trip</string>
+    <string name="add_item">add item</string>
 </resources>

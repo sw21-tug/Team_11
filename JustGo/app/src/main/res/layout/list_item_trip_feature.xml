@@ -10,7 +10,6 @@
         android:layout_height="wrap_content"
         android:padding="16dp"
 
-        android:text="text_1"
         android:id="@+id/name"
 
         />
@@ -20,7 +19,6 @@
         android:layout_height="wrap_content"
         android:padding="16dp"
 
-        android:text="text_2"
         android:id="@+id/value" />
 
 </LinearLayout>

@@ -10,7 +10,7 @@ import com.example.justgo.Entitys.TripInformation
 import com.example.justgo.R
 
 
-class TripFeatureAdapter(private val context : Context,
+class TripFeatureAdapter(context : Context,
                          private val dataSource: List<TripInformation>) : BaseAdapter() {
 
     private val inflater: LayoutInflater
@@ -29,11 +29,11 @@ class TripFeatureAdapter(private val context : Context,
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        var view = inflater.inflate(R.layout.list_item_trip_feature, parent, false)
-        var name = view.rootView.findViewById<TextView>(R.id.name)
+        val view = inflater.inflate(R.layout.list_item_trip_feature, parent, false)
+        val name = view.rootView.findViewById<TextView>(R.id.name)
         name.text = dataSource[position].name
 
-        var value = view.rootView.findViewById<TextView>(R.id.value)
+        val value = view.rootView.findViewById<TextView>(R.id.value)
         value.text = dataSource[position].value.toString()
 
         return view

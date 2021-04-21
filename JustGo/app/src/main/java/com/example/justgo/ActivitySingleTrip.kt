@@ -16,19 +16,20 @@ import java.io.Serializable
 
 class ActivitySingleTrip : AppCompatActivity() {
 
-    private var trip : Trip? = null;
+    private lateinit var trip : Trip
     private val tripinfo = mutableListOf<TripInformation>()
     private val REQUEST_CODE = 0
+    private lateinit var listView  : ListView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_single_trip)
 
-        initializeTripInfoList();
+        initializeTripInfoList()
         trip = intent.getSerializableExtra("trip") as Trip
 
-        var listView = findViewById<ListView>(R.id.feature_list)
-        listView.adapter = TripFeatureAdapter(this, trip!!.tripInformations)
+        listView = findViewById<ListView>(R.id.feature_list)
+        listView.adapter = TripFeatureAdapter(this, trip.tripInformations)
 
     }
 
@@ -38,11 +39,11 @@ class ActivitySingleTrip : AppCompatActivity() {
         startActivityForResult(intent, REQUEST_CODE)
     }
 
-    fun initializeTripInfoList(){
-        var date = TripDate("Date", "")
-        var dest = TripDestination("Destination", "")
-        tripinfo?.add(date)
-        tripinfo?.add(dest)
+    private fun initializeTripInfoList(){
+        val date = TripDate("Date", "")
+        val dest = TripDestination("Destination", "")
+        tripinfo.add(date)
+        tripinfo.add(dest)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -50,14 +51,14 @@ class ActivitySingleTrip : AppCompatActivity() {
         if (requestCode == REQUEST_CODE) {
             if (resultCode == Activity.RESULT_OK && data != null) {
 
-                var result = data.getSerializableExtra("result") as List<TripInformation>
+                val result = data.getSerializableExtra("result") as List<TripInformation>
                 for(tripinfo : TripInformation in result)
                 {
                     if(tripinfo.value != ""){
-                        trip?.addTripInformation(tripinfo)
+                        trip.addTripInformation(tripinfo)
                     }
                 }
-                findViewById<ListView>(R.id.feature_list).invalidate()
+                listView.invalidate()
                 }
             }
         }

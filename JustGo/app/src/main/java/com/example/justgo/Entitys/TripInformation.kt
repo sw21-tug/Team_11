@@ -7,9 +7,6 @@ abstract class TripInformation(name:String, value:Any) : Serializable{
     var value = value
 }
 
-class TripDate(name : String, value: String) : TripInformation(name, value){
-}
+class TripDate(name : String, value: String) : TripInformation(name, value)
 
-class TripDestination(name : String, value: String) : TripInformation(name, value){
-
-}
+class TripDestination(name : String, value: String) : TripInformation(name, value)

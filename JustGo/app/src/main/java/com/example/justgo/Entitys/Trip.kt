@@ -1,31 +1,21 @@
 package com.example.justgo.Entitys
 
+import java.io.Serializable
 import java.lang.StringBuilder
 
-class Trip(name:String,tripType: TripType){
-    //props
-    private var tripInformations: ArrayList<TripInformation> = ArrayList()
-    var nameofTrip:String
+class Trip(name:String,tripType: TripType) : Serializable {
 
-    var tripType:TripType
-
-    //Constructor
-
-    init {
-        this.nameofTrip = name
-        this.tripType=tripType;
-    }
-
-    //Methods
+    var tripInformations: ArrayList<TripInformation> = ArrayList()
+    var nameofTrip:String = name
+    var tripType:TripType = tripType
 
     fun addTripInformation(tripInformation:TripInformation){
         this.tripInformations.add(tripInformation)
     }
 
     fun getTripInformationbyName(name:String):TripInformation?{
-
         tripInformations.forEach {
-            if(it.name.equals(name)){
+            if(it.name == name){
                 return it
             }
         }
