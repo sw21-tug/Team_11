@@ -2,42 +2,27 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivitySingleTrip">
-
-
-    <include
-        android:id="@+id/include"
-        layout="@layout/content_activity_single_trip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--        android:id="@+id/fab"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:srcCompat="@android:drawable/ic_dialog_email" />-->
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".singleTrip.AddFieldActivity">
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/feature_list"
+        android:id="@+id/item_chooser"
 
         />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/add_item"
-        android:text="add item"
+        android:id="@+id/save"
+        android:text="save"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
 
-        android:onClick="addItem"
+        android:onClick="save"
         />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
