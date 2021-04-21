@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">JustGo</string>
+    <string name="activity_crate_trip_name">Create Trip</string>
+</resources>
