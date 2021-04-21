@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.ListView
 import android.widget.TextView
 import com.example.justgo.Entitys.Trip
+import com.example.justgo.Entitys.TripType
 import com.example.justgo.Logic.TripManager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -17,18 +18,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val arrayAdapter : ArrayAdapter<*>
-        TripManager.createSampleTrips();
-        list_view_of_trips = findViewById(R.id.list_view_of_trips)
+        val layoutid : Int = android.R.layout.simple_list_item_1
 
-        val trips = mutableListOf("TripObject1\npicture", "TripObject2\npicture", "TripObject3\npicture",
-            "TripObject4\npicture", "TripObject5\npicture", "TripObject6\npicture",
-            "TripObject7\npicture", "TripObject8\npicture", "TripObject9\npicture",
-            "TripObject10\npicture", "TripObject11\npicture", "TripObject12\npicture",
-            "TripObject13\npicture", "TripObject14\npicture", "TripObject15\npicture",)
-
-        arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, trips)
-        list_view_of_trips.adapter = arrayAdapter
         val create_trip : FloatingActionButton
         create_trip = findViewById(R.id.createtripFloatingActionButton)
         create_trip.setOnClickListener {
@@ -49,5 +40,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+        val list_view_of_trips = listViewerTrips(this,layoutid, findViewById(R.id.list_view_of_trips), TripManager.getAllTrips())
+        list_view_of_trips.startListView()
     }
 }
