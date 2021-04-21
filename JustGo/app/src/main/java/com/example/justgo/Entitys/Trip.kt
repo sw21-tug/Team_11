@@ -33,7 +33,8 @@ class Trip(name:String,tripType: TripType){
     }
 
     override fun toString(): String {
-        return "$nameofTrip,"
+        return "$nameofTrip"
     }
+
 
 }
