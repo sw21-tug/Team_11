@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+      
         val layoutid : Int = android.R.layout.simple_list_item_1
 
         val create_trip : FloatingActionButton

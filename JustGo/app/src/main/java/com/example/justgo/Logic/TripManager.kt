@@ -39,10 +39,13 @@ class TripManager {
             return trips;
 
         }
-        fun sortTripsbyName(name:String){
+ /*       fun sortTripsbyName(name: String){
             trips.sortBy {
-                it.nameofTrip
+                name
             }
+        }*/
+        fun clearTrips() {
+            trips.clear()
         }
     }
 }
