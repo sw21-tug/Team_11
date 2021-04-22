@@ -10,3 +10,4 @@ abstract class TripInformation(name:String, value:Any) : Serializable{
 class TripDate(name : String, value: String) : TripInformation(name, value)
 
 class TripDestination(name : String, value: String) : TripInformation(name, value)
+

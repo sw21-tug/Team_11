@@ -6,12 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
-import com.example.justgo.Entitys.TripInformation
 import com.example.justgo.R
 
 
 class TripFeatureAdapter(context : Context,
-                         private val dataSource: List<TripInformation>) : BaseAdapter() {
+                         private val dataSource: List<String>) : BaseAdapter() {
 
     private val inflater: LayoutInflater
             = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -30,12 +29,10 @@ class TripFeatureAdapter(context : Context,
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val view = inflater.inflate(R.layout.list_item_trip_feature, parent, false)
-        val name = view.rootView.findViewById<TextView>(R.id.name)
-        name.text = dataSource[position].name
-
-        val value = view.rootView.findViewById<TextView>(R.id.value)
-        value.text = dataSource[position].value.toString()
+        val name = view.rootView.findViewById<TextView>(R.id.tripField)
+        name.text = dataSource[position]
 
         return view
     }
+
 }

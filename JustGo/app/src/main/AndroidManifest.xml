@@ -12,7 +12,7 @@
         android:theme="@style/Theme.JustGo">
         <activity android:name=".singleTrip.AddFieldActivity" />
         <activity
-            android:name=".ActivitySingleTrip"
+            android:name=".singleTrip.ActivitySingleTrip"
             android:label="@string/title_activity_single_trip"
             android:theme="@style/Theme.JustGo.NoActionBar" />
             android:theme="@style/Theme.JustGo.NoActionBar">

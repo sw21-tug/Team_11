@@ -23,10 +23,10 @@ class TripManager {
                     tripsbyName.add(it)
                 }
             }
-            return tripsbyName;
+            return tripsbyName
         }
         fun getTripsbyType(type: TripType):ArrayList<Trip>{
-            var tripsbyType : ArrayList<Trip> = ArrayList();
+            var tripsbyType : ArrayList<Trip> = ArrayList()
             trips.forEach {
                 if(it.tripType==type){
                     tripsbyType.add(it)
@@ -36,7 +36,7 @@ class TripManager {
         }
 
         fun getAllTrips():ArrayList<Trip>{
-            return trips;
+            return trips
 
         }
  /*       fun sortTripsbyName(name: String){
