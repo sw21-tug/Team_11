@@ -22,6 +22,14 @@ class Trip(name:String,tripType: TripType) : Serializable {
         return null
     }
 
+    fun getTripInformationLNameist(): ArrayList<String>{
+        var tripInfoNames: ArrayList<String> = ArrayList()
+        tripInformations.forEach{
+            tripInfoNames.add(it.name)
+        }
+        return tripInfoNames
+    }
+
     override fun toString(): String {
         return "$nameofTrip"
     }

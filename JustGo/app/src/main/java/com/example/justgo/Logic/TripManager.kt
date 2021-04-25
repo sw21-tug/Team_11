@@ -25,6 +25,12 @@ class TripManager {
             }
             return tripsbyName
         }
+
+        fun replaceTrip(oldTrip:Trip, newTrip:Trip){
+            var index = trips.indexOf(oldTrip)
+            trips.set(index, newTrip)
+        }
+
         fun getTripsbyType(type: TripType):ArrayList<Trip>{
             var tripsbyType : ArrayList<Trip> = ArrayList()
             trips.forEach {

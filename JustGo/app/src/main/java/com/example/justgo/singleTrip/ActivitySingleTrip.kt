@@ -8,6 +8,8 @@ import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.justgo.Entitys.Trip
+import com.example.justgo.Entitys.TripDate
+import com.example.justgo.Entitys.TripInformation
 import com.example.justgo.R
 import java.io.Serializable
 
@@ -15,6 +17,7 @@ class ActivitySingleTrip : AppCompatActivity() {
 
     private lateinit var trip : Trip
     private val addedFields = mutableListOf<String>()
+    private lateinit var tripinfonames:ArrayList<String>
     private var possibleFields = mutableListOf<String>("Dates", "Locations", "Photos", "Transportation", "Accommodation", "Activities")
     private val REQUEST_CODE = 0
     private lateinit var listView  : ListView
@@ -23,14 +26,15 @@ class ActivitySingleTrip : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_single_trip)
 
-        addedFields.add("Cost")
         trip = intent.getSerializableExtra("trip") as Trip
+
+        tripinfonames = trip.getTripInformationLNameist()
 
         val title = findViewById<TextView>(R.id.trip_title)
         title.text = trip.nameofTrip
 
         listView = findViewById<ListView>(R.id.feature_list)
-        listView.adapter = TripFeatureAdapter(this, addedFields)
+        listView.adapter = TripFeatureAdapter(this, tripinfonames)
 
     }
 
@@ -47,7 +51,8 @@ class ActivitySingleTrip : AppCompatActivity() {
             if (resultCode == Activity.RESULT_OK && data != null) {
 
                 val result = data.getSerializableExtra("added_field") as String
-                addedFields.add(result)
+                trip.addTripInformation(TripDate(result, ""))
+                tripinfonames.add(result)
                 possibleFields.remove(result)
 
                 (listView.adapter as TripFeatureAdapter).notifyDataSetChanged()

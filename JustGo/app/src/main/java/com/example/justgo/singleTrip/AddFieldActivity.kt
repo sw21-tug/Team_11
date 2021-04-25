@@ -16,7 +16,7 @@ class AddFieldActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_field)
 
-        possibleFields = intent.getSerializableExtra("possibleFields") as List<String>
+        possibleFields = intent.getSerializableExtra("possible_fields") as ArrayList<String>
 
         val listView = findViewById<ListView>(R.id.item_chooser)
         listView.adapter = AddFieldAdapter(this, possibleFields)
