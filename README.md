@@ -31,8 +31,8 @@ A trip contains:
 
 ● And many more
 
-
-
+<br />
+<br />
 
 **Roles in the team:**
 
@@ -52,15 +52,15 @@ Junior Dev: Simon Fussi
 
 Junior Dev: David Marterer
 
-
-
+<br />
+<br />
 
 **Features in progress:**
 
 - Sorting the list - https://github.com/sw21-tug/Team_11/issues/8
 
-
-
+<br />
+<br />
 
 **Implemented Featues:**
 
