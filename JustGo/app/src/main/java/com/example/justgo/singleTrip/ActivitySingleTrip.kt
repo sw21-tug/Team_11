@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.justgo.Entitys.Trip
 import com.example.justgo.Entitys.TripDate
 import com.example.justgo.Entitys.TripInformation
+import com.example.justgo.Logic.TripManager
 import com.example.justgo.R
 import java.io.Serializable
 
@@ -56,6 +57,7 @@ class ActivitySingleTrip : AppCompatActivity() {
                 possibleFields.remove(result)
 
                 (listView.adapter as TripFeatureAdapter).notifyDataSetChanged()
+                TripManager.replaceTrip(TripManager.getTripbyName(trip.nameofTrip).first(), trip)
                 }
             }
         }
