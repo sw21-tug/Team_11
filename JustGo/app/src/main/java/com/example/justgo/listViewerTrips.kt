@@ -13,21 +13,16 @@ import com.example.justgo.singleTrip.ActivitySingleTrip
 import java.io.Serializable
 
 
-class listViewerTrips(var context : Context, var layout_id : Int, var listview : ListView, var trip_list : List<Any>) {
+import com.example.justgo.Logic.TripManager
 
-    private var layout_id1 : Int = layout_id
-    private var list_view_of_trips : ListView = listview
-        get() = field
-    private var trips : List<Any> = trip_list
+class listViewerTrips() {
 
-
-
-    fun startListView() {
+    fun startListView(context : Context, layout_id : Int, listview : ListView, trip_type_selected: TripType) {
         val arrayAdapter : ArrayAdapter<*>
-        arrayAdapter = ArrayAdapter(context, layout_id1, trips)
-        list_view_of_trips.adapter = arrayAdapter
+        arrayAdapter = ArrayAdapter(context, layout_id, TripManager.getTripsbyType(trip_type_selected))
+        listview.adapter = arrayAdapter
 
-        list_view_of_trips.setOnItemClickListener { parent, view, position, id ->
+        listview.setOnItemClickListener { parent, view, position, id ->
             val element = arrayAdapter.getItem(position) // The item that was clicked
             val intent = Intent(context, ActivitySingleTrip::class.java).apply {}
 
@@ -35,5 +30,4 @@ class listViewerTrips(var context : Context, var layout_id : Int, var listview :
             context.startActivity(intent)
         }
     }
-
 }
