@@ -1,6 +1,6 @@
 # Team_11
 
-Vision:
+**Vision:**
 
 JustGO! - A trip planner
 
@@ -32,7 +32,9 @@ A trip contains:
 ● And many more
 
 
-Roles in the team:
+
+
+**Roles in the team:**
 
 PO: Piotr Kupiec
 
@@ -52,23 +54,27 @@ Junior Dev: David Marterer
 
 
 
-Features in progress:
 
-Sorting the list - https://github.com/sw21-tug/Team_11/issues/8
+**Features in progress:**
 
-Implemented Featues:
+- Sorting the list - https://github.com/sw21-tug/Team_11/issues/8
 
-The application itself - https://github.com/sw21-tug/Team_11/issues/12
 
-A list view of trips - https://github.com/sw21-tug/Team_11/issues/5
 
-Creation of a trip entry - https://github.com/sw21-tug/Team_11/issues/6
 
-Trip search Functionality - https://github.com/sw21-tug/Team_11/issues/7
+**Implemented Featues:**
 
-A trip view - https://github.com/sw21-tug/Team_11/issues/10
+- The application itself - https://github.com/sw21-tug/Team_11/issues/12
 
-Adding fields to a trip - https://github.com/sw21-tug/Team_11/issues/11
+- A list view of trips - https://github.com/sw21-tug/Team_11/issues/5
 
-Categories of trips - https://github.com/sw21-tug/Team_11/issues/9
+- Creation of a trip entry - https://github.com/sw21-tug/Team_11/issues/6
+
+- Trip search Functionality - https://github.com/sw21-tug/Team_11/issues/7
+
+- A trip view - https://github.com/sw21-tug/Team_11/issues/10
+
+- Adding fields to a trip - https://github.com/sw21-tug/Team_11/issues/11
+
+- Categories of trips - https://github.com/sw21-tug/Team_11/issues/9
 
