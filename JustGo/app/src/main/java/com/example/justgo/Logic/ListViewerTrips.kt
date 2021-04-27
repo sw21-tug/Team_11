@@ -1,4 +1,4 @@
-package com.example.justgo
+package com.example.justgo.Logic
 
 import android.content.Context
 import android.widget.ArrayAdapter
@@ -6,7 +6,7 @@ import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class listViewerTrips(var context : Context, var layout_id : Int, var listview : ListView, var trip_list : List<Any>) {
+class ListViewerTrips(var context : Context, var layout_id : Int, var listview : ListView, var trip_list : List<Any>) {
 
     private var layout_id1 : Int = layout_id
     private var list_view_of_trips : ListView = listview
@@ -19,6 +19,10 @@ class listViewerTrips(var context : Context, var layout_id : Int, var listview :
         val arrayAdapter : ArrayAdapter<*>
         arrayAdapter = ArrayAdapter(context, layout_id1, trips)
         list_view_of_trips.adapter = arrayAdapter
+    }
+
+    fun changeTripsList(trip_list: List<Any>) {
+        this.trips = trip_list
     }
 
 }

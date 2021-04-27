@@ -8,8 +8,8 @@ class TripManager {
         private var trips: ArrayList<Trip> = ArrayList()
         fun createSampleTrips(){
             createTrip("Barcelona",TripType.created_by_others)
-            createTrip("New York",TripType.self_created)
-            createTrip("Paris",TripType.shared_ones)
+            createTrip("New York",TripType.created_by_others)
+            createTrip("Paris",TripType.created_by_others)
         }
         fun createTrip(name:String,tripType: TripType){
             var trip: Trip = Trip(name,tripType)
