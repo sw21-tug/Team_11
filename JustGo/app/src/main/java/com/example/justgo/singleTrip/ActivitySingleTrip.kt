@@ -9,7 +9,6 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.justgo.Entitys.Trip
 import com.example.justgo.Entitys.TripDate
-import com.example.justgo.Entitys.TripInformation
 import com.example.justgo.Logic.TripManager
 import com.example.justgo.R
 import java.io.Serializable
@@ -17,9 +16,7 @@ import java.io.Serializable
 class ActivitySingleTrip : AppCompatActivity() {
 
     private lateinit var trip : Trip
-    private val addedFields = mutableListOf<String>()
     private lateinit var tripinfonames:ArrayList<String>
-    private var possibleFields = mutableListOf<String>("Dates", "Locations", "Photos", "Transportation", "Accommodation", "Activities")
     private val REQUEST_CODE = 0
     private lateinit var listView  : ListView
 
@@ -41,7 +38,7 @@ class ActivitySingleTrip : AppCompatActivity() {
 
     fun addItem(view: View){
         val intent = Intent(this, AddFieldActivity::class.java).apply {}
-        intent.putExtra("possible_fields", possibleFields as Serializable)
+        intent.putExtra("possible_fields", trip.possibleFields as Serializable)
         startActivityForResult(intent, REQUEST_CODE)
     }
 
@@ -54,7 +51,7 @@ class ActivitySingleTrip : AppCompatActivity() {
                 val result = data.getSerializableExtra("added_field") as String
                 trip.addTripInformation(TripDate(result, ""))
                 tripinfonames.add(result)
-                possibleFields.remove(result)
+                trip.possibleFields.remove(result)
 
                 (listView.adapter as TripFeatureAdapter).notifyDataSetChanged()
                 TripManager.replaceTrip(TripManager.getTripbyName(trip.nameofTrip).first(), trip)
