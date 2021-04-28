@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">JustGo</string>
+    <string name="activity_crate_trip_name">Create Trip</string>
+    <string name="title_activity_single_trip">ActivitySingleTrip</string>
+    <!-- Strings used for fragments for navigation -->
+
+    <string name="add_item">add item</string>
+
+    <string-array name="dropdown_string_array">
+        <item>sort by...</item>
+        <item>trip name</item>
+        <item>start date</item>
+        <item>end date</item>
+        <item>total cost</item>
+        <item>number of destinations</item>
+    </string-array>
+</resources>
