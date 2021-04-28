@@ -14,6 +14,7 @@ class CreateTrip : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_trip)
+
         val discard :FloatingActionButton
         discard=findViewById(R.id.discard_floatActionButton)
         discard.setOnClickListener {

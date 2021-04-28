@@ -8,11 +8,12 @@ class TripManager {
         private var trips: ArrayList<Trip> = ArrayList()
         fun createSampleTrips(){
             createTrip("Barcelona",TripType.created_by_others)
-            createTrip("New York",TripType.self_created)
             createTrip("Paris",TripType.shared_ones)
+            createTrip("New York",TripType.self_created)
         }
         fun createTrip(name:String,tripType: TripType){
-            var trip: Trip = Trip(name,tripType)
+            var input: String = name
+            var trip: Trip = Trip(input.capitalize(),tripType)
             trips.add(trip)
         }
         fun getTripbyName(name:String): ArrayList<Trip>{
@@ -23,10 +24,16 @@ class TripManager {
                     tripsbyName.add(it)
                 }
             }
-            return tripsbyName;
+            return tripsbyName
         }
+
+        fun replaceTrip(oldTrip:Trip, newTrip:Trip){
+            var index = trips.indexOf(oldTrip)
+            trips.set(index, newTrip)
+        }
+
         fun getTripsbyType(type: TripType):ArrayList<Trip>{
-            var tripsbyType : ArrayList<Trip> = ArrayList();
+            var tripsbyType : ArrayList<Trip> = ArrayList()
             trips.forEach {
                 if(it.tripType==type){
                     tripsbyType.add(it)
@@ -36,14 +43,32 @@ class TripManager {
         }
 
         fun getAllTrips():ArrayList<Trip>{
-            return trips;
+            return trips
 
         }
- /*       fun sortTripsbyName(name: String){
-            trips.sortBy {
-                name
+
+        fun sortTripsbyName() {
+            trips.sortWith(compareBy({ it.nameofTrip}))
+        }
+
+        fun sortTripsBySortingInput(input:String){
+            if(input == "trip name"){
+                trips.sortWith(compareBy({ it.nameofTrip}))
             }
-        }*/
+            if(input == "start date"){
+
+            }
+            if(input == "end date"){
+
+            }
+            if(input == "total cost"){
+
+            }
+            if(input == "number of destinations"){
+
+            }
+        }
+
         fun clearTrips() {
             trips.clear()
         }
