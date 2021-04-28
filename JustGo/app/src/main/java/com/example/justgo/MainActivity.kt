@@ -7,21 +7,23 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import com.example.justgo.Entitys.Trip
-import com.example.justgo.Entitys.TripDate
 import com.example.justgo.Entitys.TripType
 import com.example.justgo.Logic.TripManager
-import com.example.justgo.singleTrip.TripFeatureAdapter
+import com.example.justgo.Logic.ListViewerTrips
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var list_view_of_trips : ListView
+    private lateinit var list_view_of_trips : ListViewerTrips
     private val SINGLE_TRIP_ACTIVITY = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
       
         val layoutid : Int = android.R.layout.simple_list_item_1
+
+        list_view_of_trips = ListViewerTrips(this, layoutid, findViewById(R.id.list_view_of_trips), TripManager.getTripsbyType(TripType.created_by_others))
+        list_view_of_trips.startListView()
 
         val create_trip : FloatingActionButton
         create_trip = findViewById(R.id.createtripFloatingActionButton)
@@ -34,43 +36,86 @@ class MainActivity : AppCompatActivity() {
         searchTrip.setOnClickListener {
 
             var tripname:TextView
-            var tripstest:ArrayList<Trip>
+            var trips:ArrayList<Trip>
             tripname=findViewById(R.id.SearchbyNameEditText)
             if(!tripname.text.toString().equals("")){
-                tripstest = TripManager.getTripbyName(tripname.text.toString())
-                tripstest.forEach {
+                trips = TripManager.getTripbyName(tripname.text.toString())
+                trips.forEach {
                     println(it.toString())
                 }
+                list_view_of_trips.changeTripsList(trips)
+                list_view_of_trips.startListView()
             }
+
+
+
         }
 
         var current_trip_type: TripType
         current_trip_type = TripType.created_by_others
-        val list_view_of_trips = listViewerTrips()
         val list_view_trips_description: TextView
         list_view_trips_description = findViewById(R.id.list_view_description)
-        list_view_of_trips.startListView(this, layoutid, findViewById(R.id.list_view_of_trips), current_trip_type)
+
 
         val my_trips: Button
         my_trips = findViewById(R.id.my_trips_button)
         my_trips.setOnClickListener {
             list_view_trips_description.text = "My Trips"
             current_trip_type = TripType.self_created
-            list_view_of_trips.startListView(this, layoutid, findViewById(R.id.list_view_of_trips), current_trip_type)
+            var trips:ArrayList<Trip>
+            trips = TripManager.getTripsbyType(TripType.self_created)
+            trips.forEach {
+                println(it.toString())
+            }
+            list_view_of_trips.changeTripsList(trips)
+            list_view_of_trips.startListView()
+            my_trips.isClickable = false
+            val sampleTrips: Button
+            sampleTrips = findViewById(R.id.sample_trips_button)
+            sampleTrips.isClickable = true
+            val sharedTrips: Button
+            sharedTrips = findViewById(R.id.shared_trips_button)
+            sharedTrips.isClickable = true
         }
         val sample_trips: Button
         sample_trips = findViewById(R.id.sample_trips_button)
         sample_trips.setOnClickListener {
             list_view_trips_description.text = "Sample Trips"
             current_trip_type = TripType.created_by_others
-            list_view_of_trips.startListView(this, layoutid, findViewById(R.id.list_view_of_trips), current_trip_type)
+            var trips:ArrayList<Trip>
+            trips = TripManager.getTripsbyType(TripType.created_by_others)
+            trips.forEach {
+                println(it.toString())
+            }
+            list_view_of_trips.changeTripsList(trips)
+            list_view_of_trips.startListView()
+            sample_trips.isClickable = false
+            val myTrips: Button
+            myTrips = findViewById(R.id.my_trips_button)
+            myTrips.isClickable = true
+            val sharedTrips: Button
+            sharedTrips = findViewById(R.id.shared_trips_button)
+            sharedTrips.isClickable = true
         }
         val shared_trips: Button
         shared_trips = findViewById(R.id.shared_trips_button)
         shared_trips.setOnClickListener {
             list_view_trips_description.text = "Shared Trips"
             current_trip_type = TripType.shared_ones
-            list_view_of_trips.startListView(this, layoutid, findViewById(R.id.list_view_of_trips), current_trip_type)
+            var trips:ArrayList<Trip>
+            trips = TripManager.getTripsbyType(TripType.shared_ones)
+            trips.forEach {
+                println(it.toString())
+            }
+            list_view_of_trips.changeTripsList(trips)
+            list_view_of_trips.startListView()
+            shared_trips.isClickable = false
+            val sampleTrips: Button
+            sampleTrips = findViewById(R.id.sample_trips_button)
+            sampleTrips.isClickable = true
+            val myTrips: Button
+            myTrips = findViewById(R.id.my_trips_button)
+            myTrips.isClickable = true
         }
 
         val dropdown_menu: Spinner
@@ -85,7 +130,8 @@ class MainActivity : AppCompatActivity() {
                 //Toast.makeText(this@MainActivity, "${parent?.getItemAtPosition(position).toString()}", Toast.LENGTH_LONG).show()
                 if(parent?.getItemAtPosition(position).toString().equals("trip name")){
                     TripManager.sortTripsbyName()
-                    list_view_of_trips.startListView(this@MainActivity, layoutid, findViewById(R.id.list_view_of_trips), current_trip_type)
+                    list_view_of_trips.changeTripsList(TripManager.getTripsbyType(current_trip_type))
+                    list_view_of_trips.startListView()
                 }
 
                 /*
