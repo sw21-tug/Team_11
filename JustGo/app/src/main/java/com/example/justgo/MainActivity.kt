@@ -1,15 +1,14 @@
 package com.example.justgo
 
-import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import com.example.justgo.Entitys.Trip
 import com.example.justgo.Entitys.TripType
-import com.example.justgo.Logic.TripManager
 import com.example.justgo.Logic.ListViewerTrips
+import com.example.justgo.Logic.TripManager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
@@ -19,9 +18,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-      
-        val layoutid : Int = android.R.layout.simple_list_item_1
 
+        val layoutid : Int = android.R.layout.simple_list_item_1
         list_view_of_trips = ListViewerTrips(this, layoutid, findViewById(R.id.list_view_of_trips), TripManager.getTripsbyType(TripType.created_by_others))
         list_view_of_trips.startListView()
 
@@ -143,13 +141,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == SINGLE_TRIP_ACTIVITY) {
-            if (resultCode == Activity.RESULT_OK && data != null) {
-                val result = data.getSerializableExtra("trip") as Trip
-                TripManager.replaceTrip(TripManager.getTripbyName(result.nameofTrip).first(), result)
-            }
-        }
+    override fun onResume() {
+        super.onResume()
+        // This ensures the trips are updated after returning from the singleTripActivity
+        list_view_of_trips.startListView()
     }
+
 }
