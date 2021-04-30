@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".singleTrip.ActivitySingleTrip">
+
+    <TextView
+        android:id="@+id/trip_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        android:textSize="32sp"
+
+        tools:text="Trip Title" />
+
+    <include
+        layout="@layout/content_activity_single_trip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/fab"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:srcCompat="@android:drawable/ic_dialog_email" />-->
+
+    <!-- Using layout_height=0dp makes the view match the constraints,
+        here filling the whole screen minus title text-->
+    <ListView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/feature_list"
+
+        app:layout_constraintTop_toBottomOf="@id/trip_title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_item"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        android:onClick="addItem"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
