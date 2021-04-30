@@ -1,5 +1,6 @@
 package com.example.justgo
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -31,7 +32,8 @@ class DestinationsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         addDestinationButton = findViewById(R.id.add_destination_button)
         addDestinationButton.setOnClickListener {
-
+            val intent = Intent(this, AddNewDestination::class.java)
+            startActivity(intent)
         }
     }
 

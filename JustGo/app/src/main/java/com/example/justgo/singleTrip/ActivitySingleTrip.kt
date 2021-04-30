@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.justgo.DestinationsActivity
 import com.example.justgo.Entitys.Trip
 import com.example.justgo.Entitys.TripDate
+import com.example.justgo.Logic.DestinationManager
 import com.example.justgo.Logic.TripManager
 import com.example.justgo.R
 import java.io.Serializable
@@ -42,6 +43,7 @@ class ActivitySingleTrip : AppCompatActivity() {
         listView.setOnItemClickListener { parent, view, position, id ->
             val element = listView.adapter.getItem(position).toString()
 
+            DestinationManager.changeActualOpenTrip(trip.nameofTrip)
             if(element.equals("Locations"))
             {
                 val intent = Intent(context, DestinationsActivity::class.java)

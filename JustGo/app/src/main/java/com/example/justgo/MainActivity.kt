@@ -1,24 +1,33 @@
 package com.example.justgo
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.example.justgo.Entitys.Trip
 import com.example.justgo.Entitys.TripType
 import com.example.justgo.Logic.ListViewerTrips
 import com.example.justgo.Logic.TripManager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var list_view_of_trips : ListViewerTrips
     private val SINGLE_TRIP_ACTIVITY = 0
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        setupPermissions()
         val layoutid : Int = android.R.layout.simple_list_item_1
         list_view_of_trips = ListViewerTrips(this, layoutid, findViewById(R.id.list_view_of_trips), TripManager.getTripsbyType(TripType.created_by_others))
         list_view_of_trips.startListView()
@@ -147,4 +156,26 @@ class MainActivity : AppCompatActivity() {
         list_view_of_trips.startListView()
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun setupPermissions() {
+        val permissionInternet = ContextCompat.checkSelfPermission(this,
+            Manifest.permission.INTERNET
+        )
+        if (permissionInternet != PackageManager.PERMISSION_GRANTED) {
+            println("Permission to record denied")
+        }
+        else{
+            var string :ArrayList<String> = ArrayList<String>()
+            string.add(android.Manifest.permission.INTERNET)
+            var array = arrayOf<String>()
+            requestPermissions(string.toArray(array), 1)
+        }
+
+        val permissionAccessNetworkState = ContextCompat.checkSelfPermission(this,
+            Manifest.permission.ACCESS_NETWORK_STATE
+        )
+        if (permissionAccessNetworkState != PackageManager.PERMISSION_GRANTED) {
+            println("Permission to record denied")
+        }
+    }
 }
