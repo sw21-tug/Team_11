@@ -1,16 +1,20 @@
 package com.example.justgo.Logic
 
+import android.content.Context
 import com.android.volley.Request
 import com.android.volley.Response
+import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
 import com.example.justgo.Entitys.Destination
+import com.google.gson.Gson
 import java.lang.StringBuilder
 
 class DestinationManager {
 
     companion object{
         val map = hashMapOf<String, ArrayList<Destination>>()
-        lateinit var actualOpenTrip: String
+        var actualOpenTrip: String = String()
 
 
         fun changeActualOpenTrip(trip: String){
@@ -38,30 +42,44 @@ class DestinationManager {
             return map.get(actualOpenTrip)
         }
 
-        fun getDestinationFromRESTService(name:String){
+        fun getDestinationFromRESTService(name:String,context:Context){
             var newDestination : Destination
-
-            var stringbuilder: StringBuilder = StringBuilder()
-            stringbuilder.append("https://geocode.xyz/")
+            val queue = Volley.newRequestQueue(context)
+            /*var stringbuilder: StringBuilder = StringBuilder()
+            stringbuilder.append("http://open.mapquestapi.com/geocoding/v1/address?key=Wv4PRCfN0XmBAW6y4PqBG8XHzHtPAb1S&location=")
             stringbuilder.append(name)
-            stringbuilder.append("?json=1")
 
-            val url = stringbuilder.toString()
+            val url = stringbuilder.toString()*/
+            var url = "http://ip.jsontest.com/"
 
             println(url)
+
 
             val jsonObjectRequest = JsonObjectRequest(
                 Request.Method.GET, url, null,
                     Response.Listener { response ->
-                        var long = response.getDouble("longt")
-                        var latt = response.getDouble("latt")
+                        println(response.toString())
+                        println()
+                        println()
+                        println()
+                        println("Hier")
+                        /*var resultJsonArray = response.getJSONArray(2)
+                        var loactionJsonArray = resultJsonArray.getJSONArray(1)
+                        var locationObject = loactionJsonArray.getJSONObject(0)
+                        var latlng=locationObject.getJSONObject("latLng")
+
+
+                        var long = latlng.getDouble("longt")
+                        var latt = latlng.getDouble("latt")
                         newDestination = Destination(name, long, latt)
-                        addDestination(newDestination)
+                        addDestination(newDestination)*/
                     },
                     Response.ErrorListener { error ->
                         //newDestination = null
+                        print(error.toString())
                     }
             )
+            queue.add(jsonObjectRequest)
         }
     }
 }
