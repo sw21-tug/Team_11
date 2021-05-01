@@ -42,9 +42,10 @@ class AddNewDestination : AppCompatActivity() {
 
             if(!(name.text.toString().equals(""))) {
 
-
                 savedata(name.text.toString(),this)
 
+                //val intent = Intent(this,DestinationsActivity::class.java)
+                //startActivity(intent)
             }
         }
     }

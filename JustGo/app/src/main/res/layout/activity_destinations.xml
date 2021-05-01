@@ -34,8 +34,8 @@
 
     <ListView
         android:id="@+id/destinations_list_view"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_width="411dp"
+        android:layout_height="238dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -46,12 +46,14 @@
     <fragment
         android:id="@+id/map"
         class="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="487dp"
+        android:layout_width="411dp"
+        android:layout_height="438dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/destinations_list_view" />
+        app:layout_constraintTop_toBottomOf="@+id/destinations_list_view"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
