@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ListView
+import com.example.justgo.Entitys.Destination
+import com.example.justgo.Logic.DestinationManager
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -49,10 +51,18 @@ class DestinationsActivity : AppCompatActivity(), OnMapReadyCallback {
      */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
+        
 
-        // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        val destination = DestinationManager.getDestinationsForActualTrip()
+        var lastDestination:Destination? = null
+        destination?.forEach {
+            val dest= LatLng(it.getLetit(),it.getLongit())
+            lastDestination=it
+            mMap.addMarker(MarkerOptions().position(dest).title(it.getName()))
+        }
+        if(lastDestination!=null) {
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(lastDestination!!.getLetit(),
+                lastDestination!!.getLongit())))
+        }
     }
 }

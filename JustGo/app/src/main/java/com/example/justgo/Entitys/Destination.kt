@@ -17,4 +17,9 @@ class Destination(name: String, longit: Double, letit: Double) {
     fun getLetit() : Double{
         return letit_
     }
+
+    override fun toString(): String {
+        return "Destination(name_='$name_', longit_=$longit_, letit_=$letit_)"
+    }
+
 }

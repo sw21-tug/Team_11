@@ -5,7 +5,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.annotation.RequiresApi
@@ -16,26 +15,39 @@ import com.example.justgo.Entitys.TripType
 import com.example.justgo.Logic.ListViewerTrips
 import com.example.justgo.Logic.TripManager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.internal.ContextUtils.getActivity
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var list_view_of_trips : ListViewerTrips
     private val SINGLE_TRIP_ACTIVITY = 0
-    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        setupPermissions()
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            if(checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)!=PackageManager.PERMISSION_GRANTED)
+                requestPermissions(arrayOf(Manifest.permission.INTERNET),2)
+            else{
+                print("Works")
+            }
+        }
+        else{
+            println("Version not okey")
+        }
         val layoutid : Int = android.R.layout.simple_list_item_1
-        list_view_of_trips = ListViewerTrips(this, layoutid, findViewById(R.id.list_view_of_trips), TripManager.getTripsbyType(TripType.created_by_others))
+        list_view_of_trips = ListViewerTrips(
+            this, layoutid, findViewById(R.id.list_view_of_trips), TripManager.getTripsbyType(
+                TripType.created_by_others
+            )
+        )
         list_view_of_trips.startListView()
 
         val create_trip : FloatingActionButton
         create_trip = findViewById(R.id.createtripFloatingActionButton)
         create_trip.setOnClickListener {
-            val intent = Intent(this,CreateTrip::class.java)
+            val intent = Intent(this, CreateTrip::class.java)
             startActivity(intent)
         }
         val searchTrip: FloatingActionButton
@@ -133,7 +145,12 @@ class MainActivity : AppCompatActivity() {
         dropdown_menu.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
 
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
                 //Toast.makeText(this@MainActivity, "${parent?.getItemAtPosition(position).toString()}", Toast.LENGTH_LONG).show()
                 if(parent?.getItemAtPosition(position).toString().equals("trip name")){
                     TripManager.sortTripsbyName()
@@ -158,24 +175,37 @@ class MainActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.M)
     private fun setupPermissions() {
-        val permissionInternet = ContextCompat.checkSelfPermission(this,
+        print("Hello")
+        val permissionInternet = ContextCompat.checkSelfPermission(
+            this,
             Manifest.permission.INTERNET
         )
         if (permissionInternet != PackageManager.PERMISSION_GRANTED) {
             println("Permission to record denied")
         }
         else{
+            print("Hello")
             var string :ArrayList<String> = ArrayList<String>()
             string.add(android.Manifest.permission.INTERNET)
             var array = arrayOf<String>()
             requestPermissions(string.toArray(array), 1)
         }
 
-        val permissionAccessNetworkState = ContextCompat.checkSelfPermission(this,
+        val permissionAccessNetworkState = ContextCompat.checkSelfPermission(
+            this,
             Manifest.permission.ACCESS_NETWORK_STATE
         )
         if (permissionAccessNetworkState != PackageManager.PERMISSION_GRANTED) {
             println("Permission to record denied")
         }
+    }
+
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 }
