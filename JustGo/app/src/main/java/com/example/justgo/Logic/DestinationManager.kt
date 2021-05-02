@@ -16,6 +16,9 @@ class DestinationManager {
         val map = hashMapOf<String, ArrayList<Destination>>()
         var actualOpenTrip: String = String()
 
+        fun clearDestinations(){
+            map.clear()
+        }
 
         fun changeActualOpenTrip(trip: String){
             actualOpenTrip = trip
