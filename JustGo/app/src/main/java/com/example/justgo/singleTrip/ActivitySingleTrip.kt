@@ -7,9 +7,11 @@ import android.view.View
 import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.justgo.DestinationsActivity
 import com.example.justgo.Entitys.TemplateTripinfo
 import com.example.justgo.Entitys.Trip
 import com.example.justgo.Entitys.TripDates
+import com.example.justgo.Logic.DestinationManager
 import com.example.justgo.Logic.TripManager
 import com.example.justgo.R
 import com.example.justgo.TimeLine.TimeLine
@@ -30,7 +32,6 @@ class ActivitySingleTrip : AppCompatActivity() {
         val title = findViewById<TextView>(R.id.trip_title)
         title.text = trip.nameofTrip
         listView = findViewById<ListView>(R.id.feature_list)
-
     }
 
     override fun onResume() {
@@ -40,15 +41,24 @@ class ActivitySingleTrip : AppCompatActivity() {
         tripinfonames = trip.getTripInformationLNameist()
         listView.adapter = TripFeatureAdapter(this, tripinfonames)
 
+        // if you click on "Locations" --> the locations list view and google maps open
         listView.setOnItemClickListener { parent, view, position, id ->
-            val element = listView.adapter.getItem(position) // The item that was clicked
+            val element = listView.adapter.getItem(position)
 
-            if (element == "Dates") {
-                val intent = Intent(this, TimeLine::class.java).apply {}
+            if(element == "Locations")
+            {
+                DestinationManager.changeActualOpenTrip(trip.nameofTrip)
+                val intent = Intent(this, DestinationsActivity::class.java).apply {}
+                startActivity(intent)
+            }
+
+            else if (element == "Dates") {
+                val intent = Intent(this, TimeLine::class.java)
                 intent.putExtra("trip", trip)
                 this.startActivity(intent)
             }
         }
+
     }
 
 
@@ -82,5 +92,4 @@ class ActivitySingleTrip : AppCompatActivity() {
                 }
             }
         }
-
 }
