@@ -34,6 +34,8 @@
         <activity
             android:name=".DestinationsActivity"
             android:label="@string/title_activity_destinations" />
+        <activity android:name=".TimeLine.TimeLine"/>
+        <activity android:name=".TimeLine.AddDate"/>
         <activity android:name=".singleTrip.AddFieldActivity" />
         <activity
             android:name=".singleTrip.ActivitySingleTrip"

@@ -170,6 +170,7 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         // This ensures the trips are updated after returning from the singleTripActivity
+        list_view_of_trips.changeTripsList(TripManager.getTripsbyType(TripType.created_by_others))
         list_view_of_trips.startListView()
     }
 

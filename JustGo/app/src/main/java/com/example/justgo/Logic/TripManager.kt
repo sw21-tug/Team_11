@@ -6,6 +6,7 @@ import com.example.justgo.Entitys.TripType
 class TripManager {
     companion object{
         private var trips: ArrayList<Trip> = ArrayList()
+
         fun createSampleTrips(){
             createTrip("Barcelona",TripType.created_by_others)
             createTrip("New York",TripType.created_by_others)
