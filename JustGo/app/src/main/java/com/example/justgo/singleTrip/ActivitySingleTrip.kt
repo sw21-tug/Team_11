@@ -1,14 +1,18 @@
 package com.example.justgo.singleTrip
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.justgo.DestinationsActivity
 import com.example.justgo.Entitys.Trip
 import com.example.justgo.Entitys.TripDate
+import com.example.justgo.Logic.DestinationManager
 import com.example.justgo.Logic.TripManager
 import com.example.justgo.R
 import java.io.Serializable
@@ -34,6 +38,18 @@ class ActivitySingleTrip : AppCompatActivity() {
         listView = findViewById<ListView>(R.id.feature_list)
         listView.adapter = TripFeatureAdapter(this, tripinfonames)
 
+        // if you click on "Locations" --> the locations list view and google maps open
+        val context: Context = this
+        listView.setOnItemClickListener { parent, view, position, id ->
+            val element = listView.adapter.getItem(position).toString()
+
+            DestinationManager.changeActualOpenTrip(trip.nameofTrip)
+            if(element.equals("Locations"))
+            {
+                val intent = Intent(context, DestinationsActivity::class.java)
+                startActivity(intent)
+            }
+        }
     }
 
     fun addItem(view: View){
