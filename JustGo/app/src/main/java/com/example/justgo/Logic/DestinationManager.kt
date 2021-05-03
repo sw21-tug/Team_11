@@ -16,6 +16,9 @@ class DestinationManager {
         val map = hashMapOf<String, ArrayList<Destination>>()
         var actualOpenTrip: String = String()
 
+        fun clearDestinations(){
+            map.clear()
+        }
 
         fun changeActualOpenTrip(trip: String){
             actualOpenTrip = trip
@@ -38,8 +41,20 @@ class DestinationManager {
             }
         }
 
-        fun getDestinationsForActualTrip() : ArrayList<Destination>?{
-            return map.get(actualOpenTrip)
+        fun getDestinationsForActualTrip() : ArrayList<Destination>{
+
+            var retListNullable: ArrayList<Destination>? = map.get(actualOpenTrip)
+            var retList: ArrayList<Destination> = ArrayList()
+            if(retListNullable.isNullOrEmpty())
+            {
+                val dest = Destination("no destinations yet", 0.0, 0.0)
+                retList.add(dest)
+            }
+            else
+            {
+                retList = retListNullable
+            }
+            return retList
         }
 
         fun getDestinationFromRESTService(name:String,context:Context){
