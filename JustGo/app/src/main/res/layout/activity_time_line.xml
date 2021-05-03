@@ -16,6 +16,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/date_list"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        tools:listitem="@layout/list_item_date"
 
         app:layout_constraintTop_toBottomOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,6 +26,7 @@
         app:layout_constraintEnd_toEndOf="parent"
 
         />
+
 
     <Button
         android:id="@+id/add_date_button"

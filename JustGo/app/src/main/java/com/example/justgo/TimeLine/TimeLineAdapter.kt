@@ -9,6 +9,7 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import com.example.justgo.R
+import com.github.vipulasri.timelineview.TimelineView
 import java.time.LocalDateTime
 
 class TimeLineAdapter(context: Context,
@@ -38,7 +39,8 @@ class TimeLineAdapter(context: Context,
         val date = (getItem(position) as Pair<*, *>).first as LocalDateTime
         val description = (getItem(position) as Pair<*, *>).second
         name.text = "${date.toString()} - ${description}"
-
+        val timeLine = view.rootView.findViewById<TimelineView>(R.id.timeline)
+        timeLine.initLine(0)
         return view
     }
 }

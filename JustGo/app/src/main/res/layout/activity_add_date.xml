@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".TimeLine.AddDate">
 
+    <Button
+        android:id="@+id/openCalendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get Date"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.918" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="104dp"
@@ -40,11 +51,36 @@
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+    <EditText
+        android:id="@+id/time_EditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="152dp"
+        android:layout_marginEnd="4dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.227"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+
+    <TextView
+        android:id="@+id/time_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginBottom="16dp"
+        android:text="Time: "
+        app:layout_constraintBottom_toBottomOf="@id/time_EditText"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/description_hint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
+        android:layout_marginStart="72dp"
         android:layout_marginBottom="8dp"
         android:text="Description: "
         app:layout_constraintBottom_toBottomOf="@id/description_EditText"
@@ -54,14 +90,13 @@
         android:id="@+id/description_EditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="212dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.227"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/date_EditText"
         app:layout_constraintTop_toBottomOf="@+id/date_EditText" />
-
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/saveDate_floatActionButton"
