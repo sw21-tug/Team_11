@@ -13,6 +13,7 @@ import com.example.justgo.Entitys.TripDates
 import com.example.justgo.Logic.TripManager
 import com.example.justgo.R
 import java.time.LocalDateTime
+import java.io.Serializable
 
 class TimeLine : AppCompatActivity() {
     private lateinit var trip : Trip
@@ -34,7 +35,6 @@ class TimeLine : AppCompatActivity() {
         add_date_button.setOnClickListener{
             addDate()
         }
-
     }
 
     fun getTripDates() : TripDates{
@@ -42,7 +42,10 @@ class TimeLine : AppCompatActivity() {
     }
 
     fun addDate(){
-        val intent = Intent(this, AddDate::class.java)
+        val intent = Intent(this, AddDate::class.java).apply {}
+        val datekeys = dates.dates.keys
+        val arraydates = ArrayList(datekeys)
+        intent.putExtra("dates", arraydates as Serializable)
         startActivityForResult(intent, REQUEST_CODE)
     }
 

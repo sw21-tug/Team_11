@@ -82,9 +82,6 @@ class MainActivity : AppCompatActivity() {
             current_trip_type = TripType.created_by_others
             var trips:ArrayList<Trip>
             trips = TripManager.getTripsbyType(TripType.created_by_others)
-            trips.forEach {
-                println(it.toString())
-            }
             list_view_of_trips.changeTripsList(trips)
             list_view_of_trips.startListView()
             sample_trips.isClickable = false
