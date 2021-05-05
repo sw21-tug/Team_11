@@ -44,63 +44,14 @@ class AddNewDestination : AppCompatActivity() {
 
                 savedata(name.text.toString(),this)
 
-                //val intent = Intent(this,DestinationsActivity::class.java)
-                //startActivity(intent)
             }
         }
     }
     fun savedata(name:String,context: Context) {
-
-            //DestinationManager.getDestinationFromRESTService(name,context)
-            getDestinationFromRESTService1(name,context)
-            DestinationManager.getDestinationsForActualTrip()?.forEach {
-                println(it.toString())
+        DestinationManager.getDestinationFromRESTService(name,context)
+        DestinationManager.getDestinationsForActualTrip()?.forEach {
+            println(it.toString())
 
         }
-        /*val intent = Intent(context, DestinationsActivity::class.java)
-        startActivity(intent)*/
-    }
-    fun getDestinationFromRESTService1(name:String,context:Context){
-        var newDestination : Destination
-        val queue = Volley.newRequestQueue(this)
-        var stringbuilder: StringBuilder = StringBuilder()
-        //stringbuilder.append("https://open.mapquestapi.com/geocoding/v1/address?key=Wv4PRCfN0XmBAW6y4PqBG8XHzHtPAb1S&location=")
-        //stringbuilder.append(name)
-        stringbuilder.append("https://geocode.xyz/")
-        stringbuilder.append(name)
-        stringbuilder.append("?json=1");
-        val url = stringbuilder.toString()
-        //var url = "https://geocode.xyz/Villach?json=1"
-
-        println(url)
-
-        val jsonObjectRequest = JsonObjectRequest(
-            Request.Method.GET, url, null,
-            { response ->
-                println(response.toString())
-                println()
-                println()
-                println()
-                println("Hier")
-                /*var resultJsonArray = response.getJSONArray("results")
-                println(resultJsonArray.length())
-                var loactionJsonArray = resultJsonArray.getJSONArray(0)
-                var locationObject = loactionJsonArray.getJSONObject(0)
-                var latlng=locationObject.getJSONObject("latLng")
-
-                */
-                var long = response.getDouble("longt")
-                var latt = response.getDouble("latt")
-                newDestination = Destination(name, long, latt)
-                DestinationManager.addDestination(newDestination)
-
-            },
-            { error ->
-                //newDestination = null
-                print(error.toString())
-            }
-        )
-        queue.add(jsonObjectRequest)
-
     }
 }
