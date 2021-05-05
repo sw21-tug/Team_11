@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">JustGo</string>
+    <string name="activity_crate_trip_name">создать поездку</string>
+    <string name="title_activity_single_trip">активностьОднократнаяпоездка</string>
+    <!-- Strings used for fragments for navigation -->
+
+    <string name="add_destination_editText">добавить пункт назначения</string>
+
+    <string name="add_item">добавить элемент</string>
+    <string name="add_date">установить дату</string>
+
+    <string-array name="dropdown_string_array">
+        <item>Сортировать по...</item>
+        <item>название поездки</item>
+        <item>Дата начала</item>
+        <item>Дата окончания</item>
+        <item>Общая стоимость</item>
+        <item>количество направлений</item>
+    </string-array>
+    <string name="title_activity_destinations">карта</string>
+</resources>
