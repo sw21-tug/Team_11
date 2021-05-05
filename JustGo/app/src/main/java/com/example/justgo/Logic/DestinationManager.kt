@@ -12,85 +12,68 @@ import java.lang.StringBuilder
 
 class DestinationManager {
 
-    companion object{
+    companion object {
         val map = hashMapOf<String, ArrayList<Destination>>()
         var actualOpenTrip: String = String()
 
-        fun clearDestinations(){
+        fun clearDestinations() {
             map.clear()
         }
 
-        fun changeActualOpenTrip(trip: String){
+        fun changeActualOpenTrip(trip: String) {
             actualOpenTrip = trip
         }
 
-        fun addDestination(destination: Destination){
+        fun addDestination(destination: Destination) {
             var bool: Boolean = false
             map.keys.forEach {
-                if(it.equals(actualOpenTrip)){
+                if (it.equals(actualOpenTrip)) {
                     bool = true
                 }
             }
-            if(bool){
+            if (bool) {
                 map[actualOpenTrip]?.add(destination)
-            }
-            else{
+            } else {
                 val list: ArrayList<Destination> = ArrayList()
                 list.add(destination)
                 map.put(actualOpenTrip, list)
             }
         }
 
-        fun getDestinationsForActualTrip() : ArrayList<Destination>{
+        fun getDestinationsForActualTrip(): ArrayList<Destination> {
 
             var retListNullable: ArrayList<Destination>? = map.get(actualOpenTrip)
             var retList: ArrayList<Destination> = ArrayList()
-            if(retListNullable.isNullOrEmpty())
-            {
+            if (retListNullable.isNullOrEmpty()) {
                 val dest = Destination("no destinations yet", 0.0, 0.0)
                 retList.add(dest)
-            }
-            else
-            {
+            } else {
                 retList = retListNullable
             }
             return retList
         }
 
-        fun getDestinationFromRESTService(name:String,context:Context){
-            var newDestination : Destination
+        fun getDestinationFromRESTService(name: String, context: Context) {
+            var newDestination: Destination
             val queue = Volley.newRequestQueue(context)
-            /*var stringbuilder: StringBuilder = StringBuilder()
-            stringbuilder.append("http://open.mapquestapi.com/geocoding/v1/address?key=Wv4PRCfN0XmBAW6y4PqBG8XHzHtPAb1S&location=")
+            var stringbuilder: StringBuilder = StringBuilder()
+            stringbuilder.append("https://geocode.xyz/")
             stringbuilder.append(name)
-
-            val url = stringbuilder.toString()*/
-            var url = "http://ip.jsontest.com/"
-
+            stringbuilder.append("?json=1");
+            val url = stringbuilder.toString()
             println(url)
 
-
             val jsonObjectRequest = JsonObjectRequest(
-                Request.Method.GET, url, null,
-                    Response.Listener { response ->
+                    Request.Method.GET, url, null,
+                    { response ->
                         println(response.toString())
-                        println()
-                        println()
-                        println()
-                        println("Hier")
-                        /*var resultJsonArray = response.getJSONArray(2)
-                        var loactionJsonArray = resultJsonArray.getJSONArray(1)
-                        var locationObject = loactionJsonArray.getJSONObject(0)
-                        var latlng=locationObject.getJSONObject("latLng")
-
-
-                        var long = latlng.getDouble("longt")
-                        var latt = latlng.getDouble("latt")
+                        var long = response.getDouble("longt")
+                        var latt = response.getDouble("latt")
                         newDestination = Destination(name, long, latt)
-                        addDestination(newDestination)*/
+                        DestinationManager.addDestination(newDestination)
+
                     },
-                    Response.ErrorListener { error ->
-                        //newDestination = null
+                    { error ->
                         print(error.toString())
                     }
             )
