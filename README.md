@@ -56,6 +56,11 @@ Junior Dev: David Marterer
 <br />
 
 **Features in progress:**
+- Making the App bilingual - https://github.com/sw21-tug/Team_11/issues/24
+
+- Adding destinations - https://github.com/sw21-tug/Team_11/issues/15
+
+- Adding dates with description - https://github.com/sw21-tug/Team_11/issues/16
 
 - Sorting the list - https://github.com/sw21-tug/Team_11/issues/8
 

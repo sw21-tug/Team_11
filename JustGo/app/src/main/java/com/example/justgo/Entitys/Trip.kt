@@ -1,11 +1,11 @@
 package com.example.justgo.Entitys
 
 import java.io.Serializable
-import java.lang.StringBuilder
 
 class Trip(name:String,tripType: TripType) : Serializable {
 
     var tripInformations: ArrayList<TripInformation> = ArrayList()
+    var possibleFields = mutableListOf<String>("Dates", "Locations", "Photos", "Transportation", "Accommodation", "Activities")
     var nameofTrip:String = name
     var tripType:TripType = tripType
 

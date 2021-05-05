@@ -4,7 +4,10 @@
     <string name="title_activity_single_trip">ActivitySingleTrip</string>
     <!-- Strings used for fragments for navigation -->
 
+    <string name="add_destination_editText">Add Destination</string>
+
     <string name="add_item">add item</string>
+    <string name="add_date">Add Date</string>
 
     <string-array name="dropdown_string_array">
         <item>sort by...</item>
@@ -14,4 +17,5 @@
         <item>total cost</item>
         <item>number of destinations</item>
     </string-array>
+    <string name="title_activity_destinations">Map</string>
 </resources>
