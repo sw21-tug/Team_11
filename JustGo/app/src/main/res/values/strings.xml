@@ -22,5 +22,6 @@
     <string name="btn_sharedtrips">SHARED TRIPS</string>
     <string name="btn_language">RU</string>
     <string name="txtfield_name">Name: </string>
+    <string name="txtfield_dest">Destinations</string>
     <string name="title_activity_destinations">Map</string>
 </resources>

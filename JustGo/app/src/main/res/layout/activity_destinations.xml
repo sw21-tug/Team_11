@@ -12,7 +12,7 @@
         android:id="@+id/destinations_text"
         android:layout_width="0dp"
         android:layout_height="57dp"
-        android:text="Destinations"
+        android:text="@string/txtfield_dest"
         android:textAlignment="center"
         android:textSize="40sp"
         app:layout_constraintEnd_toStartOf="@+id/add_destination_button"

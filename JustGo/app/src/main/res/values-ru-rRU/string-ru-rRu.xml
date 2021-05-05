@@ -24,4 +24,5 @@
     <string name="btn_language">EN</string>
     <string name="txtfield_name">Имя: </string>
     <string name="title_activity_destinations">карта</string>
+    <string name="txtfield_dest">Направления</string>
 </resources>
