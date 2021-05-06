@@ -10,6 +10,14 @@
     <string name="add_item">добавить элемент</string>
     <string name="add_date">установить дату</string>
 
+    <string name="addFood_topic">добавить еду</string>
+    <string name="foodName_textView">название:</string>
+    <string name="foodLocation_textView">место расположения:</string>
+    <string name="foodType_textView">тип:</string>
+    <string name="food_topic">еду</string>
+    <string name="breakfast_button">завтрак</string>
+    <string name="lunch_dinner_button">обед</string>
+
     <string-array name="dropdown_string_array">
         <item>Сортировать по...</item>
         <item>название поездки</item>

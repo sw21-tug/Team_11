@@ -18,7 +18,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JustGo">
-        <activity android:name=".AddNewDestination"></activity>
+        <activity android:name=".AddNewFoodActivity"></activity>
+        <activity android:name=".FoodsActivity" />
+        <activity android:name=".AddNewDestination" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -34,8 +36,8 @@
         <activity
             android:name=".DestinationsActivity"
             android:label="@string/title_activity_destinations" />
-        <activity android:name=".TimeLine.TimeLine"/>
-        <activity android:name=".TimeLine.AddDate"/>
+        <activity android:name=".TimeLine.TimeLine" />
+        <activity android:name=".TimeLine.AddDate" />
         <activity android:name=".singleTrip.AddFieldActivity" />
         <activity
             android:name=".singleTrip.ActivitySingleTrip"
