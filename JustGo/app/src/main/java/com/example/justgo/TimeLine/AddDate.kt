@@ -8,10 +8,7 @@ import android.icu.text.SimpleDateFormat
 import android.icu.util.Calendar
 import android.os.Build
 import android.os.Bundle
-import android.widget.Button
-import android.widget.DatePicker
-import android.widget.EditText
-import android.widget.TextView
+import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.justgo.MainActivity
@@ -27,6 +24,9 @@ class AddDate : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_date)
+
+        val datelist = intent.getSerializableExtra("dates") as ArrayList<LocalDateTime>
+
 
 
         val discard :FloatingActionButton
@@ -50,18 +50,22 @@ class AddDate : AppCompatActivity() {
             }
 
             var resultIntent = Intent()
-
-            if (date != null && descriptionText != ""){
+            if(date in datelist){
+                Toast.makeText(this,
+                        "This Time has an entry already! Please choose an unique time!",
+                        Toast.LENGTH_LONG).show()
+            }
+            else if(date != null && descriptionText != ""){
                 resultIntent.putExtra("date", date)
                 resultIntent.putExtra("description", descriptionText)
                 setResult(Activity.RESULT_OK, resultIntent)
+                finish()
             }
-
-
-
-            // TODO: Add message for invalid input
-            finish()
-
+            else {
+                Toast.makeText(this,
+                        "Please enter a valid date",
+                        Toast.LENGTH_LONG).show()
+            }
         }
         var textView = findViewById<EditText>(R.id.date_EditText)
         textView.setText(SimpleDateFormat("yyyy-MM-dd").format(System.currentTimeMillis()))

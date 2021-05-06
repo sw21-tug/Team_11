@@ -76,7 +76,7 @@ class ActivitySingleTrip : AppCompatActivity() {
 
                     val result = data.getSerializableExtra("added_field") as String
                     if (result == "Dates"){
-                        trip.addTripInformation(TripDates(result, ""))
+                        trip.addTripInformation(TripDates(result))
                     }
                     else{
                         trip.addTripInformation(TemplateTripinfo(result))

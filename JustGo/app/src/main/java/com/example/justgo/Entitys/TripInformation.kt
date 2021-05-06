@@ -10,7 +10,7 @@ abstract class TripInformation(name:String, value:Any) : Serializable{
     var value = value
 }
 
-class TripDates(name : String, value: String) : TripInformation(name, value){
+class TripDates(name : String) : TripInformation(name, value=""){
     @RequiresApi(Build.VERSION_CODES.O)
     public var dates : MutableMap<LocalDateTime, String> = mutableMapOf(LocalDateTime.parse("2021-12-24T14:55") to "Christmas")
 }
