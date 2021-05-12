@@ -65,7 +65,7 @@
         android:layout_width="120dp"
         android:layout_height="60dp"
         android:layout_marginBottom="60dp"
-        android:text="Sample Trips"
+        android:text="@string/btn_sampletrips"
         app:layout_constraintBottom_toTopOf="@+id/list_view_of_trips"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +76,7 @@
         android:id="@+id/my_trips_button"
         android:layout_width="120dp"
         android:layout_height="60dp"
-        android:text="My Trips"
+        android:text="@string/btn_mytrips"
         app:layout_constraintBottom_toTopOf="@+id/list_view_of_trips"
         app:layout_constraintEnd_toStartOf="@+id/sample_trips_button"
         app:layout_constraintHorizontal_bias="0.615"
@@ -88,7 +88,7 @@
         android:id="@+id/shared_trips_button"
         android:layout_width="120dp"
         android:layout_height="60dp"
-        android:text="shared trips"
+        android:text="@string/btn_sharedtrips"
         app:layout_constraintBottom_toTopOf="@+id/list_view_of_trips"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.36"
@@ -100,7 +100,7 @@
         android:id="@+id/list_view_description"
         android:layout_width="255dp"
         android:layout_height="55dp"
-        android:text="Sample Trips"
+        android:text="@string/btn_sampletrips"
         android:textAlignment="center"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/list_view_of_trips"
@@ -120,5 +120,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.958" />
+
+    <Button
+        android:id="@+id/language_btn"
+        android:layout_width="54dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/btn_language"
+        app:layout_constraintBottom_toTopOf="@+id/my_trips_button"
+        app:layout_constraintEnd_toStartOf="@+id/list_view_description"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.045" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

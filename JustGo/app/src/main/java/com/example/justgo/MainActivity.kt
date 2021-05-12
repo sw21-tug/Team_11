@@ -1,8 +1,11 @@
 package com.example.justgo
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.res.Configuration
+import android.content.res.Resources
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -15,13 +18,20 @@ import com.example.justgo.Entitys.TripType
 import com.example.justgo.Logic.ListViewerTrips
 import com.example.justgo.Logic.TripManager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.internal.ContextUtils.getActivity
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var list_view_of_trips : ListViewerTrips
     private val SINGLE_TRIP_ACTIVITY = 0
+    private val LOCALE_KEY = "localekey"
+    private val RUSSIAN_LOCALE = "ru"
+    private val ENGLISH_LOCALE = "en_US"
+    private val LOCALE_PREF_KEY = "localePref"
+
+    private lateinit var locale: Locale
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -43,6 +53,9 @@ class MainActivity : AppCompatActivity() {
             )
         )
         list_view_of_trips.startListView()
+
+        val sp = getSharedPreferences(LOCALE_PREF_KEY, Context.MODE_PRIVATE)
+        val localeString = sp.getString(LOCALE_KEY, ENGLISH_LOCALE)
 
         val create_trip : FloatingActionButton
         create_trip = findViewById(R.id.createtripFloatingActionButton)
@@ -67,7 +80,12 @@ class MainActivity : AppCompatActivity() {
             }
 
 
+        }
 
+        val language: Button
+        language = findViewById(R.id.language_btn)
+        language.setOnClickListener {
+            changeLanguage()
         }
 
         var current_trip_type: TripType
@@ -79,7 +97,7 @@ class MainActivity : AppCompatActivity() {
         val my_trips: Button
         my_trips = findViewById(R.id.my_trips_button)
         my_trips.setOnClickListener {
-            list_view_trips_description.text = "My Trips"
+            list_view_trips_description.text = this.getString(R.string.btn_mytrips)
             current_trip_type = TripType.self_created
             var trips:ArrayList<Trip>
             trips = TripManager.getTripsbyType(TripType.self_created)
@@ -99,13 +117,10 @@ class MainActivity : AppCompatActivity() {
         val sample_trips: Button
         sample_trips = findViewById(R.id.sample_trips_button)
         sample_trips.setOnClickListener {
-            list_view_trips_description.text = "Sample Trips"
+            list_view_trips_description.text = this.getString(R.string.btn_sampletrips)
             current_trip_type = TripType.created_by_others
             var trips:ArrayList<Trip>
             trips = TripManager.getTripsbyType(TripType.created_by_others)
-            trips.forEach {
-                println(it.toString())
-            }
             list_view_of_trips.changeTripsList(trips)
             list_view_of_trips.startListView()
             sample_trips.isClickable = false
@@ -119,7 +134,7 @@ class MainActivity : AppCompatActivity() {
         val shared_trips: Button
         shared_trips = findViewById(R.id.shared_trips_button)
         shared_trips.setOnClickListener {
-            list_view_trips_description.text = "Shared Trips"
+            list_view_trips_description.text = this.getString(R.string.btn_sharedtrips)
             current_trip_type = TripType.shared_ones
             var trips:ArrayList<Trip>
             trips = TripManager.getTripsbyType(TripType.shared_ones)
@@ -167,9 +182,33 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun changeLanguage() {
+        val resources: Resources = resources
+        val sharedPreferences =
+            getSharedPreferences("localePref", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        if (sharedPreferences.getString(LOCALE_KEY, ENGLISH_LOCALE) == RUSSIAN_LOCALE) {
+            locale = Locale(ENGLISH_LOCALE)
+            editor.putString(LOCALE_KEY, ENGLISH_LOCALE)
+        } else {
+            locale = Locale(RUSSIAN_LOCALE)
+            editor.putString(LOCALE_KEY, RUSSIAN_LOCALE)
+        }
+        editor.apply()
+        val configuration: Configuration = resources.configuration
+        configuration.setLocale(locale)
+        baseContext.resources.updateConfiguration(
+            configuration,
+            baseContext.resources.displayMetrics
+        )
+        recreate()
+    }
+
     override fun onResume() {
         super.onResume()
         // This ensures the trips are updated after returning from the singleTripActivity
+        list_view_of_trips.changeTripsList(TripManager.getTripsbyType(TripType.created_by_others))
         list_view_of_trips.startListView()
     }
 
