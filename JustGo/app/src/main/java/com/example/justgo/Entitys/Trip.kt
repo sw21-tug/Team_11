@@ -1,13 +1,30 @@
 package com.example.justgo.Entitys
 
 import java.io.Serializable
-import java.lang.StringBuilder
 
 class Trip(name:String,tripType: TripType) : Serializable {
 
     var tripInformations: ArrayList<TripInformation> = ArrayList()
+    var possibleFields = mutableListOf<String>("Dates", "Locations", "Photos", "Transportation", "Accommodation", "Activities", "Foods")
     var nameofTrip:String = name
     var tripType:TripType = tripType
+    var foods: ArrayList<Food> = ArrayList()
+
+    fun addFood(foodName: String, location: String, foodType: FoodType){
+        foods.add(Food(foodName, location, foodType))
+    }
+
+    fun getFood(foodType: FoodType): ArrayList<Food>{
+        var returnList: ArrayList<Food> = ArrayList()
+        println("testtesttest")
+        foods.forEach {
+            println(it.toString())
+            if(it._foodType == foodType){
+                returnList.add(it)
+            }
+        }
+        return returnList
+    }
 
     fun addTripInformation(tripInformation:TripInformation){
         this.tripInformations.add(tripInformation)
