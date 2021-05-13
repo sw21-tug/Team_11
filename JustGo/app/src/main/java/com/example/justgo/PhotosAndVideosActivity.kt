@@ -1,8 +1,10 @@
 package com.example.justgo
 
+import android.Manifest
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.database.Cursor
 import android.net.Uri
 import android.os.Bundle
@@ -10,14 +12,11 @@ import android.provider.MediaStore
 import android.widget.Button
 import android.widget.GridView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.core.net.toUri
 import com.example.justgo.Entitys.Trip
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.io.File
-import java.io.FileInputStream
-import java.io.FileOutputStream
-import java.io.IOException
-import java.nio.channels.FileChannel
 
 
 class PhotosAndVideosActivity : AppCompatActivity() {
@@ -31,6 +30,13 @@ class PhotosAndVideosActivity : AppCompatActivity() {
     private var selectedType: PictureVideoType = PictureVideoType.taken_before_trip
     private var currentPictureVideoList: ArrayList<Uri> = ArrayList()
     private var context : Context = this
+
+    // Storage Permissions
+    private val REQUEST_EXTERNAL_STORAGE = 1
+    private val PERMISSIONS_STORAGE = arrayOf<String>(
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,26 +87,6 @@ class PhotosAndVideosActivity : AppCompatActivity() {
         return cursor.getString(column_index)
     }
 
-    @Throws(IOException::class)
-    private fun copyFile(sourceFile: File, destFile: File) {
-        if (!sourceFile.exists()) {
-            return
-        }
-        var source: FileChannel? = null
-        var destination: FileChannel? = null
-        source = FileInputStream(sourceFile).getChannel()
-        destination = FileOutputStream(destFile).getChannel()
-        if (destination != null && source != null) {
-            destination.transferFrom(source, 0, source.size())
-        }
-        if (source != null) {
-            source.close()
-        }
-        if (destination != null) {
-            destination.close()
-        }
-    }
-
     fun getDestPath() : String{
         var path = "photos_videos/" + trip.nameofTrip + "/"
         if (selectedType == PictureVideoType.taken_before_trip){
@@ -113,47 +99,36 @@ class PhotosAndVideosActivity : AppCompatActivity() {
         return path
     }
 
+
+    /**
+     * Checks if the app has permission to write to device storage
+     * If the app does not has permission then the user will be prompted to grant permissions
+     * @param activity
+     */
+    fun verifyStoragePermissions(activity: Activity?) {
+        // Check if we have write permission
+        val permission = ActivityCompat.checkSelfPermission(activity!!, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions(
+                    activity,
+                    PERMISSIONS_STORAGE,
+                    REQUEST_EXTERNAL_STORAGE
+            )
+        }
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == openGallary){
             if(data?.data != null)
             {
+                verifyStoragePermissions(this)
 
                 val imgPath = getPath(data.data!!)
-    /*
-                var fileInputStream: FileInputStream? = null
-                fileInputStream = openFileInput(imgPath)
-                var inputStreamReader: InputStreamReader = InputStreamReader(fileInputStream)
-                val bufferedReader: BufferedReader = BufferedReader(inputStreamReader)
-                val stringBuilder: StringBuilder = StringBuilder()
-                var text: String? = null
-                while ({ text = bufferedReader.readLine(); text }() != null) {
-                    stringBuilder.append(text)
-                }
-
-                val out: OutputStream
-                val root = Environment.getExternalStorageDirectory().absolutePath + "/"
-                val createDir = File(root + "Folder Name" + File.separator)
-                if (!createDir.exists()) {
-                    createDir.mkdir()
-                }
-                //val file = File(root + "Folder Name" + File.separator + "Name of File")
-                file.createNewFile()
-                out = FileOutputStream(file)
-
-                out.write(attr.data)
-                out.close()
-//Displaying data on EditText
-                fileData.setText(stringBuilder.toString()).toString()
-*/
-
-
-
-                val file = File(context.getExternalFilesDir(context.getExternalFilesDir(null)?.absolutePath), imgPath)
+                var file:File = File("", imgPath)
                 val destFile = File(context.filesDir, getDestPath())
                 file.copyTo(destFile, overwrite = true)
-//                copyFile(file, destFile)
-                println("Saved image to: " + destFile.path)
 
                 trip.addPictureVideo(destFile.toUri(), selectedType)
                 currentPictureVideoList= trip.getPicturesVideosList(selectedType)
