@@ -9,8 +9,11 @@ import android.database.Cursor
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.View
 import android.widget.Button
 import android.widget.GridView
+import android.widget.ImageView
+import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.net.toUri
@@ -30,6 +33,8 @@ class PhotosAndVideosActivity : AppCompatActivity() {
     private var selectedType: PictureVideoType = PictureVideoType.taken_before_trip
     private var currentPictureVideoList: ArrayList<Uri> = ArrayList()
     private var context : Context = this
+    private lateinit var preview_image: ImageView
+    private lateinit var preview_video: VideoView
 
     // Storage Permissions
     private val REQUEST_EXTERNAL_STORAGE = 1
@@ -52,8 +57,10 @@ class PhotosAndVideosActivity : AppCompatActivity() {
         beforeButton.setOnClickListener {
             selectedType = PictureVideoType.taken_before_trip
             currentPictureVideoList = trip.getPicturesVideosList(selectedType)
+            val newPictureAdapter: PictureVideoAdapter = PictureVideoAdapter(this, currentPictureVideoList)
+            gridView.adapter = newPictureAdapter
             //(gridView.adapter as PictureVideoAdapter).notifyDataSetChanged()
-            gridView.invalidateViews()
+            //gridView.invalidateViews()
             println(currentPictureVideoList)
         }
 
@@ -61,8 +68,10 @@ class PhotosAndVideosActivity : AppCompatActivity() {
         fromButton.setOnClickListener {
             selectedType = PictureVideoType.taken_during_trip
             currentPictureVideoList = trip.getPicturesVideosList(selectedType)
+            val newPictureAdapter: PictureVideoAdapter = PictureVideoAdapter(this, currentPictureVideoList)
+            gridView.adapter = newPictureAdapter
             //(gridView.adapter as PictureVideoAdapter).notifyDataSetChanged()
-            gridView.invalidateViews()
+            //gridView.invalidateViews()
             println(currentPictureVideoList)
         }
 
@@ -70,11 +79,31 @@ class PhotosAndVideosActivity : AppCompatActivity() {
         addButton.setOnClickListener {
             openGalleryForImage()
         }
+
+        preview_video = findViewById(R.id.preview_videoView)
+        preview_image = findViewById(R.id.preview_imageView)
+        gridView.setOnItemClickListener { parent, view, position, id ->
+            val element: Uri? = gridView.adapter.getItem(position) as Uri?
+            //val path_of_element = getPath(element)
+            if (element.toString().contains("image")) {
+                preview_image.setImageURI(element)
+                preview_image.visibility = View.VISIBLE
+                preview_image.setOnClickListener {
+                    preview_image.visibility = View.GONE
+                }
+            } else  if (element.toString().contains("video")) {
+                preview_video.setVideoURI(element)
+                preview_video.visibility = View.VISIBLE
+                preview_video.setOnClickListener {
+                    preview_video.visibility = View.GONE
+                }
+            }
+        }
     }
 
     private fun openGalleryForImage() {
         val intent = Intent(Intent.ACTION_PICK)
-        intent.type = "image/*"
+        intent.type = "*/*"
         startActivityForResult(intent, openGallary)
     }
 

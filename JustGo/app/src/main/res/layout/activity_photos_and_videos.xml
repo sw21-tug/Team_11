@@ -58,8 +58,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pictures_and_videos_add_button"
         android:numColumns="2"
-        android:horizontalSpacing="8dp"
-        android:verticalSpacing="8dp"/>
+        android:horizontalSpacing="4dp"
+        android:verticalSpacing="4dp"/>
+
+    <ImageView
+        android:id="@+id/preview_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/backgrounds/scenic"
+        android:visibility="gone"
+        android:background="#000000"
+        android:padding="3dp"/>
+
+    <VideoView
+        android:id="@+id/preview_videoView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/pictures_and_videos_gridView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
+        android:background="#000000"
+        android:padding="3dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

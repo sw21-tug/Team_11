@@ -18,7 +18,7 @@ class PictureVideoAdapter(context : Context, private val dataSource: ArrayList<U
         val view = inflater.inflate(R.layout.list_item_picture_video, parent, false)
         val picture_video_view: ImageView = view.rootView.findViewById<ImageView>(R.id.picture_video_imageView)
         picture_video_view.setImageURI(getItem(position))
-
+        picture_video_view.setScaleType(ImageView.ScaleType.CENTER_CROP)
         return picture_video_view
     }
 
