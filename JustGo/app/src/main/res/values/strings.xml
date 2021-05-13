@@ -32,4 +32,8 @@
     <string name="txtfield_name">Name: </string>
     <string name="txtfield_dest">Destinations</string>
     <string name="title_activity_destinations">Map</string>
+
+    <string name="pictures_and_videos_topic">Pictures and Videos</string>
+    <string name="pictures_and_videos_button_before">Before</string>
+    <string name="pictures_and_videos_button_from">From</string>
 </resources>
