@@ -33,4 +33,8 @@
     <string name="txtfield_name">Имя: </string>
     <string name="title_activity_destinations">карта</string>
     <string name="txtfield_dest">Направления</string>
+
+    <string name="pictures_and_videos_topic">Фотографии и видео</string>
+    <string name="pictures_and_videos_button_before">Перед</string>
+    <string name="pictures_and_videos_button_from">Из</string>
 </resources>
