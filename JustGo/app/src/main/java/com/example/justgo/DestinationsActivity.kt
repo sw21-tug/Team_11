@@ -45,7 +45,7 @@ class DestinationsActivity : AppCompatActivity(), OnMapReadyCallback {
         var destinations:ArrayList<Destination> = trip.getDestinationsForActualTrip()
         var destNames : ArrayList<String> = ArrayList()
         for(i in 0 until destinations.size){
-            destNames.add(destinations.get(i).getName())
+            destNames.add(destinations.get(i).name_)
         }
         val arrayAdapter: ArrayAdapter<*>
         arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, destNames)
@@ -76,15 +76,15 @@ class DestinationsActivity : AppCompatActivity(), OnMapReadyCallback {
         val destinations:ArrayList<Destination> = trip.getDestinationsForActualTrip()
         var lastDestination:Destination? = null
         destinations.forEach {
-            val dest= LatLng(it.getLetit(),it.getLongit())
+            val dest= LatLng(it.letit_,it.longit_)
             lastDestination=it
-            if(it.getLetit() != 0.0 && it.getLongit() != 0.0){
-                mMap.addMarker(MarkerOptions().position(dest).title(it.getName()))
+            if(it.letit_ != 0.0 && it.longit_ != 0.0){
+                mMap.addMarker(MarkerOptions().position(dest).title(it.name_))
             }
         }
         if(lastDestination!=null) {
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(lastDestination!!.getLetit(),
-                lastDestination!!.getLongit())))
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(lastDestination!!.letit_,
+                lastDestination!!.longit_)))
         }
     }
 }

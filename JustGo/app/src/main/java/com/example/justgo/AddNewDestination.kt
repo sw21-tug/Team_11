@@ -5,6 +5,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
+import com.example.justgo.Database.DatabaseHelper
+import com.example.justgo.Entitys.Destination
+import com.example.justgo.Entitys.Food
+import com.example.justgo.Entitys.FoodType
 import com.example.justgo.Entitys.Trip
 import com.example.justgo.Logic.DestinationsRestCallManager
 import com.example.justgo.Logic.TripManager

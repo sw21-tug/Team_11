@@ -6,7 +6,9 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.example.justgo.Database.DatabaseHelper
 import com.example.justgo.Entitys.Destination
+import com.example.justgo.Entitys.FoodType
 import com.example.justgo.Entitys.Trip
 import com.google.gson.Gson
 import java.lang.StringBuilder
@@ -32,6 +34,8 @@ class DestinationsRestCallManager {
                         var latt = response.getDouble("latt")
                         newDestination = Destination(name, long, latt)
                         trip.addDestination(newDestination)
+                        var foodDatabaseHelper = DatabaseHelper(context)
+                        foodDatabaseHelper.addDestination(newDestination, trip)
 
                     },
                     { error ->
