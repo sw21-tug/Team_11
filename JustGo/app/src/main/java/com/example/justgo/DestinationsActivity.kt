@@ -1,14 +1,11 @@
 package com.example.justgo
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.view.ViewGroup
 import android.widget.*
 import com.example.justgo.Entitys.Destination
-import com.example.justgo.Logic.DestinationManager
+import com.example.justgo.Entitys.Trip
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -22,11 +19,13 @@ class DestinationsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     private lateinit var destinationListView: ListView
     private lateinit var addDestinationButton: Button
+    private lateinit var trip:Trip
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_destinations)
 
+        trip = intent.getSerializableExtra("trip") as Trip
         /*
         var actionbar = supportActionBar
         if(actionbar != null)
@@ -42,7 +41,8 @@ class DestinationsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         // ListView
         destinationListView = findViewById(R.id.destinations_list_view)
-        var destinations : ArrayList<Destination> = DestinationManager.getDestinationsForActualTrip()
+        //var destinations : ArrayList<Destination> = DestinationManager.getDestinationsForActualTrip()
+        var destinations:ArrayList<Destination> = trip.getDestinationsForActualTrip()
         var destNames : ArrayList<String> = ArrayList()
         for(i in 0 until destinations.size){
             destNames.add(destinations.get(i).getName())
@@ -55,6 +55,7 @@ class DestinationsActivity : AppCompatActivity(), OnMapReadyCallback {
         addDestinationButton = findViewById(R.id.add_destination_button)
         addDestinationButton.setOnClickListener {
             val intent = Intent(this, AddNewDestination::class.java)
+            intent.putExtra("trip",trip)
             startActivity(intent)
         }
     }
@@ -70,11 +71,11 @@ class DestinationsActivity : AppCompatActivity(), OnMapReadyCallback {
      */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        
 
-        val destination = DestinationManager.getDestinationsForActualTrip()
+
+        val destinations:ArrayList<Destination> = trip.getDestinationsForActualTrip()
         var lastDestination:Destination? = null
-        destination?.forEach {
+        destinations.forEach {
             val dest= LatLng(it.getLetit(),it.getLongit())
             lastDestination=it
             if(it.getLetit() != 0.0 && it.getLongit() != 0.0){

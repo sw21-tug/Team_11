@@ -1,7 +1,7 @@
 package com.example.justgo
 
 import com.example.justgo.Entitys.Trip
-import com.example.justgo.Entitys.TripDate
+//import com.example.justgo.Entitys.TripDate
 import com.example.justgo.Entitys.TripDestination
 import com.example.justgo.Entitys.TripType
 import com.example.justgo.Logic.TripManager
