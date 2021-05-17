@@ -4,9 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
-import android.widget.TextView
 import com.example.justgo.Entitys.Trip
 import com.example.justgo.Entitys.TripType
+import com.example.justgo.Database.DatabaseHelper
 import com.example.justgo.Logic.TripManager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -29,11 +29,15 @@ class CreateTrip : AppCompatActivity() {
 
             if(!(name.text.toString().equals(""))) {
 
-                TripManager.createTrip(name.text.toString(),TripType.self_created)
+
+                val databaseHelper: DatabaseHelper = DatabaseHelper(this)
+                databaseHelper.addTrip(Trip(name.text.toString(),TripType.self_created))
+                var trips = databaseHelper.viewTrip()
+                var lasttrip = trips.last()
+                TripManager.createTrip(lasttrip)
                 TripManager.getAllTrips().forEach {
                     println(it.toString())
                 }
-
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }

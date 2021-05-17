@@ -28,6 +28,9 @@ class FoodsActivity : AppCompatActivity() {
         trip = intent.getSerializableExtra("trip") as Trip
         foodListView = findViewById(R.id.food_listview)
         val breakfast_foods = trip.getFood(FoodType.breakfast)
+        breakfast_foods.forEach {
+            System.out.println(it.toString())
+        }
         val arrayAdapter: ArrayAdapter<Food>
         arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, breakfast_foods)
         foodListView.adapter = arrayAdapter
@@ -38,6 +41,9 @@ class FoodsActivity : AppCompatActivity() {
 
         breakfastButton.setOnClickListener {
             val breakfast_foods = trip.getFood(FoodType.breakfast)
+            breakfast_foods.forEach {
+                System.out.println(it.toString())
+            }
             val arrayAdapter: ArrayAdapter<Food>
             arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, breakfast_foods)
             foodListView.adapter = arrayAdapter
@@ -47,6 +53,9 @@ class FoodsActivity : AppCompatActivity() {
 
         lunchDinnerButton.setOnClickListener {
             val lunch_dinner_foods = trip.getFood(FoodType.lunch_dinner)
+            lunch_dinner_foods.forEach {
+                System.out.println(it.toString())
+            }
             val arrayAdapter: ArrayAdapter<Food>
             arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, lunch_dinner_foods)
             foodListView.adapter = arrayAdapter

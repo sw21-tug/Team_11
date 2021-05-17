@@ -1,6 +1,8 @@
 package com.example.justgo.Entitys
 
-class Destination(name: String, longit: Double, letit: Double) {
+import java.io.Serializable
+
+class Destination(name: String, longit: Double, letit: Double):Serializable {
 
     private var name_: String = name
     private var longit_: Double = longit
