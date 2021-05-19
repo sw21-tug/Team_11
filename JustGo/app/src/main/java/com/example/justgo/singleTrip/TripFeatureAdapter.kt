@@ -29,7 +29,7 @@ class TripFeatureAdapter(context : Context,
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val view = inflater.inflate(R.layout.list_item_trip_feature, parent, false)
-        val name = view.rootView.findViewById<TextView>(R.id.tripField)
+        val name : TextView = view.rootView.findViewById<TextView>(R.id.tripField)
         name.text = dataSource[position]
 
         return view

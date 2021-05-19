@@ -11,6 +11,7 @@ import android.os.Bundle
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.example.justgo.Database.DatabaseHelper
 import com.example.justgo.MainActivity
 import com.example.justgo.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
