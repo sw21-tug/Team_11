@@ -12,11 +12,28 @@ abstract class TripInformation(name:String, value:Any) : Serializable{
 
 class TripDates(name : String) : TripInformation(name, value=""){
     @RequiresApi(Build.VERSION_CODES.O)
-    public var dates : MutableMap<LocalDateTime, String> = mutableMapOf(LocalDateTime.parse("2021-12-24T14:55") to "Christmas")
+    public var dates : MutableMap<LocalDateTime, String> = mutableMapOf()
 }
 
 class TemplateTripinfo(name: String) : TripInformation(name , "")
 
 
-class TripDestination(name : String, value: String) : TripInformation(name, value)
+class TripDestination(name : String) : TripInformation(name, value=""){
+    public var destinations : MutableList<Destination> = mutableListOf()
+}
 
+class TripFood(name : String) : TripInformation(name, value=""){
+    public var foods : MutableList<Food> = mutableListOf()
+
+    fun getFood(foodType: FoodType): ArrayList<Food>{
+        var returnList: ArrayList<Food> = ArrayList()
+        println("testtesttest")
+        foods.forEach {
+            println(it.toString())
+            if(it._foodType == foodType){
+                returnList.add(it)
+            }
+        }
+        return returnList
+    }
+}

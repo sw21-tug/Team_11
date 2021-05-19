@@ -1,16 +1,21 @@
 package com.example.justgo
 
+import android.app.Activity
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
-import com.example.justgo.Entitys.Food
-import com.example.justgo.Entitys.FoodType
-import com.example.justgo.Entitys.Trip
+import androidx.annotation.RequiresApi
+import com.example.justgo.Database.DatabaseHelper
+import com.example.justgo.Entitys.*
+import com.example.justgo.Logic.TripManager
+import com.example.justgo.TimeLine.TimeLineAdapter
 import com.example.justgo.singleTrip.ActivitySingleTrip
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import java.time.LocalDateTime
 
 class FoodsActivity : AppCompatActivity() {
 
@@ -20,6 +25,8 @@ class FoodsActivity : AppCompatActivity() {
     private lateinit var addFoodButton : FloatingActionButton
     private lateinit var foodListView : ListView
     private lateinit var trip : Trip
+    private lateinit var tripFood: TripFood
+    private val REQUEST_CODE = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +34,8 @@ class FoodsActivity : AppCompatActivity() {
 
         trip = intent.getSerializableExtra("trip") as Trip
         foodListView = findViewById(R.id.food_listview)
-        val breakfast_foods = trip.getFood(FoodType.breakfast)
+        tripFood = getTripFoods()
+        val breakfast_foods = tripFood.getFood(FoodType.breakfast)
         breakfast_foods.forEach {
             System.out.println(it.toString())
         }
@@ -40,7 +48,7 @@ class FoodsActivity : AppCompatActivity() {
         lunchDinnerButton = findViewById(R.id.lunch_dinner_button)
 
         breakfastButton.setOnClickListener {
-            val breakfast_foods = trip.getFood(FoodType.breakfast)
+            val breakfast_foods = tripFood.getFood(FoodType.breakfast)
             breakfast_foods.forEach {
                 System.out.println(it.toString())
             }
@@ -52,7 +60,7 @@ class FoodsActivity : AppCompatActivity() {
         }
 
         lunchDinnerButton.setOnClickListener {
-            val lunch_dinner_foods = trip.getFood(FoodType.lunch_dinner)
+            val lunch_dinner_foods = tripFood.getFood(FoodType.lunch_dinner)
             lunch_dinner_foods.forEach {
                 System.out.println(it.toString())
             }
@@ -67,7 +75,7 @@ class FoodsActivity : AppCompatActivity() {
         addFoodButton.setOnClickListener {
             val intent = Intent(this, AddNewFoodActivity::class.java)
             intent.putExtra("trip", trip)
-            startActivity(intent)
+            startActivityForResult(intent, REQUEST_CODE)
         }
 
         backbutton = findViewById(R.id.food_back_button)
@@ -76,5 +84,33 @@ class FoodsActivity : AppCompatActivity() {
             intent.putExtra("trip", trip)
             startActivity(intent)
         }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == REQUEST_CODE) {
+            if (resultCode == Activity.RESULT_OK && data != null) {
+
+                val food = data.getSerializableExtra("foods") as Food
+
+                var foodDatabaseHelper = DatabaseHelper(this)
+                foodDatabaseHelper.addFood(food, trip)
+                trip.tripInformations.remove(tripFood)
+                trip.tripInformations.add(foodDatabaseHelper.viewFoodbyTrip(trip) as TripInformation)
+
+                tripFood = getTripFoods()
+                (foodListView.adapter as ArrayAdapter<String>).notifyDataSetChanged()
+
+                TripManager.replaceTrip(
+                        TripManager.getTripbyName(trip.nameofTrip).first(),
+                        trip
+                )
+            }
+        }
+    }
+
+    fun getTripFoods() : TripFood {
+        return (trip.getTripInformationbyName("Foods") as TripFood)
     }
 }
