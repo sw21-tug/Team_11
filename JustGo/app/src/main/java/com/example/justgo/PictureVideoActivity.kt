@@ -14,19 +14,22 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.net.toUri
+import com.example.justgo.Entitys.PictureVideoList
+import com.example.justgo.Entitys.PictureVideoType
 import com.example.justgo.Entitys.Trip
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.io.File
 
 
-class PhotosAndVideosActivity : AppCompatActivity() {
+class PictureVideoActivity : AppCompatActivity() {
 
     private lateinit var beforeButton: Button
     private lateinit var fromButton: Button
     private lateinit var addButton: FloatingActionButton
     private lateinit var gridView: GridView
-    private var openGallary: Int = 100
+    private var openGallery: Int = 100
     private lateinit var trip : Trip
+    private lateinit var pictureVideoInformation : PictureVideoList
     private var selectedType: PictureVideoType = PictureVideoType.taken_before_trip
     private var currentPictureVideoList: ArrayList<Uri> = ArrayList()
     private var context : Context = this
@@ -42,20 +45,21 @@ class PhotosAndVideosActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_photos_and_videos)
+        setContentView(R.layout.activity_pictures_and_videos)
 
 
         // Possible todo: Check if there are photos and videos already in the photo_video/<tripname> folder and add to the gridview
         // Add a way of deleting photos/videos
 
         trip = intent.getSerializableExtra("trip") as Trip
+        pictureVideoInformation = trip.getTripInformationbyName("Pictures and Videos")!! as PictureVideoList
         gridView = findViewById(R.id.pictures_and_videos_gridView)
-        currentPictureVideoList = trip.getPicturesVideosList(selectedType)
-        val pictureAdapterBefore: PictureVideoAdapter = PictureVideoAdapter(this, trip.getPicturesVideosList(PictureVideoType.taken_before_trip))
-        val pictureAdapterDuring: PictureVideoAdapter = PictureVideoAdapter(this, trip.getPicturesVideosList(PictureVideoType.taken_during_trip))
+        currentPictureVideoList = pictureVideoInformation.getPicturesVideosList(selectedType)
+        val pictureAdapterBefore: PictureVideoAdapter = PictureVideoAdapter(this, pictureVideoInformation.getPicturesVideosList(PictureVideoType.taken_before_trip))
+        val pictureAdapterDuring: PictureVideoAdapter = PictureVideoAdapter(this, pictureVideoInformation.getPicturesVideosList(PictureVideoType.taken_during_trip))
         gridView.adapter = pictureAdapterDuring
 
-        var pictureVideoDir : File = File(context.filesDir, "photos_videos/" + trip.nameofTrip)
+        var pictureVideoDir : File = File(context.filesDir, "pictures_videos/" + trip.nameofTrip)
         pictureVideoDir.walkBottomUp().forEach {
             println(it.path)
             if(!it.path.endsWith(".mp4") && !it.path.endsWith(".jpg")){
@@ -66,15 +70,15 @@ class PhotosAndVideosActivity : AppCompatActivity() {
             if ("during" in it.path){
                 type = PictureVideoType.taken_during_trip
             }
-            if (!trip.getPicturesVideosList(type).contains( it.toUri() )){
-                trip.addPictureVideo(it.toUri(), type)
+            if (!pictureVideoInformation.getPicturesVideosList(type).contains( it.toUri() )){
+                pictureVideoInformation.addPictureVideo(it.toUri(), type)
             }
         }
 
         beforeButton = findViewById(R.id.pictres_and_videos_before_button)
         beforeButton.setOnClickListener {
             selectedType = PictureVideoType.taken_before_trip
-            currentPictureVideoList = trip.getPicturesVideosList(selectedType)
+            currentPictureVideoList = pictureVideoInformation.getPicturesVideosList(selectedType)
             gridView.adapter = pictureAdapterBefore
             //(gridView.adapter as PictureVideoAdapter).notifyDataSetChanged()
             //gridView.invalidateViews()
@@ -85,7 +89,7 @@ class PhotosAndVideosActivity : AppCompatActivity() {
         fromButton = findViewById(R.id.pictures_and_videos_from_button)
         fromButton.setOnClickListener {
             selectedType = PictureVideoType.taken_during_trip
-            currentPictureVideoList = trip.getPicturesVideosList(selectedType)
+            currentPictureVideoList = pictureVideoInformation.getPicturesVideosList(selectedType)
             gridView.adapter = pictureAdapterDuring
             //(gridView.adapter as PictureVideoAdapter).notifyDataSetChanged()
             //gridView.invalidateViews()
@@ -129,7 +133,7 @@ class PhotosAndVideosActivity : AppCompatActivity() {
     private fun openGalleryForImage() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "*/*"
-        startActivityForResult(intent, openGallary)
+        startActivityForResult(intent, openGallery)
     }
 
     fun getPath(uri: Uri?): String {
@@ -143,7 +147,7 @@ class PhotosAndVideosActivity : AppCompatActivity() {
     }
 
     fun getDestPath(isPhoto : Boolean) : String{
-        var path = "photos_videos/" + trip.nameofTrip + "/"
+        var path = "pictures_videos/" + trip.nameofTrip + "/"
         if (selectedType == PictureVideoType.taken_before_trip){
             path += "before"
         }
@@ -182,22 +186,22 @@ class PhotosAndVideosActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode == openGallary){
+        if (resultCode == Activity.RESULT_OK && requestCode == openGallery){
             if(data?.data != null)
             {
                 verifyStoragePermissions(this)
 
                 val imgPath = getPath(data.data!!)
-                val isPhoto = !imgPath.endsWith(".mp4")
+                val isPicture = !imgPath.endsWith(".mp4")
                 var file:File = File("", imgPath)
-                val destFile = File(context.filesDir, getDestPath(isPhoto))
+                val destFile = File(context.filesDir, getDestPath(isPicture))
                 file.copyTo(destFile, overwrite = true)
 
-                trip.addPictureVideo(destFile.toUri(), selectedType)
+                pictureVideoInformation.addPictureVideo(destFile.toUri(), selectedType)
 //                TripManager.replaceTrip(
 //                        TripManager.getTripbyName(trip.nameofTrip).first(),
 //                        trip)
-                currentPictureVideoList= trip.getPicturesVideosList(selectedType)
+                currentPictureVideoList= pictureVideoInformation.getPicturesVideosList(selectedType)
                 (gridView.adapter as PictureVideoAdapter).notifyDataSetChanged()
                 gridView.invalidateViews()
             }

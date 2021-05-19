@@ -8,13 +8,14 @@ import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.justgo.DestinationsActivity
+import com.example.justgo.Entitys.PictureVideoList
 import com.example.justgo.Entitys.TemplateTripinfo
 import com.example.justgo.Entitys.Trip
 import com.example.justgo.Entitys.TripDates
 import com.example.justgo.FoodsActivity
 import com.example.justgo.Logic.DestinationManager
 import com.example.justgo.Logic.TripManager
-import com.example.justgo.PhotosAndVideosActivity
+import com.example.justgo.PictureVideoActivity
 import com.example.justgo.R
 import com.example.justgo.TimeLine.TimeLine
 import java.io.Serializable
@@ -44,9 +45,6 @@ class ActivitySingleTrip : AppCompatActivity() {
         listView.adapter = TripFeatureAdapter(this, tripinfonames)
 
 
-
-
-
         // if you click on "Locations" --> the locations list view and google maps open
         listView.setOnItemClickListener { parent, view, position, id ->
             val element = listView.adapter.getItem(position)
@@ -70,8 +68,8 @@ class ActivitySingleTrip : AppCompatActivity() {
                 this.startActivity(intent)
             }
 
-            else if (element == "Photos and Videos") {
-                val intent = Intent(this, PhotosAndVideosActivity::class.java)
+            else if (element == "Pictures and Videos") {
+                val intent = Intent(this, PictureVideoActivity::class.java)
                 intent.putExtra("trip", trip)
                 this.startActivity(intent)
             }
@@ -95,6 +93,9 @@ class ActivitySingleTrip : AppCompatActivity() {
                     val result = data.getSerializableExtra("added_field") as String
                     if (result == "Dates"){
                         trip.addTripInformation(TripDates(result))
+                    }
+                    else if(result == "Pictures and Videos"){
+                        trip.addTripInformation(PictureVideoList())
                     }
                     else{
                         trip.addTripInformation(TemplateTripinfo(result))
