@@ -14,6 +14,7 @@ import com.example.justgo.Entitys.TripDates
 import com.example.justgo.FoodsActivity
 import com.example.justgo.Logic.DestinationsRestCallManager
 import com.example.justgo.Logic.TripManager
+import com.example.justgo.PhotosAndVideosActivity
 import com.example.justgo.R
 import com.example.justgo.TimeLine.TimeLine
 import java.io.Serializable
@@ -61,6 +62,12 @@ class ActivitySingleTrip : AppCompatActivity() {
 
             else if (element == "Foods") {
                 val intent = Intent(this, FoodsActivity::class.java)
+                intent.putExtra("trip", trip)
+                this.startActivity(intent)
+            }
+
+            else if (element == "Photos and Videos") {
+                val intent = Intent(this, PhotosAndVideosActivity::class.java)
                 intent.putExtra("trip", trip)
                 this.startActivity(intent)
             }

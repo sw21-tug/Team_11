@@ -13,8 +13,8 @@ import com.example.justgo.Entitys.Trip
 import com.example.justgo.Entitys.TripDates
 import com.example.justgo.Logic.TripManager
 import com.example.justgo.R
-import java.time.LocalDateTime
 import java.io.Serializable
+import java.time.LocalDateTime
 
 class TimeLine : AppCompatActivity() {
     private lateinit var trip : Trip
