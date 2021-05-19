@@ -1,5 +1,6 @@
 package com.example.justgo.Logic
 
+import com.example.justgo.Entitys.Destination
 import com.example.justgo.Entitys.Trip
 import com.example.justgo.Entitys.TripType
 
@@ -15,6 +16,9 @@ class TripManager {
         fun createTrip(name:String,tripType: TripType){
             var input: String = name
             var trip: Trip = Trip(input.capitalize(),tripType)
+            trips.add(trip)
+        }
+        fun createTrip(trip:Trip){
             trips.add(trip)
         }
         fun getTripbyName(name:String): ArrayList<Trip>{
@@ -72,6 +76,11 @@ class TripManager {
 
         fun clearTrips() {
             trips.clear()
+        }
+        fun addTripsFromDatabase(tripsdb:ArrayList<Trip>){
+            tripsdb.forEach {
+                trips.add(it)
+            }
         }
     }
 }
