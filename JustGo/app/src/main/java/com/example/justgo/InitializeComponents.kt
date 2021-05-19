@@ -18,16 +18,15 @@ class InitializeComponents: Application() {
         trips.forEach {
             var foods = databaseHelper.viewFoodbyTrip(it)
             if(foods !=null){
-                if(foods.foods.isNotEmpty())
-                {
+                if(foods.foods.isNotEmpty()){
                     it.tripInformations.add(foods)
                 }
             }
             var destinations = databaseHelper.viewDestinationbyTrip(it)
-            if(destinations.size > 0){
-                it.destinations = destinations
-                it.possibleFields.remove("Locations")
-                it.addTripInformation(TemplateTripinfo("Locations"))
+            if(destinations != null){
+                if(destinations.destinations.isNotEmpty()){
+                    it.tripInformations.add(destinations)
+                }
             }
             var dates = databaseHelper.viewDatebyTrip(it)
             if (dates != null) {

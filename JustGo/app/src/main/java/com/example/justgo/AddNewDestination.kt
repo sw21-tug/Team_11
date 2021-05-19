@@ -1,5 +1,6 @@
 package com.example.justgo
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -27,9 +28,9 @@ class AddNewDestination : AppCompatActivity() {
             trip.getDestinationsForActualTrip().forEach {
                 println(it.toString())
             }
-            val intent = Intent(this,DestinationsActivity::class.java)
-            intent.putExtra("trip",trip)
-            startActivity(intent)
+            var resultIntent = Intent()
+            setResult(Activity.RESULT_OK, resultIntent)
+            finish()
         }
         val save : FloatingActionButton
         save=findViewById(R.id.saveDestination_floatActionButton)

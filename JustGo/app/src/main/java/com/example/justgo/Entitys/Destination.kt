@@ -9,7 +9,7 @@ class Destination(name: String, longit: Double, letit: Double):Serializable {
     var letit_: Double = letit
 
     override fun toString(): String {
-        return "Destination(name_='$name_', longit_=$longit_, letit_=$letit_)"
+        return "$name_"
     }
 
     fun addID(id:Int){
