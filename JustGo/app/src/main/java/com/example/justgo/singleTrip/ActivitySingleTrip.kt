@@ -43,6 +43,10 @@ class ActivitySingleTrip : AppCompatActivity() {
         tripinfonames = trip.getTripInformationLNameist()
         listView.adapter = TripFeatureAdapter(this, tripinfonames)
 
+
+
+
+
         // if you click on "Locations" --> the locations list view and google maps open
         listView.setOnItemClickListener { parent, view, position, id ->
             val element = listView.adapter.getItem(position)
