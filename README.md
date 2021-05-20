@@ -11,7 +11,7 @@ It will allow to plan a perfect trip and to share it between friends or family, 
 
 A trip contains:
 
-● List of destinations
+● List of destinations with a map preview of their localizations
 
 ● Pictures and Videos
 
@@ -28,6 +28,10 @@ A trip contains:
 ● Transportation
 
 ● Costs
+
+● Food plan
+
+● Songs playlist
 
 ● And many more
 
@@ -56,11 +60,6 @@ Junior Dev: David Marterer
 <br />
 
 **Features in progress:**
-- Making the App bilingual - https://github.com/sw21-tug/Team_11/issues/24
-
-- Adding destinations - https://github.com/sw21-tug/Team_11/issues/15
-
-- Adding dates with description - https://github.com/sw21-tug/Team_11/issues/16
 
 - Sorting the list - https://github.com/sw21-tug/Team_11/issues/8
 
@@ -83,3 +82,10 @@ Junior Dev: David Marterer
 
 - Categories of trips - https://github.com/sw21-tug/Team_11/issues/9
 
+- Making the App bilingual (Russian language support) - https://github.com/sw21-tug/Team_11/issues/24
+
+- Adding destinations - https://github.com/sw21-tug/Team_11/issues/15
+
+- Adding dates with description - https://github.com/sw21-tug/Team_11/issues/16
+
+- Adding items to food category - https://github.com/sw21-tug/Team_11/issues/18

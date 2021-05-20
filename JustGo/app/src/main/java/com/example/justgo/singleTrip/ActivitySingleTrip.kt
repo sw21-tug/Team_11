@@ -13,7 +13,7 @@ import com.example.justgo.Entitys.TemplateTripinfo
 import com.example.justgo.Entitys.Trip
 import com.example.justgo.Entitys.TripDates
 import com.example.justgo.FoodsActivity
-import com.example.justgo.Logic.DestinationManager
+import com.example.justgo.Logic.DestinationsRestCallManager
 import com.example.justgo.Logic.TripManager
 import com.example.justgo.PictureVideoActivity
 import com.example.justgo.R
@@ -51,8 +51,8 @@ class ActivitySingleTrip : AppCompatActivity() {
 
             if(element == "Locations")
             {
-                DestinationManager.changeActualOpenTrip(trip.nameofTrip)
-                val intent = Intent(this, DestinationsActivity::class.java).apply {}
+                val intent = Intent(this, DestinationsActivity::class.java)
+                intent.putExtra("trip",trip)
                 startActivity(intent)
             }
 
