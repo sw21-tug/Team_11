@@ -1,11 +1,13 @@
 package com.example.justgo
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.database.Cursor
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -26,7 +28,9 @@ class PictureVideoActivity : AppCompatActivity() {
     private lateinit var beforeButton: Button
     private lateinit var fromButton: Button
     private lateinit var addButton: FloatingActionButton
-    private lateinit var gridView: GridView
+    private lateinit var gridViewBefore: GridView
+    private lateinit var gridViewFrom : GridView
+    private lateinit var choosenGridView : GridView
     private var openGallery: Int = 100
     private lateinit var trip : Trip
     private lateinit var pictureVideoInformation : PictureVideoList
@@ -35,6 +39,9 @@ class PictureVideoActivity : AppCompatActivity() {
     private var context : Context = this
     private lateinit var preview_image: ImageView
     private lateinit var preview_video: VideoView
+    private lateinit var backButton: Button
+    private lateinit var deleteButton: Button
+    private var currentShownURI : Uri? = null
 
     // Storage Permissions
     private val REQUEST_EXTERNAL_STORAGE = 1
@@ -43,6 +50,7 @@ class PictureVideoActivity : AppCompatActivity() {
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     )
 
+    @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pictures_and_videos)
@@ -51,13 +59,17 @@ class PictureVideoActivity : AppCompatActivity() {
         // Possible todo: Check if there are photos and videos already in the photo_video/<tripname> folder and add to the gridview
         // Add a way of deleting photos/videos
 
+        verifyStoragePermissions(this)
         trip = intent.getSerializableExtra("trip") as Trip
         pictureVideoInformation = trip.getTripInformationbyName("Pictures and Videos")!! as PictureVideoList
-        gridView = findViewById(R.id.pictures_and_videos_gridView)
+        gridViewBefore = findViewById(R.id.pictures_and_videos_gridView_before)
+        gridViewFrom = findViewById(R.id.pictures_and_videos_gridView_from)
         currentPictureVideoList = pictureVideoInformation.getPicturesVideosList(selectedType)
         val pictureAdapterBefore: PictureVideoAdapter = PictureVideoAdapter(this, pictureVideoInformation.getPicturesVideosList(PictureVideoType.taken_before_trip))
-        val pictureAdapterDuring: PictureVideoAdapter = PictureVideoAdapter(this, pictureVideoInformation.getPicturesVideosList(PictureVideoType.taken_during_trip))
-        gridView.adapter = pictureAdapterDuring
+        val pictureAdapterFrom: PictureVideoAdapter = PictureVideoAdapter(this, pictureVideoInformation.getPicturesVideosList(PictureVideoType.taken_during_trip))
+        gridViewBefore.adapter = pictureAdapterBefore
+        gridViewFrom.adapter = pictureAdapterFrom
+        choosenGridView = gridViewBefore
 
         var pictureVideoDir : File = File(context.filesDir, "pictures_videos/" + trip.nameofTrip)
         pictureVideoDir.walkBottomUp().forEach {
@@ -79,22 +91,28 @@ class PictureVideoActivity : AppCompatActivity() {
         beforeButton.setOnClickListener {
             selectedType = PictureVideoType.taken_before_trip
             currentPictureVideoList = pictureVideoInformation.getPicturesVideosList(selectedType)
-            gridView.adapter = pictureAdapterBefore
-            //(gridView.adapter as PictureVideoAdapter).notifyDataSetChanged()
-            //gridView.invalidateViews()
+            gridViewBefore.visibility = View.VISIBLE
+            gridViewFrom.visibility = View.GONE
+            choosenGridView = gridViewBefore
             beforeButton.isClickable = false
             fromButton.isClickable = true
+
+            beforeButton.setBackgroundColor(R.color.purple_500)
+            fromButton.setBackgroundColor(Color.BLUE)
         }
 
         fromButton = findViewById(R.id.pictures_and_videos_from_button)
         fromButton.setOnClickListener {
             selectedType = PictureVideoType.taken_during_trip
             currentPictureVideoList = pictureVideoInformation.getPicturesVideosList(selectedType)
-            gridView.adapter = pictureAdapterDuring
-            //(gridView.adapter as PictureVideoAdapter).notifyDataSetChanged()
-            //gridView.invalidateViews()
+            gridViewBefore.visibility = View.GONE
+            gridViewFrom.visibility = View.VISIBLE
+            choosenGridView = gridViewFrom
             fromButton.isClickable = false
             beforeButton.isClickable = true
+
+            fromButton.setBackgroundColor(R.color.purple_500)
+            beforeButton.setBackgroundColor(Color.BLUE)
         }
 
         addButton = findViewById(R.id.pictures_and_videos_add_button)
@@ -102,31 +120,95 @@ class PictureVideoActivity : AppCompatActivity() {
             openGalleryForImage()
         }
 
+        backButton = findViewById(R.id.pictures_and_videos_back_button)
+        backButton.visibility = View.GONE
+        backButton.setOnClickListener {
+            backButton.visibility = View.GONE
+            deleteButton.visibility = View.GONE
+            preview_video.visibility = View.GONE
+            preview_image.visibility = View.GONE
+            beforeButton.visibility = View.VISIBLE
+            fromButton.visibility = View.VISIBLE
+            addButton.visibility = View.VISIBLE
+            if(selectedType == PictureVideoType.taken_during_trip)
+            {
+                gridViewFrom.visibility = View.VISIBLE
+            }
+            else
+            {
+                gridViewBefore.visibility = View.VISIBLE
+            }
+        }
+
+        deleteButton = findViewById(R.id.pictures_and_videos_delete_button)
+        deleteButton.visibility = View.GONE
+        deleteButton.setOnClickListener {
+
+            val pathOfCurrentUri = currentShownURI?.path
+            val currentShownUriFile : File = File("", pathOfCurrentUri)
+            currentShownUriFile.delete()
+
+            pictureVideoInformation.deletePictureOrVideo(currentShownURI, selectedType)
+
+            currentPictureVideoList= pictureVideoInformation.getPicturesVideosList(selectedType)
+
+            backButton.visibility = View.GONE
+            deleteButton.visibility = View.GONE
+            preview_video.visibility = View.GONE
+            preview_image.visibility = View.GONE
+            beforeButton.visibility = View.VISIBLE
+            fromButton.visibility = View.VISIBLE
+            addButton.visibility = View.VISIBLE
+
+            if(selectedType == PictureVideoType.taken_during_trip)
+            {
+                gridViewFrom.visibility = View.VISIBLE
+                (gridViewFrom.adapter as PictureVideoAdapter).notifyDataSetChanged()
+                gridViewFrom.invalidateViews()
+            }
+            else
+            {
+                gridViewBefore.visibility = View.VISIBLE
+                (gridViewBefore.adapter as PictureVideoAdapter).notifyDataSetChanged()
+                gridViewBefore.invalidateViews()
+            }
+        }
+
         preview_video = findViewById(R.id.preview_videoView)
         preview_image = findViewById(R.id.preview_imageView)
-        gridView.setOnItemClickListener { parent, view, position, id ->
-            val element: Uri? = gridView.adapter.getItem(position) as Uri?
-            if (element.toString().endsWith(".mp4")) {
-                preview_video.setVideoURI(element)
-                preview_video.visibility = View.VISIBLE
+        gridViewFrom.setOnItemClickListener { parent, view, position, id ->
+            startPreview(position)
+        }
+        gridViewBefore.setOnItemClickListener { parent, view, position, id ->
+            startPreview(position)
+        }
+    }
 
-                val mediaControls = MediaController(this)
-                mediaControls.setAnchorView(preview_video)
-                preview_video.setMediaController(mediaControls)
-                preview_video.requestFocus()
-                preview_video.setZOrderOnTop(true)
-                preview_video.start()
-                preview_video.setOnClickListener {
-                    preview_video.visibility = View.GONE
-                }
-            }
-            else {
-                preview_image.setImageURI(element)
-                preview_image.visibility = View.VISIBLE
-                preview_image.setOnClickListener {
-                    preview_image.visibility = View.GONE
-                }
-            }
+    fun startPreview(position : Int)
+    {
+        beforeButton.visibility = View.GONE
+        fromButton.visibility = View.GONE
+        addButton.visibility = View.GONE
+        choosenGridView.visibility = View.GONE
+        backButton.visibility = View.VISIBLE
+        deleteButton.visibility = View.VISIBLE
+        val element: Uri? = choosenGridView.adapter.getItem(position) as Uri?
+        if (element.toString().endsWith(".mp4")) {
+            currentShownURI = element
+            preview_video.setVideoURI(element)
+            preview_video.visibility = View.VISIBLE
+
+            val mediaControls = MediaController(this)
+            mediaControls.setAnchorView(preview_video)
+            preview_video.setMediaController(mediaControls)
+            preview_video.requestFocus()
+            preview_video.setZOrderOnTop(true)
+            preview_video.start()
+        }
+        else {
+            currentShownURI = element
+            preview_image.setImageURI(element)
+            preview_image.visibility = View.VISIBLE
         }
     }
 
@@ -189,8 +271,6 @@ class PictureVideoActivity : AppCompatActivity() {
         if (resultCode == Activity.RESULT_OK && requestCode == openGallery){
             if(data?.data != null)
             {
-                verifyStoragePermissions(this)
-
                 val imgPath = getPath(data.data!!)
                 val isPicture = !imgPath.endsWith(".mp4")
                 var file:File = File("", imgPath)
@@ -202,8 +282,8 @@ class PictureVideoActivity : AppCompatActivity() {
 //                        TripManager.getTripbyName(trip.nameofTrip).first(),
 //                        trip)
                 currentPictureVideoList= pictureVideoInformation.getPicturesVideosList(selectedType)
-                (gridView.adapter as PictureVideoAdapter).notifyDataSetChanged()
-                gridView.invalidateViews()
+                (choosenGridView.adapter as PictureVideoAdapter).notifyDataSetChanged()
+                choosenGridView.invalidateViews()
             }
         }
     }

@@ -37,4 +37,6 @@
     <string name="pictures_and_videos_topic">Фотографии и видео</string>
     <string name="pictures_and_videos_button_before">Перед</string>
     <string name="pictures_and_videos_button_from">Из</string>
+    <string name="pictures_and_videos_button_back">назад</string>
+    <string name="pictures_and_videos_button_delete">Удалить</string>
 </resources>

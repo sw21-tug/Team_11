@@ -1,5 +1,6 @@
 package com.example.justgo.Entitys
 
+import android.graphics.Picture
 import android.net.Uri
 import android.os.Build
 import androidx.annotation.RequiresApi
@@ -42,6 +43,30 @@ class PictureVideoList() : TripInformation("Pictures and Videos", ""){
             returnList = picturesAndVideosFrom
         }
         return returnList
+    }
+
+    fun deletePictureOrVideo(toDelete : Uri?, type : PictureVideoType? = null)
+    {
+        if(type == PictureVideoType.taken_before_trip || type == null)
+        {
+            picturesAndVideosBefore.forEach {
+                if(it.equals(toDelete))
+                {
+                    picturesAndVideosBefore.remove(it)
+                    return
+                }
+            }
+        }
+        if(type == PictureVideoType.taken_during_trip || type == null)
+        {
+            picturesAndVideosFrom.forEach{
+                if(it.equals(toDelete))
+                {
+                    picturesAndVideosFrom.remove(it)
+                    return
+                }
+            }
+        }
     }
 }
 
