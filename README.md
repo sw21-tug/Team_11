@@ -63,6 +63,12 @@ Junior Dev: David Marterer
 
 - Sorting the list - https://github.com/sw21-tug/Team_11/issues/8
 
+- Storing the trips locally - https://github.com/sw21-tug/Team_11/issues/35
+
+- Adding activities - https://github.com/sw21-tug/Team_11/issues/36
+
+- Option to delete and making the app consistent - https://github.com/sw21-tug/Team_11/issues/41
+
 <br />
 <br />
 
@@ -89,3 +95,5 @@ Junior Dev: David Marterer
 - Adding dates with description - https://github.com/sw21-tug/Team_11/issues/16
 
 - Adding items to food category - https://github.com/sw21-tug/Team_11/issues/18
+
+- Adding pictures and videos - https://github.com/sw21-tug/Team_11/issues/17
