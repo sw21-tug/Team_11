@@ -42,4 +42,7 @@
     <string name="co_travellers_text_view">Co-Travellers</string>
     <string name="add_new_co_travellers_topic">New Co-Traveller</string>
     <string name="add_new_co_travellers_name">Name: </string>
+    <string name="name_heading">NAME:</string>
+    <string name="cost_heading">Spendings:</string>
+    <string name="tasks_heading">Tasks:</string>
 </resources>

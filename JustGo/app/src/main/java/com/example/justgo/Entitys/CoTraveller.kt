@@ -1,7 +1,6 @@
 package com.example.justgo.Entitys
 
-class CoTraveller(name : String) {
-    private var name_ = name
+class CoTraveller(public var name : String) {
     private var tasks_ : ArrayList<String> = ArrayList()
     private var spendings_ : ArrayList<String> = ArrayList()
 

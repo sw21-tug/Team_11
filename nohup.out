@@ -1,0 +1,23 @@
+2021-05-12 09:28:13,431 [   2450]   WARN - Container.ComponentManagerImpl - Do not use constructor injection (requestorClass=com.android.tools.idea.AndroidInitialConfigurator) 
+2021-05-12 09:28:16,783 [   5802]   WARN - nSystem.impl.ActionManagerImpl - keymap "ReSharper" not found [Plugin: com.android.tools.ndk] 
+2021-05-12 09:28:17,031 [   6050]   WARN - nsions.impl.ExtensionPointImpl - Extension to be removed not found: class org.jetbrains.plugins.gradle.execution.test.runner.TestClassGradleConfigurationProducer 
+2021-05-12 09:28:19,636 [   8655]   WARN - Container.ComponentManagerImpl - Do not use constructor injection (requestorClass=org.jetbrains.android.compose.AndroidComposeAutoDocumentation) 
+2021-05-12 09:28:19,850 [   8869]   WARN - Container.ComponentManagerImpl - Do not use constructor injection (requestorClass=com.android.tools.idea.apk.ApkProjectComponent) 
+2021-05-12 09:28:19,850 [   8869]   WARN - Container.ComponentManagerImpl - Do not use constructor injection (requestorClass=com.android.tools.idea.apk.issues.SetupIssueReporter) 
+2021-05-12 09:28:21,196 [  10215]   WARN - Container.ComponentManagerImpl - Do not use constructor injection (requestorClass=com.android.tools.idea.apk.symbols.DebugSymbolNotifications) 
+2021-05-12 09:28:23,730 [  12749]   WARN -            #com.android.ddmlib - * daemon not running; starting now at tcp:5037 
+2021-05-12 09:28:23,805 [  12824]   WARN - openapi.wm.impl.ToolWindowImpl - ToolWindow icons should be 13x13. Please fix ToolWindow (ID:  Android Emulator) or icon jar:file:/usr/local/android-studio/plugins/android/lib/artwork.jar!/studio/icons/shell/tool-windows/emulator.svg 
+2021-05-12 09:28:25,138 [  14157]   WARN -            #com.android.ddmlib - * daemon started successfully 
+2021-05-12 09:28:26,097 [  15116]   WARN - ugins.textmate.TextMateService - Missing builtin bundles, checked: 
+/home/bjornkare/.local/share/Google/AndroidStudio4.1/textmate/lib/bundles
+/usr/local/android-studio/plugins/textmate/lib/bundles 
+2021-05-12 09:28:27,788 [  16807]   WARN - com.intellij.util.xmlb.Binding - no accessors for class org.jetbrains.kotlin.idea.highlighter.KotlinDefaultHighlightingSettingsProvider 
+2021-05-12 09:28:28,461 [  17480]   WARN - Container.ComponentManagerImpl - Do not use constructor injection (requestorClass=com.android.tools.idea.gradle.notification.GeneratedFileNotificationProvider) 
+2021-05-12 09:28:28,523 [  17542]   WARN - Container.ComponentManagerImpl - Do not use constructor injection (requestorClass=com.android.tools.idea.apk.editor.notification.ApkReloadNotificationProvider) 
+2021-05-12 09:28:29,934 [  18953]   WARN - Container.ComponentManagerImpl - Do not use constructor injection (requestorClass=com.android.tools.idea.apk.ApkWritingAccessProvider) 
+2021-05-12 09:28:32,005 [  21024]   WARN - openapi.wm.impl.ToolWindowImpl - ToolWindow icons should be 13x13. Please fix ToolWindow (ID:  Problems View) or icon jar:file:/usr/local/android-studio/lib/icons.jar!/general/warning.svg 
+2021-05-12 09:28:37,599 [  26618]   WARN - .AbstractProgressIndicatorBase - This progress indicator is indeterminate, this may lead to visual inconsistency. Please call setIndeterminate(false) before you start progress.
+org.jetbrains.kotlin.idea.configuration.ui.KotlinConfigurationCheckerService$performProjectPostOpenActions$task$1.run(KotlinConfigurationCheckerService.kt:79) 
+2021-05-12 09:28:50,431 [  39450]   WARN - Container.ComponentManagerImpl - Do not use constructor injection (requestorClass=com.android.tools.idea.lang.androidSql.room.RoomDependencyChecker) 
+2021-05-12 10:34:50,845 [3999864]   WARN - dering.imagepool.ImagePoolImpl - 0 maxSize for Bucket. This Bucket will not be used. 
+2021-05-12 12:34:21,443 [11170462]   WARN - pl.local.NativeFileWatcherImpl - File watcher is still alive. Doing a force quit. 
