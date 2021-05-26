@@ -21,6 +21,8 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
         private val TABLE_FOOD = "FOOD"
         private val TABLE_LOCATION = "LOCATION"
         private val TABLE_DATE = "TIME"
+        private val TABLE_PICTURE = "PICTURE"
+
 
 
         private val KEY_ID = "id"
@@ -32,6 +34,9 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
         private val KEY_LAT = "lat"
         private val KEY_LONG = "longi"
         private val KEY_DATE = "date"
+        private val KEY_URI = "uri"
+
+
     }
     override fun onCreate(db: SQLiteDatabase?) {
         // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
