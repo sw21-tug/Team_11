@@ -79,39 +79,38 @@ class ActivitySingleTrip : AppCompatActivity() {
     }
 
 
-        fun addItem(view: View) {
-            val intent = Intent(this, AddFieldActivity::class.java).apply {}
-            intent.putExtra("possible_fields", trip.possibleFields as Serializable)
-            startActivityForResult(intent, REQUEST_CODE)
-        }
+    fun addItem(view: View) {
+        val intent = Intent(this, AddFieldActivity::class.java).apply {}
+        intent.putExtra("possible_fields", trip.possibleFields as Serializable)
+        startActivityForResult(intent, REQUEST_CODE)
+    }
 
 
-        override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-            super.onActivityResult(requestCode, resultCode, data)
-            if (requestCode == REQUEST_CODE) {
-                if (resultCode == Activity.RESULT_OK && data != null) {
-
-                    val result = data.getSerializableExtra("added_field") as String
-                    if (result == "Dates"){
-                        trip.addTripInformation(TripDates(result))
-                    }
-
-                    else if(result == "Pictures and Videos"){
-                        trip.addTripInformation(PictureVideoList())
-                    else if (result == "Foods"){
-                        trip.addTripInformation(TripFood(result))                    }
-                    else{
-                        trip.addTripInformation(TemplateTripinfo(result))
-                    }
-                    tripinfonames.add(result)
-                    trip.possibleFields.remove(result)
-
-                    (listView.adapter as TripFeatureAdapter).notifyDataSetChanged()
-                    TripManager.replaceTrip(
-                        TripManager.getTripbyName(trip.nameofTrip).first(),
-                        trip
-                    )
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE) {
+            if (resultCode == Activity.RESULT_OK && data != null) {
+                val result = data.getSerializableExtra("added_field") as String
+                if (result == "Dates") {
+                    trip.addTripInformation(TripDates(result))
+                } else if (result == "Pictures and Videos") {
+                    trip.addTripInformation(PictureVideoList())
                 }
+                else if (result == "Foods") {
+                    trip.addTripInformation(TripFood(result))
+                } else {
+                    trip.addTripInformation(TemplateTripinfo(result))
+                }
+                tripinfonames.add(result)
+                trip.possibleFields.remove(result)
+
+                (listView.adapter as TripFeatureAdapter).notifyDataSetChanged()
+                TripManager.replaceTrip(
+                    TripManager.getTripbyName(trip.nameofTrip).first(),
+                    trip
+                )
             }
         }
+    }
 }
+
