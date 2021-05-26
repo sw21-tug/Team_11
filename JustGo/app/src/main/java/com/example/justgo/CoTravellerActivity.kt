@@ -27,13 +27,11 @@ class CoTravellerActivity : AppCompatActivity() {
         addButton = findViewById(R.id.coTravellers_addButton)
         addButton.setOnClickListener {
             val intent = Intent(this, AddNewCoTravellerActivity::class.java)
-//            intent.putExtra("trip", trip)
             startActivityForResult(intent, ADD_TRAVELLER_REQUEST_CODE)
         }
         coTravellersListView = findViewById(R.id.coTraveller_listView)
         coTravellersListView.adapter = coTravellerAdapter(this, coTravellersList)
 
-//                ArrayAdapter(this, android.R.layout.simple_spinner_item, coTravellersList.coTravellersList)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

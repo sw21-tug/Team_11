@@ -45,4 +45,6 @@
     <string name="name_heading">NAME:</string>
     <string name="cost_heading">Spendings:</string>
     <string name="tasks_heading">Tasks:</string>
+    <string name="cost_text_prompt">tap here to add spending</string>
+    <string name="task_text_prompt">Tap here to add task...</string>
 </resources>

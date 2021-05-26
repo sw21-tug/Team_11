@@ -64,7 +64,8 @@
 
                 card_view:layout_constraintTop_toBottomOf="@id/tasks_heading"
                 card_view:layout_constraintStart_toStartOf="parent"
-                tools:text="Find a cool hike, book the hotel, ..." />
+                tools:text="Find a cool hike, book the hotel, ..."
+                android:text=""/>
 
             <TextView
                 android:id="@+id/costs_heading"
@@ -87,7 +88,17 @@
 
                 card_view:layout_constraintTop_toBottomOf="@id/costs_heading"
                 card_view:layout_constraintStart_toStartOf="parent"
-                tools:text="Hotel: 80$...." />
+                tools:text="Hotel: 80$...."/>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/delete_co_traveller_button"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_delete"
+
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
