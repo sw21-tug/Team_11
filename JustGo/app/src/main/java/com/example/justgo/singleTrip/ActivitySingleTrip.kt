@@ -11,6 +11,7 @@ import com.example.justgo.DestinationsActivity
 import com.example.justgo.Entitys.TemplateTripinfo
 import com.example.justgo.Entitys.Trip
 import com.example.justgo.Entitys.TripDates
+import com.example.justgo.Entitys.TripFood
 import com.example.justgo.FoodsActivity
 import com.example.justgo.Logic.DestinationsRestCallManager
 import com.example.justgo.Logic.TripManager
@@ -91,6 +92,9 @@ class ActivitySingleTrip : AppCompatActivity() {
                     val result = data.getSerializableExtra("added_field") as String
                     if (result == "Dates"){
                         trip.addTripInformation(TripDates(result))
+                    }
+                    else if (result == "Foods"){
+                        trip.addTripInformation(TripFood(result))
                     }
                     else{
                         trip.addTripInformation(TemplateTripinfo(result))

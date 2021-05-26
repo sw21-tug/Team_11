@@ -79,9 +79,9 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
         db.close() // Closing database connection
         return success
     }
-    fun viewFoodbyTrip(trip: Trip):ArrayList<Food>{
+    fun viewFoodbyTrip(trip: Trip): TripFood? {
 
-        val foodList: ArrayList<Food> = ArrayList()
+        val tripfood = TripFood("Foods")
         try {
             val selectQuery = "SELECT  * FROM ${TABLE_FOOD} where " + FOREIGNKEY_TRIPID + "=" + trip.getID()
             val db = this.readableDatabase
@@ -90,7 +90,7 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
                 cursor = db.rawQuery(selectQuery, null)
             } catch (e: SQLiteException) {
                 db.execSQL(selectQuery)
-                return ArrayList()
+                return null
             }
             var name: String
             var foodType: String
@@ -102,7 +102,8 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
                     //ID = cursor.getInt(cursor.getColumnIndex("id"))
                     location = cursor.getString(cursor.getColumnIndex(KEY_LOCATION))
                     val food = Food(name, location, FoodType.valueOf(foodType))
-                    foodList.add(food)
+                    food.foodID = cursor.getInt(cursor.getColumnIndex(KEY_ID))
+                    tripfood.foods.add(food)
                 } while (cursor.moveToNext())
             }
         }catch (e:SQLiteException){
@@ -113,9 +114,9 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
                 // re-run query, etc.
             }
         }
-        return foodList
-
+        return tripfood
     }
+
     //method to insert data
     fun addTrip(trip: Trip):Long{
         val db = this.writableDatabase
@@ -174,9 +175,9 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
         return success
     }
 
-    fun viewDestinationbyTrip(trip: Trip):ArrayList<Destination>{
+    fun viewDestinationbyTrip(trip: Trip):TripDestination?{
 
-        val destinatiooList: ArrayList<Destination> = ArrayList()
+        var tripDestination =  TripDestination("Locations")
         try {
             val selectQuery = "SELECT  * FROM ${TABLE_LOCATION} where " + FOREIGNKEY_TRIPID + "=" + trip.getID()
             val db = this.readableDatabase
@@ -185,7 +186,7 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
                 cursor = db.rawQuery(selectQuery, null)
             } catch (e: SQLiteException) {
                 db.execSQL(selectQuery)
-                return ArrayList()
+                return null
             }
             var name: String
             var longi: String
@@ -197,7 +198,8 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
                     //ID = cursor.getInt(cursor.getColumnIndex("id"))
                     lat = cursor.getString(cursor.getColumnIndex(KEY_LAT))
                     val destination = Destination(name, longi.toDouble(), lat.toDouble())
-                    destinatiooList.add(destination)
+                    destination.destinationID = cursor.getInt(cursor.getColumnIndex(KEY_ID))
+                    tripDestination.destinations.add(destination)
                 } while (cursor.moveToNext())
             }
         }catch (e:SQLiteException){
@@ -208,7 +210,7 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
                 // re-run query, etc.
             }
         }
-        return destinatiooList
+        return tripDestination
     }
 
     fun addDate(name: String, timestamp:String, trip:Trip):Long{
