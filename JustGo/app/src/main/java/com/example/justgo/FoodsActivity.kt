@@ -42,7 +42,6 @@ class FoodsActivity : AppCompatActivity() {
 
         arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, breakfast_foods)
         foodListView.adapter = arrayAdapter
-
         breakfastButton = findViewById(R.id.breakfast_button)
         breakfastButton.isClickable = false
         lunchDinnerButton = findViewById(R.id.lunch_dinner_button)
@@ -68,6 +67,7 @@ class FoodsActivity : AppCompatActivity() {
             intent.putExtra("trip", trip)
             startActivity(intent)
         }
+
     }
 
     fun breakfastClick(){
