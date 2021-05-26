@@ -17,6 +17,17 @@ class TripDates(name : String) : TripInformation(name, value=""){
     public var dates : MutableMap<LocalDateTime, String> = mutableMapOf(LocalDateTime.parse("2021-12-24T14:55") to "Christmas")
 }
 
+class CoTravellersList() : TripInformation("CoTravellers", ""){
+    var coTravellersList : ArrayList<CoTraveller> = ArrayList()
+
+    fun addCoTraveller(coTraveller: CoTraveller){
+        coTravellersList.add(coTraveller)
+    }
+    fun deleteCoTraveller(coTraveller: CoTraveller){
+        coTravellersList.remove(coTraveller)
+    }
+}
+
 class PictureVideoList() : TripInformation("Pictures and Videos", ""){
     var picturesAndVideosBefore: ArrayList<Uri> = ArrayList()
     var picturesAndVideosFrom: ArrayList<Uri> = ArrayList()

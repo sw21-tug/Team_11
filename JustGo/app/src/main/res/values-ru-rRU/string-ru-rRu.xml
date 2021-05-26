@@ -39,4 +39,8 @@
     <string name="pictures_and_videos_button_from">Из</string>
     <string name="pictures_and_videos_button_back">назад</string>
     <string name="pictures_and_videos_button_delete">Удалить</string>
+
+    <string name="co_travellers_text_view">Путешественники</string>
+    <string name="add_new_co_travellers_topic">Новый попутчик</string>
+    <string name="add_new_co_travellers_name">Имя: </string>
 </resources>
