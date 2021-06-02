@@ -1,4 +1,4 @@
-package com.example.justgo
+package com.example.justgo.Food
 
 import android.app.Activity
 import android.content.Intent
@@ -10,16 +10,21 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.justgo.Database.DatabaseHelper
 import com.example.justgo.Entitys.*
 import com.example.justgo.Logic.TripManager
+import com.example.justgo.R
 import com.example.justgo.singleTrip.ActivitySingleTrip
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import androidx.recyclerview.widget.ConcatAdapter
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.justgo.Food.dummy.DummyContent
 
-class FoodsActivity : AppCompatActivity() {
+class FoodsActivity : AppCompatActivity(),FoodFragment.OnListFragmentInteractionListener {
 
     private lateinit var breakfastButton : Button
     private lateinit var lunchDinnerButton : Button
     private lateinit var backbutton : FloatingActionButton
     private lateinit var addFoodButton : FloatingActionButton
-    private lateinit var foodListView : ListView
+    private lateinit var foodListView : RecyclerView
     private lateinit var trip : Trip
     private lateinit var tripFood: TripFood
     private val REQUEST_CODE = 0
@@ -32,7 +37,6 @@ class FoodsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_foods)
 
         trip = intent.getSerializableExtra("trip") as Trip
-        foodListView = findViewById(R.id.food_listview)
         tripFood = getTripFoods()
 
         breakfast_foods = tripFood.getFood(FoodType.breakfast)
@@ -40,8 +44,13 @@ class FoodsActivity : AppCompatActivity() {
             System.out.println(it.toString())
         }
 
-        arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, breakfast_foods)
-        foodListView.adapter = arrayAdapter
+        //arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, breakfast_foods)
+        //foodListView.adapter = arrayAdapter
+
+        foodListView = findViewById(R.id.food_listview)
+        foodListView.layoutManager = LinearLayoutManager(this)
+        /*foodListView.adapter = concatAdapter
+        foodAdapter.submitList(getTripFoods().getFood(FoodType.breakfast))*/
         breakfastButton = findViewById(R.id.breakfast_button)
         breakfastButton.isClickable = false
         lunchDinnerButton = findViewById(R.id.lunch_dinner_button)
@@ -70,18 +79,27 @@ class FoodsActivity : AppCompatActivity() {
 
     }
 
+    private fun adapterOnClick(food: Food) {
+    }
+
     fun breakfastClick(){
-        breakfast_foods = tripFood.getFood(FoodType.breakfast)
-        arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, breakfast_foods)
-        foodListView.adapter = arrayAdapter
+        /*val headerAdapter = HeaderFoodAdapter()
+        val foodAdapter = FoodAdapter { food -> adapterOnClick(food) }
+        val concatAdapter = ConcatAdapter(headerAdapter, foodAdapter)
+        foodListView = findViewById(R.id.food_listview)
+        foodListView.adapter = concatAdapter
+        foodAdapter.submitList(getTripFoods().getFood(FoodType.breakfast))*/
         breakfastButton.isClickable = false
         lunchDinnerButton.isClickable = true
     }
 
     fun lunchClick(){
-        lunch_dinner_foods = tripFood.getFood(FoodType.lunch_dinner)
-        arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, lunch_dinner_foods)
-        foodListView.adapter = arrayAdapter
+        /*val headerAdapter = HeaderFoodAdapter()
+        val foodAdapter = FoodAdapter { food -> adapterOnClick(food) }*/
+        /*val concatAdapter = ConcatAdapter(headerAdapter, foodAdapter)
+        foodListView = findViewById(R.id.food_listview)
+        foodListView.adapter = concatAdapter
+        foodAdapter.submitList(getTripFoods().getFood(FoodType.lunch_dinner))*/
         lunchDinnerButton.isClickable = false
         breakfastButton.isClickable = true
     }
@@ -112,5 +130,9 @@ class FoodsActivity : AppCompatActivity() {
 
     fun getTripFoods() : TripFood {
         return (trip.getTripInformationbyName("Foods") as TripFood)
+    }
+
+    override fun onListFragmentInteraction(item: DummyContent?) {
+        TODO("Not yet implemented")
     }
 }

@@ -16,26 +16,52 @@ class InitializeComponents: Application() {
         val databaseHelper: DatabaseHelper = DatabaseHelper(this)
         var trips = databaseHelper.viewTrip()
         trips.forEach {
+            println()
+            println()
+            println()
+            println()
+            println()
+            println()
+            println()
+            println(it.getID())
+            println()
+            println()
+            println()
+            println()
+            println()
+            println()
+            println()
             var foods = databaseHelper.viewFoodbyTrip(it)
             if(foods !=null){
                 if(foods.foods.isNotEmpty()){
                     it.tripInformations.add(foods)
+                    it.tripInformations.remove(foods.name)
                 }
             }
             var destinations = databaseHelper.viewDestinationbyTrip(it)
             if(destinations != null){
                 if(destinations.destinations.isNotEmpty()){
                     it.tripInformations.add(destinations)
+                    it.tripInformations.remove(destinations.name)
                 }
             }
             var dates = databaseHelper.viewDatebyTrip(it)
             if (dates != null) {
                 if(dates.dates.isNotEmpty()){
                     it.tripInformations.add(dates)
+                    it.tripInformations.remove(dates.name)
                     //it.possibleFields.remove("Locations")
                     //it.addTripInformation(TemplateTripinfo("Locations"))
                 }
             }
+            var picture = databaseHelper.viewPictureorVideobyTrip(it)
+            if(picture != null){
+                if(picture.picturesAndVideos.isNotEmpty()){
+                    it.tripInformations.add(picture)
+                    it.tripInformations.remove(picture.name)
+                }
+            }
+            println(it.tripInformations.toString())
         }
 
         TripManager.addTripsFromDatabase(trips)

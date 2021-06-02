@@ -15,11 +15,14 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.net.toUri
+import com.example.justgo.Database.DatabaseHelper
+import com.example.justgo.Entitys.Picture
 import com.example.justgo.Entitys.PictureVideoList
 import com.example.justgo.Entitys.PictureVideoType
 import com.example.justgo.Entitys.Trip
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.io.File
+import java.sql.DatabaseMetaData
 
 
 class PictureVideoActivity : AppCompatActivity() {
@@ -259,7 +262,8 @@ class PictureVideoActivity : AppCompatActivity() {
                 file.copyTo(destFile, overwrite = true)
 
                 pictureVideoInformation.addPictureVideo(destFile.toUri(), selectedType)
-
+                var databaseHelper = DatabaseHelper(this)
+                databaseHelper.addPictureorVideo(Picture(destFile.toUri(),selectedType),trip)
                 currentPictureVideoList= pictureVideoInformation.getPicturesVideosList(selectedType)
                 (choosenGridView.adapter as PictureVideoAdapter).notifyDataSetChanged()
                 choosenGridView.invalidateViews()
