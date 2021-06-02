@@ -205,16 +205,7 @@ class PictureVideoActivity : AppCompatActivity() {
         startActivityForResult(intent, openGallery)
     }
 
-    private fun getPath(uri: Uri?): String {
-        val projection = arrayOf(MediaStore.Images.Media.DATA)
-
-        val cursor: Cursor = managedQuery(uri, projection, null, null, null)
-        startManagingCursor(cursor)
-        val column_index: Int = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
-        cursor.moveToFirst()
-        return cursor.getString(column_index)
-    }
-    fun getPath(uri: Uri?, activity: Activity): String {
+    private fun getPath(uri: Uri?, activity: Activity): String {
         var cursor: Cursor? = null
         try {
             val projection = arrayOf(MediaStore.MediaColumns.DATA)
