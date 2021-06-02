@@ -16,21 +16,6 @@ class InitializeComponents: Application() {
         val databaseHelper: DatabaseHelper = DatabaseHelper(this)
         var trips = databaseHelper.viewTrip()
         trips.forEach {
-            println()
-            println()
-            println()
-            println()
-            println()
-            println()
-            println()
-            println(it.getID())
-            println()
-            println()
-            println()
-            println()
-            println()
-            println()
-            println()
             var foods = databaseHelper.viewFoodbyTrip(it)
             if(foods !=null){
                 if(foods.foods.isNotEmpty()){
@@ -50,8 +35,6 @@ class InitializeComponents: Application() {
                 if(dates.dates.isNotEmpty()){
                     it.tripInformations.add(dates)
                     it.tripInformations.remove(dates.name)
-                    //it.possibleFields.remove("Locations")
-                    //it.addTripInformation(TemplateTripinfo("Locations"))
                 }
             }
             var picture = databaseHelper.viewPictureorVideobyTrip(it)

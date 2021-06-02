@@ -14,7 +14,7 @@ import com.example.justgo.R
  * TODO: Replace the implementation with code for your data type.
  */
 class MyFoodRecyclerViewAdapter(
-    private val values: List<Food>
+    private var values: ArrayList<Food>
 ) : RecyclerView.Adapter<MyFoodRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -37,5 +37,10 @@ class MyFoodRecyclerViewAdapter(
         override fun toString(): String {
             return super.toString() + " '" + contentView.text + "'"
         }
+    }
+
+    fun setItems(list : ArrayList<Food>){
+        values = ArrayList()
+        values.addAll(list)
     }
 }

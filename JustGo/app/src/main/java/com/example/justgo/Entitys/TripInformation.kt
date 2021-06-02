@@ -107,4 +107,17 @@ class TripFood(name : String) : TripInformation(name, value=""){
         }
         return returnList
     }
+
+    fun deleteFood(id:Int){
+        var found : Food? = null
+        for (food in foods) {
+            if(food.foodID == id)
+            {
+                found = food
+            }
+        }
+        if(found != null){
+            foods.remove(found)
+        }
+    }
 }

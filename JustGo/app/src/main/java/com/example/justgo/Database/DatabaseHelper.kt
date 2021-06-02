@@ -140,6 +140,16 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
         db.close() // Closing database connection
         return success
     }
+
+    fun deleteFood(food: Food):Int{
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(KEY_ID, food.foodID)
+        val success = db.delete(TABLE_FOOD, "id=" + food.foodID, null)
+        db.close()
+        return success
+    }
+
     fun viewFoodbyTrip(trip: Trip): TripFood? {
 
         val tripfood = TripFood("Foods")
