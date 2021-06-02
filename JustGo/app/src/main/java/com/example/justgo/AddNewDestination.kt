@@ -25,9 +25,6 @@ class AddNewDestination : AppCompatActivity() {
         trip = intent.getSerializableExtra("trip") as Trip
         discard=findViewById(R.id.discard2_floatActionButton)
         discard.setOnClickListener {
-            trip.getDestinationsForActualTrip().forEach {
-                println(it.toString())
-            }
             var resultIntent = Intent()
             setResult(Activity.RESULT_OK, resultIntent)
             finish()
@@ -47,10 +44,6 @@ class AddNewDestination : AppCompatActivity() {
     }
     fun savedata(name:String,context: Context) {
         DestinationsRestCallManager.getDestinationFromRESTService(name,context,trip)
-        trip.getDestinationsForActualTrip().forEach {
-            println(it.toString())
-
-        }
         TripManager.replaceTrip(
                 TripManager.getTripbyName(trip.nameofTrip).first(),
                 trip

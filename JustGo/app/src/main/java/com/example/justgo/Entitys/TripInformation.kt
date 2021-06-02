@@ -1,6 +1,6 @@
 package com.example.justgo.Entitys
 
-import android.graphics.Picture
+import com.example.justgo.Entitys.Picture
 import android.net.Uri
 import android.os.Build
 import androidx.annotation.RequiresApi
@@ -18,36 +18,46 @@ class TripDates(name : String) : TripInformation(name, value=""){
 }
 
 class PictureVideoList() : TripInformation("Pictures and Videos", ""){
-    var picturesAndVideosBefore: ArrayList<Uri> = ArrayList()
-    var picturesAndVideosFrom: ArrayList<Uri> = ArrayList()
+    /*var picturesAndVideosBefore: ArrayList<Uri> = ArrayList()
+    var picturesAndVideosFrom: ArrayList<Uri> = ArrayList()*
+     */
+    var picturesAndVideos:ArrayList<Picture> = ArrayList()
+
 
     fun addPictureVideo(pictureOrVideo: Uri, type: PictureVideoType){
-        if(type == PictureVideoType.taken_before_trip)
+        /*if(type == PictureVideoType.taken_before_trip)
         {
             picturesAndVideosBefore.add(pictureOrVideo)
         }
         else
         {
             picturesAndVideosFrom.add(pictureOrVideo)
-        }
+        }*/
+        picturesAndVideos.add(Picture(pictureOrVideo,type))
     }
 
     fun getPicturesVideosList(beforeOrFromType: PictureVideoType): ArrayList<Uri>{
         var returnList: ArrayList<Uri> = ArrayList()
-        if(beforeOrFromType == PictureVideoType.taken_before_trip)
+        /*if(beforeOrFromType == PictureVideoType.taken_before_trip)
         {
-            returnList = picturesAndVideosBefore
+            //returnList = picturesAndVideosBefore
         }
         else
         {
             returnList = picturesAndVideosFrom
+        }*/
+        picturesAndVideos.forEach {
+            if(it.type_==beforeOrFromType){
+                returnList.add(it.uri)
+            }
         }
+
         return returnList
     }
 
     fun deletePictureOrVideo(toDelete : Uri?, type : PictureVideoType? = null)
     {
-        if(type == PictureVideoType.taken_before_trip || type == null)
+        /*if(type == PictureVideoType.taken_before_trip || type == null)
         {
             picturesAndVideosBefore.forEach {
                 if(it.equals(toDelete))
@@ -65,6 +75,12 @@ class PictureVideoList() : TripInformation("Pictures and Videos", ""){
                     picturesAndVideosFrom.remove(it)
                     return
                 }
+            }
+        }*/
+        picturesAndVideos.forEach {
+            if(it.uri_.equals(toDelete)){
+                picturesAndVideos.remove(it)
+                return
             }
         }
     }
@@ -90,5 +106,18 @@ class TripFood(name : String) : TripInformation(name, value=""){
             }
         }
         return returnList
+    }
+
+    fun deleteFood(id:Int){
+        var found : Food? = null
+        for (food in foods) {
+            if(food.foodID == id)
+            {
+                found = food
+            }
+        }
+        if(found != null){
+            foods.remove(found)
+        }
     }
 }

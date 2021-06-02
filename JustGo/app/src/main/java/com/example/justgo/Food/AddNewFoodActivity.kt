@@ -1,4 +1,4 @@
-package com.example.justgo
+package com.example.justgo.Food
 
 import android.app.Activity
 import android.content.Intent
@@ -7,9 +7,8 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Spinner
-import com.example.justgo.Database.DatabaseHelper
 import com.example.justgo.Entitys.*
-import com.example.justgo.Logic.TripManager
+import com.example.justgo.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class AddNewFoodActivity : AppCompatActivity() {
