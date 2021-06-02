@@ -8,13 +8,8 @@ import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.justgo.DestinationsActivity
-import com.example.justgo.Entitys.PictureVideoList
-import com.example.justgo.Entitys.TemplateTripinfo
-import com.example.justgo.Entitys.Trip
-import com.example.justgo.Entitys.TripDates
-import com.example.justgo.Entitys.TripFood
-import com.example.justgo.FoodsActivity
-import com.example.justgo.Logic.DestinationsRestCallManager
+import com.example.justgo.Entitys.*
+import com.example.justgo.Food.FoodsActivity
 import com.example.justgo.Logic.TripManager
 import com.example.justgo.PictureVideoActivity
 import com.example.justgo.R
@@ -98,6 +93,9 @@ class ActivitySingleTrip : AppCompatActivity() {
                 }
                 else if (result == "Foods") {
                     trip.addTripInformation(TripFood(result))
+                }
+                else if (result == "Locations") {
+                    trip.addTripInformation(TripDestination(result))
                 } else {
                     trip.addTripInformation(TemplateTripinfo(result))
                 }
