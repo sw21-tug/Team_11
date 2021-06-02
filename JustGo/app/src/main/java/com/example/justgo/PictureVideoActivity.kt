@@ -199,6 +199,18 @@ class PictureVideoActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        // Overrides back button to close preview
+        if (previewImage.visibility == View.VISIBLE || previewVideo.visibility == View.VISIBLE){
+            // If a preview is open, close it
+            endPreview()
+        }
+        else{
+            // If not, use normal back button behaviour
+            super.onBackPressed()
+        }
+    }
+
     private fun openGalleryForImage() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "*/*"
