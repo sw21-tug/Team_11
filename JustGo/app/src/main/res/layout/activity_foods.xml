@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="16dp"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/food_back_button">
+        app:layout_constraintTop_toBottomOf="@id/add_food_button">
 
         <Button android:layout_height="wrap_content"
             android:layout_width="wrap_content"
@@ -59,15 +59,5 @@
         app:layout_constraintTop_toBottomOf="@+id/foods_linearLayout"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/food_back_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:clickable="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/abc_vector_test" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

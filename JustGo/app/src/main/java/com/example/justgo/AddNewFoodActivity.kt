@@ -1,11 +1,10 @@
 package com.example.justgo
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Spinner
+import androidx.appcompat.app.AppCompatActivity
 import com.example.justgo.Database.DatabaseHelper
 import com.example.justgo.Entitys.Food
 import com.example.justgo.Entitys.FoodType
@@ -35,9 +34,7 @@ class AddNewFoodActivity : AppCompatActivity() {
         locationEditText = findViewById(R.id.foodLocation_EditText)
 
         discardButton.setOnClickListener {
-            val intent = Intent(this, FoodsActivity::class.java)
-            intent.putExtra("trip", trip)
-            startActivity(intent)
+            finish()
         }
 
         saveButton.setOnClickListener {
@@ -52,10 +49,8 @@ class AddNewFoodActivity : AppCompatActivity() {
                     trip
                 )
                 foodDatabaseHelper.addFood(Food(nameEditText.text.toString(), locationEditText.text.toString(), food_dropdown.selectedItem as FoodType),trip)
-                val intent = Intent(this, FoodsActivity::class.java)
-                intent.putExtra("trip", trip)
-                startActivity(intent)
 
+                finish()
             }
         }
     }
