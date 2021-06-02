@@ -20,10 +20,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.justgo.Food.dummy.DummyContent
 import kotlin.math.roundToInt
 
-class FoodsActivity : AppCompatActivity(),FoodFragment.OnListFragmentInteractionListener {
+class FoodsActivity : AppCompatActivity() {
 
     private lateinit var breakfastButton : Button
     private lateinit var lunchDinnerButton : Button
@@ -193,10 +192,6 @@ class FoodsActivity : AppCompatActivity(),FoodFragment.OnListFragmentInteraction
 
     fun getTripFoods() : TripFood {
         return (trip.getTripInformationbyName("Foods") as TripFood)
-    }
-
-    override fun onListFragmentInteraction(item: DummyContent?) {
-        TODO("Not yet implemented")
     }
 
     fun setDataFromDb(){
