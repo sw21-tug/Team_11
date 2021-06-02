@@ -16,7 +16,7 @@ class FoodsActivity : AppCompatActivity() {
 
     private lateinit var breakfastButton : Button
     private lateinit var lunchDinnerButton : Button
-    private lateinit var backbutton : FloatingActionButton
+    private lateinit var backButton : FloatingActionButton
     private lateinit var addFoodButton : FloatingActionButton
     private lateinit var foodListView : ListView
     private lateinit var trip : Trip
@@ -27,6 +27,11 @@ class FoodsActivity : AppCompatActivity() {
 
         trip = intent.getSerializableExtra("trip") as Trip
         foodListView = findViewById(R.id.food_listview)
+        breakfastButton = findViewById(R.id.breakfast_button)
+        lunchDinnerButton = findViewById(R.id.lunch_dinner_button)
+        addFoodButton = findViewById(R.id.add_food_button)
+        backButton = findViewById(R.id.food_back_button)
+
         val breakfast_foods = trip.getFood(FoodType.breakfast)
         breakfast_foods.forEach {
             System.out.println(it.toString())
@@ -35,10 +40,7 @@ class FoodsActivity : AppCompatActivity() {
         arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, breakfast_foods)
         foodListView.adapter = arrayAdapter
 
-        breakfastButton = findViewById(R.id.breakfast_button)
         breakfastButton.isClickable = false
-        lunchDinnerButton = findViewById(R.id.lunch_dinner_button)
-
         breakfastButton.setOnClickListener {
             val breakfast_foods = trip.getFood(FoodType.breakfast)
             breakfast_foods.forEach {
@@ -63,15 +65,13 @@ class FoodsActivity : AppCompatActivity() {
             breakfastButton.isClickable = true
         }
 
-        addFoodButton = findViewById(R.id.add_food_button)
         addFoodButton.setOnClickListener {
             val intent = Intent(this, AddNewFoodActivity::class.java)
             intent.putExtra("trip", trip)
             startActivity(intent)
         }
 
-        backbutton = findViewById(R.id.food_back_button)
-        backbutton.setOnClickListener {
+        backButton.setOnClickListener {
             val intent = Intent(this, ActivitySingleTrip::class.java)
             intent.putExtra("trip", trip)
             startActivity(intent)
