@@ -43,4 +43,8 @@
     <string name="co_travellers_text_view">Путешественники</string>
     <string name="add_new_co_travellers_topic">Новый попутчик</string>
     <string name="add_new_co_travellers_name">Имя: </string>
+
+    <string name="name_heading">название:</string>
+    <string name="cost_heading">траты:</string>
+    <string name="tasks_heading">задачи:</string>
 </resources>

@@ -20,6 +20,7 @@ import com.example.justgo.Entitys.PictureVideoType
 import com.example.justgo.Entitys.Trip
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.io.File
+import java.io.FileNotFoundException
 
 
 class PictureVideoActivity : AppCompatActivity() {
@@ -213,6 +214,22 @@ class PictureVideoActivity : AppCompatActivity() {
         cursor.moveToFirst()
         return cursor.getString(column_index)
     }
+    fun getPath(uri: Uri?, activity: Activity): String {
+        var cursor: Cursor? = null
+        try {
+            val projection = arrayOf(MediaStore.MediaColumns.DATA)
+            cursor = activity.contentResolver.query(uri!!, projection, null, null, null)
+            if (cursor!!.moveToFirst()) {
+                val column_index = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA)
+                return cursor.getString(column_index)
+            }
+        } catch (e: Exception) {
+        } finally {
+            cursor!!.close()
+        }
+        return ""
+    }
+
 
     private fun getDestPath(isPhoto : Boolean) : String{
         var path = "pictures_videos/" + trip.nameofTrip + "/"
@@ -252,11 +269,34 @@ class PictureVideoActivity : AppCompatActivity() {
         if (resultCode == Activity.RESULT_OK && requestCode == openGallery){
             if(data?.data != null)
             {
-                val imgPath = getPath(data.data!!)
+
+                val selectedImageUri = data.data!!
+                var imgPath = getPath(selectedImageUri, this);
+                val url = data.data.toString();
+
                 val isPicture = !imgPath.endsWith(".mp4")
                 val file:File = File("", imgPath)
                 val destFile = File(this.filesDir, getDestPath(isPicture))
-                file.copyTo(destFile, overwrite = true)
+
+                if (url.startsWith("content://com.google.android.apps.photos.content")){
+                    // Photo is only available google photos cloud
+
+                    try {
+                        val inputStream = this.contentResolver.openInputStream(selectedImageUri);
+                        if (inputStream != null) {
+                            this.contentResolver.openOutputStream(destFile.toUri()).use { fileOut ->
+                                inputStream.copyTo(fileOut!!)
+                            }
+                        }
+                    }
+                    catch (e: FileNotFoundException ) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+                else{
+                    file.copyTo(destFile, overwrite = true)
+                }
 
                 pictureVideoInformation.addPictureVideo(destFile.toUri(), selectedType)
 

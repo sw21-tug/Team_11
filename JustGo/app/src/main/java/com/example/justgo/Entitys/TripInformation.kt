@@ -1,6 +1,5 @@
 package com.example.justgo.Entitys
 
-import android.graphics.Picture
 import android.net.Uri
 import android.os.Build
 import androidx.annotation.RequiresApi
@@ -17,7 +16,7 @@ class TripDates(name : String) : TripInformation(name, value=""){
     public var dates : MutableMap<LocalDateTime, String> = mutableMapOf(LocalDateTime.parse("2021-12-24T14:55") to "Christmas")
 }
 
-class CoTravellersList() : TripInformation("CoTravellers", ""){
+class CoTravellersList() : TripInformation("Co-Travellers", ""){
     var coTravellersList : ArrayList<CoTraveller> = ArrayList()
 
     fun addCoTraveller(coTraveller: CoTraveller){

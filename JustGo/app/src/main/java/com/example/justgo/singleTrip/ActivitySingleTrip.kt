@@ -8,11 +8,7 @@ import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.justgo.*
-import com.example.justgo.Entitys.PictureVideoList
-import com.example.justgo.Entitys.TemplateTripinfo
-import com.example.justgo.Entitys.Trip
-import com.example.justgo.Entitys.TripDates
-import com.example.justgo.Logic.DestinationsRestCallManager
+import com.example.justgo.Entitys.*
 import com.example.justgo.Logic.TripManager
 import com.example.justgo.TimeLine.TimeLine
 import java.io.Serializable
@@ -99,6 +95,9 @@ class ActivitySingleTrip : AppCompatActivity() {
                     }
                     else if(result == "Pictures and Videos"){
                         trip.addTripInformation(PictureVideoList())
+                    }
+                    else if(result == "Co-Travellers"){
+                        trip.addTripInformation(CoTravellersList())
                     }
                     else{
                         trip.addTripInformation(TemplateTripinfo(result))
