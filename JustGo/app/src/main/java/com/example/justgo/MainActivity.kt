@@ -110,10 +110,8 @@ class MainActivity : AppCompatActivity() {
             val sampleTrips: Button
             sampleTrips = findViewById(R.id.sample_trips_button)
             sampleTrips.isClickable = true
-            val sharedTrips: Button
-            sharedTrips = findViewById(R.id.shared_trips_button)
-            sharedTrips.isClickable = true
         }
+
         val sample_trips: Button
         sample_trips = findViewById(R.id.sample_trips_button)
         sample_trips.setOnClickListener {
@@ -124,29 +122,6 @@ class MainActivity : AppCompatActivity() {
             list_view_of_trips.changeTripsList(trips)
             list_view_of_trips.startListView()
             sample_trips.isClickable = false
-            val myTrips: Button
-            myTrips = findViewById(R.id.my_trips_button)
-            myTrips.isClickable = true
-            val sharedTrips: Button
-            sharedTrips = findViewById(R.id.shared_trips_button)
-            sharedTrips.isClickable = true
-        }
-        val shared_trips: Button
-        shared_trips = findViewById(R.id.shared_trips_button)
-        shared_trips.setOnClickListener {
-            list_view_trips_description.text = this.getString(R.string.btn_sharedtrips)
-            current_trip_type = TripType.shared_ones
-            var trips:ArrayList<Trip>
-            trips = TripManager.getTripsbyType(TripType.shared_ones)
-            trips.forEach {
-                println(it.toString())
-            }
-            list_view_of_trips.changeTripsList(trips)
-            list_view_of_trips.startListView()
-            shared_trips.isClickable = false
-            val sampleTrips: Button
-            sampleTrips = findViewById(R.id.sample_trips_button)
-            sampleTrips.isClickable = true
             val myTrips: Button
             myTrips = findViewById(R.id.my_trips_button)
             myTrips.isClickable = true
