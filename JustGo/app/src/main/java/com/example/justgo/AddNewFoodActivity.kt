@@ -17,41 +17,41 @@ class AddNewFoodActivity : AppCompatActivity() {
 
     private lateinit var food_dropdown : Spinner
     private lateinit var trip : Trip
+    private lateinit var discardButton : FloatingActionButton
+    private lateinit var saveButton : FloatingActionButton
+    private lateinit var nameEditText: EditText
+    private lateinit var locationEditText: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_new_food)
 
         trip = intent.getSerializableExtra("trip") as Trip
-
         food_dropdown = findViewById(R.id.foodType_dorpdown)
         food_dropdown.adapter = ArrayAdapter<FoodType>(this, android.R.layout.simple_spinner_item, FoodType.values())
+        discardButton = findViewById(R.id.discardFood_floatActionButton)
+        saveButton = findViewById(R.id.saveFood_floatActionButton)
+        nameEditText = findViewById(R.id.foodName_EditText)
+        locationEditText = findViewById(R.id.foodLocation_EditText)
 
-        val discard : FloatingActionButton
-        discard=findViewById(R.id.discardFood_floatActionButton)
-        discard.setOnClickListener {
+        discardButton.setOnClickListener {
             val intent = Intent(this, FoodsActivity::class.java)
             intent.putExtra("trip", trip)
             startActivity(intent)
         }
-        val save : FloatingActionButton
-        save=findViewById(R.id.saveFood_floatActionButton)
-        save.setOnClickListener {
-            val name: EditText
-            name=findViewById(R.id.foodName_EditText)
-            var location: EditText
-            location = findViewById(R.id.foodLocation_EditText)
 
-            if(!(name.text.toString().equals("")) && !(location.text.toString().equals(""))) {
+        saveButton.setOnClickListener {
 
-                trip.addFood(name.text.toString(), location.text.toString(), food_dropdown.selectedItem as FoodType)
+            if(!(nameEditText.text.toString().equals("")) && !(locationEditText.text.toString().equals(""))) {
+
+                trip.addFood(nameEditText.text.toString(), locationEditText.text.toString(), food_dropdown.selectedItem as FoodType)
                 var foodDatabaseHelper = DatabaseHelper(this)
 
                 TripManager.replaceTrip(
                     TripManager.getTripbyName(trip.nameofTrip).first(),
                     trip
                 )
-                foodDatabaseHelper.addFood(Food(name.text.toString(), location.text.toString(), food_dropdown.selectedItem as FoodType),trip)
+                foodDatabaseHelper.addFood(Food(nameEditText.text.toString(), locationEditText.text.toString(), food_dropdown.selectedItem as FoodType),trip)
                 val intent = Intent(this, FoodsActivity::class.java)
                 intent.putExtra("trip", trip)
                 startActivity(intent)
