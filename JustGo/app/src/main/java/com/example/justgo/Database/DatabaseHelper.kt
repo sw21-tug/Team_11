@@ -246,6 +246,15 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
         return success
     }
 
+    fun deleteDestination(destination: Destination):Int{
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(KEY_ID, destination.destinationID)
+        val success = db.delete(TABLE_LOCATION, "id=" + destination.destinationID, null)
+        db.close()
+        return success
+    }
+
     fun viewDestinationbyTrip(trip: Trip):TripDestination?{
 
         var tripDestination =  TripDestination("Locations")
