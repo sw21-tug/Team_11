@@ -103,6 +103,7 @@ class MainActivity : AppCompatActivity() {
             trips = TripManager.getTripsbyType(TripType.self_created)
             trips.forEach {
                 println(it.toString())
+                println(it.tripInformations.toString())
             }
             list_view_of_trips.changeTripsList(trips)
             list_view_of_trips.startListView()

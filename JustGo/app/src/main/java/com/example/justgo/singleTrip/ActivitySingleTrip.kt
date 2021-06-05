@@ -7,9 +7,13 @@ import android.view.View
 import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.justgo.*
+import com.example.justgo.CoTravellerActivity
+import com.example.justgo.DestinationsActivity
 import com.example.justgo.Entitys.*
+import com.example.justgo.Food.FoodsActivity
 import com.example.justgo.Logic.TripManager
+import com.example.justgo.PictureVideoActivity
+import com.example.justgo.R
 import com.example.justgo.TimeLine.TimeLine
 import java.io.Serializable
 
@@ -77,11 +81,11 @@ class ActivitySingleTrip : AppCompatActivity() {
     }
 
 
-        fun addItem(view: View) {
-            val intent = Intent(this, AddFieldActivity::class.java).apply {}
-            intent.putExtra("possible_fields", trip.possibleFields as Serializable)
-            startActivityForResult(intent, REQUEST_CODE)
-        }
+    fun addItem(view: View) {
+        val intent = Intent(this, AddFieldActivity::class.java).apply {}
+        intent.putExtra("possible_fields", trip.possibleFields as Serializable)
+        startActivityForResult(intent, REQUEST_CODE)
+    }
 
 
         override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -99,18 +103,21 @@ class ActivitySingleTrip : AppCompatActivity() {
                     else if(result == "Co-Travellers"){
                         trip.addTripInformation(CoTravellersList())
                     }
+                    else if (result == "Locations") {
+                        trip.addTripInformation(TripDestination(result))
+                    }
                     else{
                         trip.addTripInformation(TemplateTripinfo(result))
                     }
                     tripinfonames.add(result)
                     trip.possibleFields.remove(result)
 
-                    (listView.adapter as TripFeatureAdapter).notifyDataSetChanged()
-                    TripManager.replaceTrip(
-                        TripManager.getTripbyName(trip.nameofTrip).first(),
-                        trip
-                    )
-                }
+                (listView.adapter as TripFeatureAdapter).notifyDataSetChanged()
+                TripManager.replaceTrip(
+                    TripManager.getTripbyName(trip.nameofTrip).first(),
+                    trip
+                )
             }
         }
+    }
 }
