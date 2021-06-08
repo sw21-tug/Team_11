@@ -20,6 +20,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JustGo">
+        <activity android:name=".AddNewCoTravellerActivity"></activity>
+        <activity android:name=".CoTravellerActivity" />
         <activity android:name=".PictureVideoActivity"></activity>
         <activity android:name=".Food.AddNewFoodActivity" />
         <activity android:name=".Food.FoodsActivity" />

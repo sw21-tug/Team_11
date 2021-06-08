@@ -38,6 +38,15 @@
     <string name="pictures_and_videos_button_from">From</string>
     <string name="pictures_and_videos_button_back">Back</string>
     <string name="pictures_and_videos_button_delete">Delete</string>
+
+    <string name="co_travellers_text_view">Co-Travellers</string>
+    <string name="add_new_co_travellers_topic">New Co-Traveller</string>
+    <string name="add_new_co_travellers_name">Name: </string>
+    <string name="name_heading">NAME:</string>
+    <string name="cost_heading">Spendings:</string>
+    <string name="tasks_heading">Tasks:</string>
+    <string name="cost_text_prompt">tap here to add spending</string>
+    <string name="task_text_prompt">Tap here to add task...</string>
     <string name="food_string">Foods</string>
     <string name="food_finder">Foods Finder</string>
 </resources>
