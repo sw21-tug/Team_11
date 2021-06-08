@@ -4,7 +4,18 @@
     <string name="title_activity_single_trip">ActivitySingleTrip</string>
     <!-- Strings used for fragments for navigation -->
 
+    <string name="add_destination_editText">Add Destination</string>
+
     <string name="add_item">add item</string>
+    <string name="add_date">Add Date</string>
+
+    <string name="addFood_topic">Add Food</string>
+    <string name="foodName_textView">Name:</string>
+    <string name="foodLocation_textView">Location:</string>
+    <string name="foodType_textView">Type:</string>
+    <string name="food_topic">Food</string>
+    <string name="breakfast_button">Breakfast</string>
+    <string name="lunch_dinner_button">Lunch/Dinner</string>
 
     <string-array name="dropdown_string_array">
         <item>sort by...</item>
@@ -14,4 +25,19 @@
         <item>total cost</item>
         <item>number of destinations</item>
     </string-array>
+    <string name="btn_mytrips">MY TRIPS</string>
+    <string name="btn_sampletrips">SAMPLE TRIPS</string>
+    <string name="btn_sharedtrips">SHARED TRIPS</string>
+    <string name="btn_language">RU</string>
+    <string name="txtfield_name">Name: </string>
+    <string name="txtfield_dest">Destinations</string>
+    <string name="title_activity_destinations">Map</string>
+
+    <string name="pictures_and_videos_topic">Pictures and Videos</string>
+    <string name="pictures_and_videos_button_before">Before</string>
+    <string name="pictures_and_videos_button_from">From</string>
+    <string name="pictures_and_videos_button_back">Back</string>
+    <string name="pictures_and_videos_button_delete">Delete</string>
+    <string name="food_string">Foods</string>
+    <string name="food_finder">Foods Finder</string>
 </resources>

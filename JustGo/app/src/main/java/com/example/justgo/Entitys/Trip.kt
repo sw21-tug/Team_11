@@ -1,13 +1,15 @@
 package com.example.justgo.Entitys
 
+import android.net.Uri
 import java.io.Serializable
 
 class Trip(name:String,tripType: TripType) : Serializable {
-
+    private var tripID:Int = 0
     var tripInformations: ArrayList<TripInformation> = ArrayList()
-    var possibleFields = mutableListOf<String>("Dates", "Locations", "Photos", "Transportation", "Accommodation", "Activities")
+    var possibleFields = mutableListOf<String>("Dates", "Locations", "Pictures and Videos", "Transportation", "Accommodation", "Activities", "Foods")
     var nameofTrip:String = name
     var tripType:TripType = tripType
+
 
     fun addTripInformation(tripInformation:TripInformation){
         this.tripInformations.add(tripInformation)
@@ -33,6 +35,10 @@ class Trip(name:String,tripType: TripType) : Serializable {
     override fun toString(): String {
         return "$nameofTrip"
     }
-
-
+    fun addID(ID:Int){
+        tripID=ID
+    }
+    fun getID():Int{
+        return tripID
+    }
 }

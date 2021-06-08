@@ -11,7 +11,7 @@ It will allow to plan a perfect trip and to share it between friends or family, 
 
 A trip contains:
 
-● List of destinations
+● List of destinations with a map preview of their localizations
 
 ● Pictures and Videos
 
@@ -28,6 +28,10 @@ A trip contains:
 ● Transportation
 
 ● Costs
+
+● Food plan
+
+● Songs playlist
 
 ● And many more
 
@@ -57,7 +61,15 @@ Junior Dev: David Marterer
 
 **Features in progress:**
 
-- Sorting the list - https://github.com/sw21-tug/Team_11/issues/8
+- Adding Co-Travellers - https://github.com/sw21-tug/Team_11/issues/40
+
+- Storing the trips locally - https://github.com/sw21-tug/Team_11/issues/35
+
+- Adding activities - https://github.com/sw21-tug/Team_11/issues/36
+
+- Option to delete and making the app consistent - https://github.com/sw21-tug/Team_11/issues/41
+
+- Improving the UI - https://github.com/sw21-tug/Team_11/issues/45
 
 <br />
 <br />
@@ -78,3 +90,14 @@ Junior Dev: David Marterer
 
 - Categories of trips - https://github.com/sw21-tug/Team_11/issues/9
 
+- Making the App bilingual (Russian language support) - https://github.com/sw21-tug/Team_11/issues/24
+
+- Adding destinations - https://github.com/sw21-tug/Team_11/issues/15
+
+- Adding dates with description - https://github.com/sw21-tug/Team_11/issues/16
+
+- Adding items to food category - https://github.com/sw21-tug/Team_11/issues/18
+
+- Adding pictures and videos - https://github.com/sw21-tug/Team_11/issues/17
+
+- Sorting the list - https://github.com/sw21-tug/Team_11/issues/8
