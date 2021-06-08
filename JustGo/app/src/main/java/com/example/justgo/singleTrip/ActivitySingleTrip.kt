@@ -106,6 +106,9 @@ class ActivitySingleTrip : AppCompatActivity() {
                     else if (result == "Locations") {
                         trip.addTripInformation(TripDestination(result))
                     }
+                    else if (result == "Foods"){
+                        trip.addTripInformation(TripFood(result))
+                    }
                     else{
                         trip.addTripInformation(TemplateTripinfo(result))
                     }

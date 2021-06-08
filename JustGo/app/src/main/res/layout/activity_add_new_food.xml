@@ -19,44 +19,67 @@
         android:layout_marginTop="80dp"
         android:id="@+id/addFood_topic"/>
 
-    <TextView android:layout_height="37dp"
-        android:layout_width="110dp"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textSize="24sp"
-        android:text="@string/foodName_textView"
-        android:layout_marginTop="32dp"
-        android:id="@+id/foodName_textView"
-        app:layout_constraintTop_toBottomOf="@+id/addFood_topic"
-        android:layout_marginStart="32dp"/>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/foods_linearLayout_Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/addFood_topic">
 
-    <EditText android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        app:layout_constraintTop_toTopOf="@+id/foodName_textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:id="@+id/foodName_EditText"
-        app:layout_constraintStart_toEndOf="@+id/foodName_textView"
-        android:inputType="textPersonName"
-        android:ems="10"/>
+        <TextView android:layout_height="37dp"
+            android:layout_width="110dp"
+            android:textSize="24sp"
+            android:text="@string/foodName_textView"
+            android:id="@+id/foodName_textView" />
 
-    <EditText android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        app:layout_constraintTop_toTopOf="@+id/foodLocation_textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:id="@+id/foodLocation_EditText"
-        app:layout_constraintStart_toEndOf="@+id/foodLocation_textView"
-        android:inputType="textPersonName"
-        android:ems="10"
-        app:layout_constraintHorizontal_bias="0.513"/>
+        <EditText android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/foodName_EditText"
+            app:layout_constraintStart_toEndOf="@+id/foodName_textView"
+            android:inputType="textPersonName"
+            android:ems="10"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <TextView android:layout_height="40dp"
-        android:layout_width="109dp"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textSize="24sp"
-        android:text="@string/foodLocation_textView"
-        android:layout_marginTop="24dp"
-        android:id="@+id/foodLocation_textView"
-        app:layout_constraintTop_toBottomOf="@+id/foodName_textView"
-        android:layout_marginStart="32dp"/>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/foods_linearLayout_Location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/foods_linearLayout_Name">
+
+        <TextView android:layout_height="40dp"
+            android:layout_width="109dp"
+            android:textSize="24sp"
+            android:text="@string/foodLocation_textView"
+            android:id="@+id/foodLocation_textView" />
+
+        <EditText android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/foodLocation_EditText"
+            android:inputType="textPersonName"
+            android:ems="10" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/foods_linearLayout_Type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/foods_linearLayout_Location">
+
+        <TextView android:layout_height="43dp"
+            android:layout_width="111dp"
+            android:textSize="24sp"
+            android:text="@string/foodType_textView"
+            android:id="@+id/foodType_textView"/>
+
+        <Spinner android:layout_height="48dp"
+            android:layout_width="208dp"
+            android:id="@+id/foodType_dorpdown"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_height="wrap_content"
@@ -82,24 +105,5 @@
         android:visibility="visible"
         android:clickable="true"
         android:layout_marginBottom="32dp"/>
-
-    <Spinner android:layout_height="48dp"
-        android:layout_width="208dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
-        android:id="@+id/foodType_dorpdown"
-        app:layout_constraintTop_toBottomOf="@+id/foodLocation_EditText"
-        app:layout_constraintHorizontal_bias="0.852"/>
-
-    <TextView android:layout_height="43dp"
-        android:layout_width="111dp"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textSize="24sp"
-        android:text="@string/foodType_textView"
-        android:layout_marginTop="24dp"
-        android:id="@+id/foodType_textView"
-        app:layout_constraintTop_toBottomOf="@+id/foodLocation_textView"
-        android:layout_marginStart="32dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

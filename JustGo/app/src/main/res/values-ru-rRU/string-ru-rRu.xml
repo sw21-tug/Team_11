@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">JustGo</string>
-    <string name="activity_crate_trip_name">создать поездку</string>
     <string name="title_activity_single_trip">активностьОднократнаяпоездка</string>
     <!-- Strings used for fragments for navigation -->
 
@@ -10,8 +9,11 @@
     <string name="add_item">добавить элемент</string>
     <string name="add_date">установить дату</string>
 
+    <string name="create_trip_topic">Создать поездку</string>
+    <string name="create_trip_name">Имя: </string>
+
     <string name="addFood_topic">добавить еду</string>
-    <string name="foodName_textView">название:</string>
+    <string name="foodName_textView">Имя:</string>
     <string name="foodLocation_textView">место расположения:</string>
     <string name="foodType_textView">тип:</string>
     <string name="food_topic">еду</string>
@@ -47,4 +49,6 @@
     <string name="name_heading">название:</string>
     <string name="cost_heading">траты:</string>
     <string name="tasks_heading">задачи:</string>
+    <string name="cost_text_prompt">нажмите здесь, чтобы добавить расходы</string>
+    <string name="task_text_prompt">Нажмите здесь, чтобы добавить задачу...</string>
 </resources>

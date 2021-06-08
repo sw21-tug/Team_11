@@ -211,6 +211,19 @@ class PictureVideoActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        // Overrides back button to close preview
+        if (previewImage.visibility == View.VISIBLE || previewVideo.visibility == View.VISIBLE){
+            // If a preview is open, close it
+            endPreview()
+        }
+        else{
+            // If not, use normal back button behaviour
+            super.onBackPressed()
+        }
+    }
+
+
     private fun openGalleryForImage() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "*/*"
@@ -291,16 +304,22 @@ class PictureVideoActivity : AppCompatActivity() {
                 if (url.startsWith("content://com.google.android.apps.photos.content")){
                     // Photo is only available on google photos cloud
                     try {
-                        val inputStream = this.contentResolver.openInputStream(selectedImageUri);
-                        if (inputStream != null) {
-                            this.contentResolver.openOutputStream(destFile.toUri()).use { fileOut ->
-                                inputStream.copyTo(fileOut!!)
+                        file.copyTo(destFile, overwrite = true)
+                    } catch (e : java.lang.Exception) {
+                        e.printStackTrace()
+
+                        try {
+                            val inputStream = this.contentResolver.openInputStream(selectedImageUri);
+                            if (inputStream != null) {
+                                this.contentResolver.openOutputStream(destFile.toUri()).use { fileOut ->
+                                    inputStream.copyTo(fileOut!!)
+                                }
                             }
                         }
-                    }
-                    catch (e: FileNotFoundException ) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
+                        catch (e: FileNotFoundException ) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
                     }
                 }
                 else{

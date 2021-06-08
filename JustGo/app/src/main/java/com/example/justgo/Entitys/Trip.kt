@@ -1,6 +1,5 @@
 package com.example.justgo.Entitys
 
-import android.net.Uri
 import java.io.Serializable
 
 class Trip(name:String,tripType: TripType) : Serializable {
