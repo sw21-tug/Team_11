@@ -22,10 +22,6 @@
     <string-array name="dropdown_string_array">
         <item>sort by...</item>
         <item>trip name</item>
-        <item>start date</item>
-        <item>end date</item>
-        <item>total cost</item>
-        <item>number of destinations</item>
     </string-array>
     <string name="btn_mytrips">MY TRIPS</string>
     <string name="btn_sampletrips">SAMPLE TRIPS</string>
@@ -44,11 +40,15 @@
     <string name="co_travellers_text_view">Co-Travellers</string>
     <string name="add_new_co_travellers_topic">New Co-Traveller</string>
     <string name="add_new_co_travellers_name">Name: </string>
-    <string name="name_heading">NAME:</string>
+    <string name="name_heading">Name:</string>
     <string name="cost_heading">Spendings:</string>
     <string name="tasks_heading">Tasks:</string>
     <string name="cost_text_prompt">tap here to add spending</string>
     <string name="task_text_prompt">Tap here to add task...</string>
     <string name="food_string">Foods</string>
     <string name="food_finder">Foods Finder</string>
+
+    <string name="add_new_date_date">Date: </string>
+    <string name="add_new_date_time">Time: </string>
+    <string name="add_new_date_description">Description: </string>
 </resources>

@@ -55,24 +55,6 @@ class TripManager {
             trips.sortWith(compareBy({ it.nameofTrip}))
         }
 
-        fun sortTripsBySortingInput(input:String){
-            if(input == "trip name"){
-                trips.sortWith(compareBy({ it.nameofTrip}))
-            }
-            if(input == "start date"){
-
-            }
-            if(input == "end date"){
-
-            }
-            if(input == "total cost"){
-
-            }
-            if(input == "number of destinations"){
-
-            }
-        }
-
         fun clearTrips() {
             trips.clear()
         }

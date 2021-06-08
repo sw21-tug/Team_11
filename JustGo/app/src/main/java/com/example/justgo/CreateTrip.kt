@@ -29,9 +29,9 @@ class CreateTrip : AppCompatActivity() {
 
             if(!(name.text.toString().equals(""))) {
 
-
+                val inputString = name.text.toString().capitalize()
                 val databaseHelper: DatabaseHelper = DatabaseHelper(this)
-                databaseHelper.addTrip(Trip(name.text.toString(),TripType.SelfCreated))
+                databaseHelper.addTrip(Trip(inputString,TripType.SelfCreated))
                 var trips = databaseHelper.viewTrip()
                 var lasttrip = trips.last()
                 TripManager.createTrip(lasttrip)
