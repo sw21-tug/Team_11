@@ -17,7 +17,7 @@ import java.lang.StringBuilder
 class DestinationsRestCallManager {
 
     companion object {
-        fun getDestinationFromRESTService(name: String, context: Context,trip:Trip) {
+        fun getDestinationFromRESTService(name: String, accomodation: String, context: Context,trip:Trip) {
             var newDestination: Destination
             val queue = Volley.newRequestQueue(context)
             var stringbuilder: StringBuilder = StringBuilder()
@@ -33,7 +33,7 @@ class DestinationsRestCallManager {
                         println(response.toString())
                         var long = response.getDouble("longt")
                         var latt = response.getDouble("latt")
-                        newDestination = Destination(name, long, latt)
+                        newDestination = Destination(name, long, latt, accomodation)
                         var foodDatabaseHelper = DatabaseHelper(context)
                         foodDatabaseHelper.addDestination(newDestination, trip)
                         var tripDestination= trip.getTripInformationbyName("Locations") as TripDestination

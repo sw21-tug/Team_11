@@ -16,7 +16,7 @@ import java.time.LocalDateTime
 
 class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     companion object {
-        private val DATABASE_VERSION = 5
+        private val DATABASE_VERSION = 7
 
         private val DATABASE_NAME = "TripDatabase"
         private val TABLE_TRIP = "TRIP"
@@ -35,6 +35,7 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
         private val FOREIGNKEY_TRIPID = "tripID"
         private val KEY_LAT = "lat"
         private val KEY_LONG = "longi"
+        private val KEY_ACCOMODATION = "acc"
         private val KEY_DATE = "date"
         private val KEY_URI = "uri"
         private val KEY_PICTUREVIDEOTYPE = "picturevideotype"
@@ -53,7 +54,7 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
         db?.execSQL(CREATE_FOOD_TABLE)
 
         val CREATE_LOCATION_TABLE = ("CREATE TABLE " + TABLE_LOCATION + "("
-                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_NAME + " TEXT," + KEY_LAT + " TEXT,"+
+                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_NAME + " TEXT," + KEY_ACCOMODATION + " TEXT," + KEY_LAT + " TEXT,"+
                 KEY_LONG +" TEXT,"+ FOREIGNKEY_TRIPID +" INTEGER, FOREIGN KEY("+ FOREIGNKEY_TRIPID +") REFERENCES "+ TABLE_TRIP + "("+ KEY_ID +"))")
         db?.execSQL(CREATE_LOCATION_TABLE)
 
@@ -236,6 +237,7 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
         contentValues.put(KEY_NAME, destination.name_)
         contentValues.put(KEY_LONG, destination.longit_)
         contentValues.put(KEY_LAT, destination.letit_)
+        contentValues.put(KEY_ACCOMODATION, destination.accomodation)
         contentValues.put(FOREIGNKEY_TRIPID, trip.getID())
 
 
@@ -271,13 +273,15 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
             var name: String
             var longi: String
             var lat: String
+            var accomodation: String
             if (cursor.moveToFirst()) {
                 do {
                     name = cursor.getString(cursor.getColumnIndex(KEY_NAME))
                     longi = cursor.getString(cursor.getColumnIndex(KEY_LONG))
                     //ID = cursor.getInt(cursor.getColumnIndex("id"))
                     lat = cursor.getString(cursor.getColumnIndex(KEY_LAT))
-                    val destination = Destination(name, longi.toDouble(), lat.toDouble())
+                    accomodation = cursor.getString(cursor.getColumnIndex(KEY_ACCOMODATION))
+                    val destination = Destination(name, longi.toDouble(), lat.toDouble(), accomodation)
                     destination.destinationID = cursor.getInt(cursor.getColumnIndex(KEY_ID))
                     tripDestination.destinations.add(destination)
                 } while (cursor.moveToNext())
