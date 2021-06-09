@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddNewCostActivity">
+
+    <TextView android:layout_height="70dp"
+        android:layout_width="219dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:text="@string/add_new_cost_topic"
+        android:layout_marginTop="80dp"
+        android:id="@+id/addCost_topic"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/costs_linearLayout_Description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/addCost_topic">
+
+        <TextView android:layout_height="37dp"
+            android:layout_width="140dp"
+            android:textSize="24sp"
+            android:text="@string/add_new_cost_description"
+            android:id="@+id/costDescription_textView" />
+
+        <EditText android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/costDescription_EditText"
+            android:textAlignment="center"
+            app:layout_constraintStart_toEndOf="@+id/foodName_textView"
+            android:inputType="textPersonName"
+            android:ems="10"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/costs_linearLayout_Location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/costs_linearLayout_Description">
+
+        <TextView android:layout_height="40dp"
+            android:layout_width="109dp"
+            android:textSize="24sp"
+            android:text="@string/add_new_cost_amount"
+            android:id="@+id/costAmount_textView" />
+
+        <EditText android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/costAmount_EditText"
+            android:textAlignment="center"
+            android:inputType="textPersonName"
+            android:ems="10" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/saveCost_floatActionButton"
+        app:srcCompat="@android:drawable/ic_menu_save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="visible"
+        android:clickable="true"
+        android:background="@android:drawable/ic_menu_save"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="32dp"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/discardCost_floatActionButton"
+        android:layout_marginStart="32dp"
+        app:srcCompat="@android:drawable/ic_delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="visible"
+        android:clickable="true"
+        android:layout_marginBottom="32dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

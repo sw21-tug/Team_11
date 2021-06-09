@@ -52,4 +52,9 @@
     <string name="add_new_date_date">Date: </string>
     <string name="add_new_date_time">Time: </string>
     <string name="add_new_date_description">Description: </string>
+
+    <string name="costs_topic">Costs</string>
+    <string name="add_new_cost_topic">Add Cost</string>
+    <string name="add_new_cost_description">Description: </string>
+    <string name="add_new_cost_amount">Amount: </string>
 </resources>

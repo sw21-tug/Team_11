@@ -91,3 +91,15 @@ class TripFood(name : String="Foods") : TripInformation(name, value=""){
         }
     }
 }
+
+class TripCost(name : String) : TripInformation(name, value=""){
+    var costs : MutableList<Cost> = mutableListOf()
+
+    fun addCost(cost: Cost){
+        costs.add(cost)
+    }
+
+    fun deleteCost(cost: Cost){
+        costs.remove(cost)
+    }
+}

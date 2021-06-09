@@ -5,7 +5,7 @@ import java.io.Serializable
 class Trip(name:String,tripType: TripType) : Serializable {
     public var tripID:Int = 0
     var tripInformations: ArrayList<TripInformation> = ArrayList()
-    var possibleFields = mutableListOf<String>("Dates", "Locations", "Pictures and Videos", "Foods", "Co-Travellers")
+    var possibleFields = mutableListOf<String>("Dates", "Locations", "Pictures and Videos", "Foods", "Co-Travellers", "Costs")
     var nameofTrip:String = name
     var tripType:TripType = tripType
 
@@ -14,7 +14,6 @@ class Trip(name:String,tripType: TripType) : Serializable {
         this.tripInformations.add(tripInformation)
         possibleFields.remove(tripInformation.name)
     }
-
 
     fun getTripInformationbyName(name:String):TripInformation?{
         tripInformations.forEach {
