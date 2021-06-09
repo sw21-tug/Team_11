@@ -16,6 +16,18 @@ class TripDates(name : String) : TripInformation(name, value=""){
     public var dates : MutableMap<LocalDateTime, String> = mutableMapOf()
 }
 
+class CostsList() : TripInformation("Costs", ""){
+    var costList : ArrayList<Cost> = ArrayList()
+
+    fun addCost(cost: Cost){
+        costList.add(cost)
+    }
+
+    fun deleteCost(cost: Cost){
+        costList.remove(cost)
+    }
+}
+
 class CoTravellersList() : TripInformation("Co-Travellers", ""){
     var coTravellersList : ArrayList<CoTraveller> = ArrayList()
 

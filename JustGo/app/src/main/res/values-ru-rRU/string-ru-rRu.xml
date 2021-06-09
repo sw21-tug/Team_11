@@ -53,4 +53,9 @@
     <string name="add_new_date_date">Дата: </string>
     <string name="add_new_date_time">Время: </string>
     <string name="add_new_date_description">Описание: </string>
+
+    <string name="costs_topic">Расходы</string>
+    <string name="add_new_cost_topic">Добавить затраты</string>
+    <string name="add_new_cost_description">Описание: </string>
+    <string name="add_new_cost_amount">Количество: </string>
 </resources>
