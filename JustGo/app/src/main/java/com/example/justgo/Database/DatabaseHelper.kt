@@ -202,6 +202,16 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
         db.close() // Closing database connection
         return success
     }
+
+    fun deleteTrip(trip: Trip):Int{
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(KEY_ID, trip.tripID)
+        val success = db.delete(TABLE_TRIP, "id=" + trip.tripID, null)
+        db.close()
+        return success
+    }
+
     fun viewTrip():ArrayList<Trip>{
         val tripList:ArrayList<Trip> = ArrayList()
         val selectQuery = "SELECT  * FROM $TABLE_TRIP"

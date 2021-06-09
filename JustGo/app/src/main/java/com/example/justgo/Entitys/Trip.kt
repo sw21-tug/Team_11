@@ -4,7 +4,7 @@ import android.net.Uri
 import java.io.Serializable
 
 class Trip(name:String,tripType: TripType) : Serializable {
-    private var tripID:Int = 0
+    public var tripID:Int = 0
     var tripInformations: ArrayList<TripInformation> = ArrayList()
     var possibleFields = mutableListOf<String>("Dates", "Locations", "Pictures and Videos", "Transportation", "Accommodation", "Activities", "Foods")
     var nameofTrip:String = name

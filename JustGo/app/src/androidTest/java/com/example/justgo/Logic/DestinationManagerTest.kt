@@ -9,7 +9,10 @@ import org.junit.Assert.*
 import org.junit.Test
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.example.justgo.Database.DatabaseHelper
+import com.example.justgo.Entitys.Destination
 import com.example.justgo.Entitys.Trip
+import com.example.justgo.Entitys.TripDestination
 import com.example.justgo.Entitys.TripType
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
@@ -28,8 +31,48 @@ class DestinationManagerTest {
         // Context of the app under test.
         delay(5000L)
         var trip = Trip("TestTrip",TripType.self_created)
-        DestinationsRestCallManager.getDestinationFromRESTService("Graz",context,trip)
+        DestinationsRestCallManager.getDestinationFromRESTService("Graz", "Hotel",context,trip)
 
         //assertEquals("Graz",trip.destinations.first().getName())
     }
+
+    @Test
+    fun addDestinationToDB(){
+        var dbhelper = DatabaseHelper(context)
+        var trip:Trip = Trip("Barcelona",TripType.shared_ones)
+        var destination = Destination("Barcelona", 20.0, 20.0, "Hotel")
+        dbhelper.addTrip(trip)
+        trip = dbhelper.viewTrip().last()
+        dbhelper.addDestination(destination, trip)
+        var tripdest = dbhelper.viewDestinationbyTrip(trip)
+        var destDB = tripdest?.destinations?.last()
+        if (destDB != null) {
+            dbhelper.deleteDestination(destDB)
+        }
+        dbhelper.deleteTrip(trip)
+        if (tripdest != null) {
+            assertEquals(destination.toString(), destDB.toString())
+        };
+
+    }
+
+    @Test
+    fun deleteDestinationToDB(){
+        var dbhelper = DatabaseHelper(context)
+        var trip:Trip = Trip("Barcelona",TripType.shared_ones)
+        var destination = Destination("Barcelona", 20.0, 20.0, "Hotel")
+        dbhelper.addTrip(trip)
+        trip = dbhelper.viewTrip().last()
+
+        dbhelper.addDestination(destination, trip)
+        destination = dbhelper.viewDestinationbyTrip(trip)?.destinations?.last()!!
+        dbhelper.deleteDestination(destination)
+        var tripdest = dbhelper.viewDestinationbyTrip(trip)
+        dbhelper.deleteTrip(trip)
+        if (tripdest != null) {
+            assertEquals(0, tripdest.destinations.size)
+        };
+
+    }
+
 }
