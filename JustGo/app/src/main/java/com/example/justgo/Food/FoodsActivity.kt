@@ -48,7 +48,9 @@ class FoodsActivity : AppCompatActivity() {
         )
         trip = intent.getSerializableExtra("trip") as Trip
         tripFood = getTripFoods()
-        setDataFromDb()
+        if (trip.tripType == TripType.SelfCreated){
+            setDataFromDb()
+        }
 
         foods = tripFood.getFood(FoodType.breakfast)
 

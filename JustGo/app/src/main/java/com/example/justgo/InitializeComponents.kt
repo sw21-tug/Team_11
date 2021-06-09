@@ -4,7 +4,6 @@ import android.app.Application
 import android.os.Build
 import androidx.annotation.RequiresApi
 import com.example.justgo.Database.DatabaseHelper
-import com.example.justgo.Entitys.TemplateTripinfo
 import com.example.justgo.Logic.TripManager
 
 class InitializeComponents: Application() {
@@ -12,7 +11,7 @@ class InitializeComponents: Application() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate() {
         super.onCreate()
-        TripManager.createSampleTrips()
+        TripManager.createSampleTrips(this)
         val databaseHelper: DatabaseHelper = DatabaseHelper(this)
         var trips = databaseHelper.viewTrip()
         trips.forEach {
