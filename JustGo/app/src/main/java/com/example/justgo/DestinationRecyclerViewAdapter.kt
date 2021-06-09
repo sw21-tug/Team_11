@@ -1,12 +1,11 @@
 package com.example.justgo.Destination
 
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.example.justgo.Entitys.Destination
-import com.example.justgo.Entitys.Food
 import com.example.justgo.R
 
 class DestinationRecyclerViewAdapter(

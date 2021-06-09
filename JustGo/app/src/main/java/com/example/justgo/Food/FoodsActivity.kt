@@ -11,15 +11,14 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.justgo.Database.DatabaseHelper
 import com.example.justgo.Entitys.*
 import com.example.justgo.Logic.TripManager
 import com.example.justgo.R
-import com.example.justgo.singleTrip.ActivitySingleTrip
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import kotlin.math.roundToInt
 
 class FoodsActivity : AppCompatActivity() {
@@ -140,13 +139,6 @@ class FoodsActivity : AppCompatActivity() {
             startActivityForResult(intent, REQUEST_CODE)
         }
 
-        backbutton = findViewById(R.id.food_back_button)
-        backbutton.setOnClickListener {
-            val intent = Intent(this, ActivitySingleTrip::class.java)
-            intent.putExtra("trip", trip)
-            startActivity(intent)
-        }
-
     }
 
     fun breakfastClick(){
@@ -195,7 +187,7 @@ class FoodsActivity : AppCompatActivity() {
     }
 
     fun setDataFromDb(){
-        var foodlist = foodDatabaseHelper.viewFoodbyTrip(trip)
+        val foodlist = foodDatabaseHelper.viewFoodbyTrip(trip)
         tripFood.foods.clear()
         if (foodlist != null) {
             if(foodlist.foods.isNotEmpty()){
