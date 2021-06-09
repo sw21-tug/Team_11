@@ -13,7 +13,6 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.justgo.MainActivity
 import com.example.justgo.R
-import org.hamcrest.CoreMatchers.allOf
 import org.hamcrest.CoreMatchers.containsString
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -32,7 +31,7 @@ class TimeLineTest {
         onView(withId(R.id.single_trip_add_item)).perform(ViewActions.click())
         try{
             onView(withText("Dates")).perform(ViewActions.click()) // Add dates item
-        } catch (e: androidx.test.espresso.PerformException) {
+        } catch (e: androidx.test.espresso.NoMatchingViewException) {
             pressBack() // Dates already added
         }
         onView(withText("Dates")).perform(ViewActions.click()) // Go into dates
@@ -49,6 +48,6 @@ class TimeLineTest {
         closeSoftKeyboard()
         onView(withId(R.id.saveDate_floatActionButton)).perform(ViewActions.click())
 
-        onView(allOf(withId(R.id.date))).check(matches(withText(containsString("testDate"))))
+        onView(withText(containsString("testDate"))).check(matches(withText(containsString("testDate"))))
     }
 }

@@ -63,14 +63,14 @@ class TripManager {
 
             var coTravellersList = CoTravellersList()
             var cotraveller = CoTraveller("Mike")
-            cotraveller.addSpending("Hotel, 170€")
-            cotraveller.addSpending("Tickets for Sagrada Familia, 30€")
-            cotraveller.addSpending("Tickets for football game, 70€")
+            cotraveller.addSpending("Hotel: 170€")
+            cotraveller.addSpending("Tickets for Sagrada Familia: 30€")
+            cotraveller.addSpending("Tickets for football game: 70€")
             cotraveller.addTask("Find restaurant for third day")
             coTravellersList.addCoTraveller(cotraveller)
 
             cotraveller = CoTraveller("Adam")
-            cotraveller.addSpending("Plane tickets, 170€")
+            cotraveller.addSpending("Plane tickets: 170€")
             cotraveller.addTask("Buy tickets for public transport")
             cotraveller.addTask("Find restaurant for third day")
             coTravellersList.addCoTraveller(cotraveller)
@@ -124,12 +124,12 @@ class TripManager {
 
             coTravellersList = CoTravellersList()
             cotraveller = CoTraveller("Maria")
-            cotraveller.addSpending("Hotel, 470€")
+            cotraveller.addSpending("Hotel: 470€")
             cotraveller.addTask("Get Empire State tickets")
             coTravellersList.addCoTraveller(cotraveller)
 
             cotraveller = CoTraveller("Hanne")
-            cotraveller.addSpending("Plane tickets, 220€")
+            cotraveller.addSpending("Plane tickets: 220€")
             cotraveller.addTask("Buy christmas presents")
             cotraveller.addTask("Find christmas decorations for hotel room")
             coTravellersList.addCoTraveller(cotraveller)
@@ -199,15 +199,15 @@ class TripManager {
 
             coTravellersList = CoTravellersList()
             cotraveller = CoTraveller("John")
-            cotraveller.addSpending("Hotel, 170€")
-            cotraveller.addSpending("AirBnB, 40€")
-            cotraveller.addSpending("Arpege dinner, 700€")
+            cotraveller.addSpending("Hotel: 170€")
+            cotraveller.addSpending("AirBnB: 40€")
+            cotraveller.addSpending("Arpege dinner: 700€")
             cotraveller.addTask("Plan route for driving")
 
             coTravellersList.addCoTraveller(cotraveller)
 
             cotraveller = CoTraveller("Mark")
-            cotraveller.addSpending("Rental car, 300€")
+            cotraveller.addSpending("Rental car: 300€")
             cotraveller.addTask("Check covid status border crossings")
             coTravellersList.addCoTraveller(cotraveller)
 

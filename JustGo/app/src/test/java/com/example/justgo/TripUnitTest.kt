@@ -74,7 +74,7 @@ class TripUnitTest {
         TripManager.createTrip("Berlin", TripType.Sample)
         TripManager.createTrip("Graz", TripType.Sample)
 
-        TripManager.sortTripsBySortingInput("trip name")
+        TripManager.sortTripsbyName()
         trips = TripManager.getAllTrips()
 
         val rigth_result = arrayListOf("Berlin", "Graz", "Vienna")
