@@ -31,9 +31,6 @@ class AddFieldAdapter(context : Context,
         val name = view.rootView.findViewById<TextView>(R.id.name)
         name.text = dataSource[position]
 
-//        val value = view.rootView.findViewById<TextView>(R.id.value)
-//        value.text = dataSource[position].value.toString()
-
         return view
     }
 }

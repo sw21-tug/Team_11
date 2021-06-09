@@ -14,6 +14,7 @@ class Trip(name:String,tripType: TripType) : Serializable {
         this.tripInformations.add(tripInformation)
     }
 
+
     fun getTripInformationbyName(name:String):TripInformation?{
         tripInformations.forEach {
             if(it.name == name){
