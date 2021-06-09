@@ -6,6 +6,7 @@ import android.widget.EditText
 import com.example.justgo.Entitys.Cost
 import com.example.justgo.Entitys.CostsList
 import com.example.justgo.Entitys.Trip
+import com.example.justgo.Logic.TripManager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class AddNewCostActivity : AppCompatActivity() {
@@ -31,11 +32,22 @@ class AddNewCostActivity : AppCompatActivity() {
         saveButton.setOnClickListener {
             if(!(descriptionUserInput.text.toString().equals("")) && !(amountUserInput.text.toString().equals("")))
             {
+                var cost = Cost(descriptionUserInput.text.toString(), amountUserInput.text.toString())
+                costsList.addCost(cost)
+
+                /*
+                TripManager.replaceTrip(
+                    TripManager.getTripbyName(trip.nameofTrip).first(),
+                    trip
+                )
+
                 var costDesc = descriptionUserInput.text.toString()
                 var amount = amountUserInput.text.toString()
                 var cost = Cost(costDesc, amount)
 
                 costsList.addCost(cost)
+
+                 */
             }
             finish()
         }

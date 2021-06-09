@@ -18,7 +18,6 @@ class CostsActivity : AppCompatActivity() {
     private lateinit var addButton : FloatingActionButton
     private lateinit var costsListView : RecyclerView
     private lateinit var costsList : CostsList
-    private val ADD_COST_REQUEST_CODE = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
