@@ -16,7 +16,7 @@ import java.time.LocalDateTime
 
 class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     companion object {
-        private val DATABASE_VERSION = 7
+        private val DATABASE_VERSION = 8
 
         private val DATABASE_NAME = "TripDatabase"
         private val TABLE_TRIP = "TRIP"

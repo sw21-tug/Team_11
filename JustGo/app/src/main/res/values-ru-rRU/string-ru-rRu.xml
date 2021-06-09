@@ -40,6 +40,4 @@
     <string name="pictures_and_videos_button_from">Из</string>
     <string name="pictures_and_videos_button_back">назад</string>
     <string name="pictures_and_videos_button_delete">Удалить</string>
-    <string name="food_string">еда</string>
-    <string name="food_finder">поиск продуктов</string>
 </resources>
