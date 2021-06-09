@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.justgo.Entitys.CoTraveller
 import com.example.justgo.Entitys.CoTravellersList
 import com.example.justgo.Entitys.Trip
+import com.example.justgo.Logic.TripManager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class CoTravellerActivity : AppCompatActivity() {
@@ -45,7 +46,13 @@ class CoTravellerActivity : AppCompatActivity() {
 
                 coTravellersList.addCoTraveller(traveller)
                 (coTravellersListView.adapter as coTravellerAdapter).notifyDataSetChanged()
+
+                TripManager.replaceTrip(
+                        TripManager.getTripbyName(trip.nameofTrip).first(),
+                        trip
+                )
             }
+
         }
     }
 

@@ -23,10 +23,6 @@
     <string-array name="dropdown_string_array">
         <item>Сортировать по...</item>
         <item>название поездки</item>
-        <item>Дата начала</item>
-        <item>Дата окончания</item>
-        <item>Общая стоимость</item>
-        <item>количество направлений</item>
     </string-array>
     <string name="btn_mytrips">МОИ ПОЕЗДКИ</string>
     <string name="btn_sampletrips">ОБРАЗЕЦ ПОЕЗДКИ</string>
@@ -51,4 +47,10 @@
     <string name="tasks_heading">задачи:</string>
     <string name="cost_text_prompt">нажмите здесь, чтобы добавить расходы</string>
     <string name="task_text_prompt">Нажмите здесь, чтобы добавить задачу...</string>
+    <string name="food_string">Еда</string>
+    <string name="food_finder">Поиск продуктов</string>
+
+    <string name="add_new_date_date">Дата: </string>
+    <string name="add_new_date_time">Время: </string>
+    <string name="add_new_date_description">Описание: </string>
 </resources>

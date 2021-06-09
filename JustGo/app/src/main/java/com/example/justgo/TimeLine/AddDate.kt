@@ -88,7 +88,7 @@ class AddDate : AppCompatActivity() {
                 cal.get(Calendar.DAY_OF_MONTH)).show()
         }
 
-        var timeEditText = findViewById<EditText>(R.id.time_EditText)
+        val timeEditText = findViewById<EditText>(R.id.time_EditText)
         timeEditText.setText(SimpleDateFormat("HH:mm").format(System.currentTimeMillis()))
 
         val timeSetListener = TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->

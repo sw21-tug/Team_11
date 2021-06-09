@@ -11,7 +11,7 @@ abstract class TripInformation(name:String, value:Any) : Serializable{
     var value = value
 }
 
-class TripDates(name : String) : TripInformation(name, value=""){
+class TripDates(name: String="Dates") : TripInformation(name, value=""){
     @RequiresApi(Build.VERSION_CODES.O)
     public var dates : MutableMap<LocalDateTime, String> = mutableMapOf()
 }
@@ -60,11 +60,11 @@ class PictureVideoList() : TripInformation("Pictures and Videos", ""){
 class TemplateTripinfo(name: String) : TripInformation(name , "")
 
 
-class TripDestination(name : String) : TripInformation(name, value=""){
+class TripDestination(name : String="Locations") : TripInformation(name, value=""){
     public var destinations : MutableList<Destination> = mutableListOf()
 }
 
-class TripFood(name : String) : TripInformation(name, value=""){
+class TripFood(name : String="Foods") : TripInformation(name, value=""){
     public var foods : MutableList<Food> = mutableListOf()
 
     fun getFood(foodType: FoodType): ArrayList<Food>{

@@ -12,6 +12,7 @@ class Trip(name:String,tripType: TripType) : Serializable {
 
     fun addTripInformation(tripInformation:TripInformation){
         this.tripInformations.add(tripInformation)
+        possibleFields.remove(tripInformation.name)
     }
 
 
