@@ -113,7 +113,7 @@ class ActivitySingleTrip : AppCompatActivity() {
                         trip.addTripInformation(TripFood(result))
                     }
                     else if (result == "Costs"){
-                        trip.addTripInformation(CostsList())
+                        trip.addTripInformation(TripCost(result))
                     }
                     else{
                         trip.addTripInformation(TemplateTripinfo(result))

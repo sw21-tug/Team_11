@@ -44,6 +44,13 @@ class InitializeComponents: Application() {
                     it.tripInformations.remove(picture.name)
                 }
             }
+            var costs = databaseHelper.viewCostbyTrip(it)
+            if(costs !=null){
+                if(costs.costs.isNotEmpty()){
+                    it.tripInformations.add(costs)
+                    it.tripInformations.remove(costs.name)
+                }
+            }
             println(it.tripInformations.toString())
         }
 

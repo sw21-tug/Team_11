@@ -1,18 +1,18 @@
 package com.example.justgo
 
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
-import com.example.justgo.Entitys.Cost
-import com.example.justgo.Entitys.CostsList
-import com.example.justgo.Entitys.Trip
+import com.example.justgo.Entitys.*
 import com.example.justgo.Logic.TripManager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class AddNewCostActivity : AppCompatActivity() {
 
     private lateinit var trip : Trip
-    private lateinit var costsList : CostsList
+    private lateinit var costsList : TripCost
     private lateinit var descriptionUserInput : EditText
     private lateinit var amountUserInput : EditText
     private lateinit var saveButton : FloatingActionButton
@@ -23,7 +23,7 @@ class AddNewCostActivity : AppCompatActivity() {
         setContentView(R.layout.activity_add_new_cost)
 
         trip = intent.getSerializableExtra("trip") as Trip
-        costsList = trip.getTripInformationbyName("Costs") as CostsList
+        costsList = trip.getTripInformationbyName("Costs") as TripCost
         descriptionUserInput = findViewById(R.id.costDescription_EditText)
         amountUserInput = findViewById(R.id.costAmount_EditText)
         saveButton = findViewById(R.id.saveCost_floatActionButton)
@@ -33,22 +33,13 @@ class AddNewCostActivity : AppCompatActivity() {
             if(!(descriptionUserInput.text.toString().equals("")) && !(amountUserInput.text.toString().equals("")))
             {
                 var cost = Cost(descriptionUserInput.text.toString(), amountUserInput.text.toString())
-                costsList.addCost(cost)
-
-                /*
-                TripManager.replaceTrip(
-                    TripManager.getTripbyName(trip.nameofTrip).first(),
-                    trip
-                )
-
-                var costDesc = descriptionUserInput.text.toString()
-                var amount = amountUserInput.text.toString()
-                var cost = Cost(costDesc, amount)
-
-                costsList.addCost(cost)
-
-                 */
+                var resultIntent = Intent()
+                resultIntent.putExtra("costs", cost)
+                setResult(Activity.RESULT_OK, resultIntent)
+                finish()
             }
+        }
+        discardButton.setOnClickListener{
             finish()
         }
     }
