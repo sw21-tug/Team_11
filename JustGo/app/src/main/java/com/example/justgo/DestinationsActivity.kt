@@ -6,19 +6,20 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Rect
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.*
+import android.widget.Button
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.justgo.Database.DatabaseHelper
 import com.example.justgo.Destination.DestinationRecyclerViewAdapter
-import com.example.justgo.Entitys.*
-import com.example.justgo.Food.MyFoodRecyclerViewAdapter
+import com.example.justgo.Entitys.Destination
+import com.example.justgo.Entitys.Trip
+import com.example.justgo.Entitys.TripDestination
+import com.example.justgo.Entitys.TripType
 import com.example.justgo.Logic.TripManager
-
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -45,7 +46,10 @@ class DestinationsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         trip = intent.getSerializableExtra("trip") as Trip
         tripDestination = getTripDestinations()
-        setDataFromDb()
+
+        if (trip.tripType == TripType.SelfCreated) {
+                setDataFromDb()
+        }
 
         val trashBinIcon = resources.getDrawable(
                 R.drawable.ic_baseline_delete_24,

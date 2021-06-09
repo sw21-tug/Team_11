@@ -1,6 +1,8 @@
 package com.example.justgo.Entitys
 
-class CoTraveller(public var name : String) {
+import java.io.Serializable
+
+class CoTraveller(public var name : String) : Serializable{
     private var tasks_ : ArrayList<String> = ArrayList()
     private var spendings_ : ArrayList<String> = ArrayList()
 
