@@ -7,12 +7,10 @@ import android.view.View
 import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.justgo.DestinationsActivity
+import com.example.justgo.*
 import com.example.justgo.Entitys.*
 import com.example.justgo.Food.FoodsActivity
 import com.example.justgo.Logic.TripManager
-import com.example.justgo.PictureVideoActivity
-import com.example.justgo.R
 import com.example.justgo.TimeLine.TimeLine
 import java.io.Serializable
 
@@ -69,6 +67,18 @@ class ActivitySingleTrip : AppCompatActivity() {
                 intent.putExtra("trip", trip)
                 this.startActivity(intent)
             }
+
+            else if (element == "Co-Travellers") {
+                val intent = Intent(this, CoTravellerActivity::class.java)
+                intent.putExtra("trip", trip)
+                this.startActivity(intent)
+            }
+
+            else if (element == "Costs") {
+                val intent = Intent(this, CostsActivity::class.java)
+                intent.putExtra("trip", trip)
+                this.startActivity(intent)
+            }
         }
 
     }
@@ -81,26 +91,35 @@ class ActivitySingleTrip : AppCompatActivity() {
     }
 
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == REQUEST_CODE) {
-            if (resultCode == Activity.RESULT_OK && data != null) {
-                val result = data.getSerializableExtra("added_field") as String
-                if (result == "Dates") {
-                    trip.addTripInformation(TripDates(result))
-                } else if (result == "Pictures and Videos") {
-                    trip.addTripInformation(PictureVideoList())
-                }
-                else if (result == "Foods") {
-                    trip.addTripInformation(TripFood(result))
-                }
-                else if (result == "Locations") {
-                    trip.addTripInformation(TripDestination(result))
-                } else {
-                    trip.addTripInformation(TemplateTripinfo(result))
-                }
-                tripinfonames.add(result)
-                trip.possibleFields.remove(result)
+        override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+            super.onActivityResult(requestCode, resultCode, data)
+            if (requestCode == REQUEST_CODE) {
+                if (resultCode == Activity.RESULT_OK && data != null) {
+
+                    val result = data.getSerializableExtra("added_field") as String
+                    if (result == "Dates"){
+                        trip.addTripInformation(TripDates(result))
+                    }
+                    else if(result == "Pictures and Videos"){
+                        trip.addTripInformation(PictureVideoList())
+                    }
+                    else if(result == "Co-Travellers"){
+                        trip.addTripInformation(CoTravellersList())
+                    }
+                    else if (result == "Locations") {
+                        trip.addTripInformation(TripDestination(result))
+                    }
+                    else if (result == "Foods"){
+                        trip.addTripInformation(TripFood(result))
+                    }
+                    else if (result == "Costs"){
+                        trip.addTripInformation(CostsList())
+                    }
+                    else{
+                        trip.addTripInformation(TemplateTripinfo(result))
+                    }
+                    tripinfonames.add(result)
+                    trip.possibleFields.remove(result)
 
                 (listView.adapter as TripFeatureAdapter).notifyDataSetChanged()
                 TripManager.replaceTrip(
@@ -111,4 +130,3 @@ class ActivitySingleTrip : AppCompatActivity() {
         }
     }
 }
-

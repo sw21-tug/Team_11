@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+
+    android:background="@color/material_on_surface_stroke">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        card_view:cardCornerRadius="4dp"
+
+        card_view:contentPadding="16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/name_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name_heading"
+                android:textStyle="bold"
+
+                android:paddingTop="16dp"
+                android:paddingStart="16dp"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/traveller_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="32dp"
+
+
+                card_view:layout_constraintTop_toBottomOf="@id/name_heading"
+                card_view:layout_constraintStart_toStartOf="parent"
+                tools:text="name" />
+
+            <TextView
+                android:id="@+id/tasks_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tasks_heading"
+                android:textStyle="bold"
+
+                android:paddingTop="16dp"
+                android:paddingStart="16dp"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@id/traveller_name"
+                />
+
+            <TextView
+                android:id="@+id/task_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="32dp"
+
+                card_view:layout_constraintTop_toBottomOf="@id/tasks_heading"
+                card_view:layout_constraintStart_toStartOf="parent"
+                tools:text="Find a cool hike, book the hotel, ..."
+                android:text=""/>
+
+            <TextView
+                android:id="@+id/costs_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cost_heading"
+                android:textStyle="bold"
+
+                android:paddingTop="16dp"
+                android:paddingStart="16dp"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@id/task_list"
+                />
+
+            <TextView
+                android:id="@+id/cost_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="32dp"
+
+                card_view:layout_constraintTop_toBottomOf="@id/costs_heading"
+                card_view:layout_constraintStart_toStartOf="parent"
+                tools:text="Hotel: 80$...."/>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/delete_co_traveller_button"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_delete"
+
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

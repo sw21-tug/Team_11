@@ -7,54 +7,55 @@
     tools:context=".CreateTrip">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="104dp"
-        android:layout_height="62dp"
+        android:id="@+id/create_trip_topic"
+        android:layout_width="260dp"
+        android:layout_height="80dp"
         android:layout_marginTop="76dp"
-        android:text="@string/activity_crate_trip_name"
+        android:text="@string/create_trip_topic"
+        android:textAlignment="center"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="216dp"
-        android:text="@string/txtfield_name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:paddingTop="16dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/create_trip_topic">
 
-    <EditText
-        android:id="@+id/tripName_EditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="56dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.227"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        <TextView
+            android:id="@+id/create_trip_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="4dp"
+
+            android:text="@string/create_trip_name"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/tripName_EditText"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:textSize="24sp"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/saveTrip_floatActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="184dp"
+        android:layout_marginEnd="52dp"
         android:layout_marginBottom="48dp"
         android:background="@android:drawable/ic_menu_save"
         android:clickable="true"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.031"
-        app:layout_constraintStart_toEndOf="@+id/discard_floatActionButton"
-        app:layout_constraintTop_toBottomOf="@+id/tripName_EditText"
-        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@android:drawable/ic_menu_save" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -67,7 +68,6 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tripName_EditText"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@android:drawable/ic_delete" />
 </androidx.constraintlayout.widget.ConstraintLayout>

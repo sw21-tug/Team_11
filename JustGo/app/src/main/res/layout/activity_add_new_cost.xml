@@ -1,12 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-    tools:context=".Food.AddNewFoodActivity"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddNewCostActivity">
 
     <TextView android:layout_height="70dp"
         android:layout_width="219dp"
@@ -15,27 +13,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:textSize="30sp"
         android:textAlignment="center"
-        android:text="@string/addFood_topic"
+        android:text="@string/add_new_cost_topic"
         android:layout_marginTop="80dp"
-        android:id="@+id/addFood_topic"/>
+        android:id="@+id/addCost_topic"/>
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/foods_linearLayout_Name"
+        android:id="@+id/costs_linearLayout_Description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="16dp"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/addFood_topic">
+        app:layout_constraintTop_toBottomOf="@id/addCost_topic">
 
         <TextView android:layout_height="37dp"
-            android:layout_width="110dp"
+            android:layout_width="140dp"
             android:textSize="24sp"
-            android:text="@string/foodName_textView"
-            android:id="@+id/foodName_textView" />
+            android:text="@string/add_new_cost_description"
+            android:id="@+id/costDescription_textView" />
 
         <EditText android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:id="@+id/foodName_EditText"
+            android:id="@+id/costDescription_EditText"
             android:textAlignment="center"
             app:layout_constraintStart_toEndOf="@+id/foodName_textView"
             android:inputType="textPersonName"
@@ -43,51 +41,32 @@
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/foods_linearLayout_Location"
+        android:id="@+id/costs_linearLayout_Location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="16dp"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/foods_linearLayout_Name">
+        app:layout_constraintTop_toBottomOf="@id/costs_linearLayout_Description">
 
         <TextView android:layout_height="40dp"
             android:layout_width="109dp"
             android:textSize="24sp"
-            android:text="@string/foodLocation_textView"
-            android:id="@+id/foodLocation_textView" />
+            android:text="@string/add_new_cost_amount"
+            android:id="@+id/costAmount_textView" />
 
         <EditText android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:id="@+id/foodLocation_EditText"
+            android:id="@+id/costAmount_EditText"
             android:textAlignment="center"
             android:inputType="textPersonName"
             android:ems="10" />
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/foods_linearLayout_Type"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="16dp"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/foods_linearLayout_Location">
-
-        <TextView android:layout_height="43dp"
-            android:layout_width="111dp"
-            android:textSize="24sp"
-            android:text="@string/foodType_textView"
-            android:id="@+id/foodType_textView"/>
-
-        <Spinner android:layout_height="48dp"
-            android:layout_width="208dp"
-            android:id="@+id/foodType_dorpdown"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        android:id="@+id/saveFood_floatActionButton"
+        android:id="@+id/saveCost_floatActionButton"
         app:srcCompat="@android:drawable/ic_menu_save"
         app:layout_constraintBottom_toBottomOf="parent"
         android:visibility="visible"
@@ -100,7 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        android:id="@+id/discardFood_floatActionButton"
+        android:id="@+id/discardCost_floatActionButton"
         android:layout_marginStart="32dp"
         app:srcCompat="@android:drawable/ic_delete"
         app:layout_constraintBottom_toBottomOf="parent"

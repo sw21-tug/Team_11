@@ -7,115 +7,125 @@
     tools:context=".TimeLine.AddDate">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="104dp"
-        android:layout_height="62dp"
+        android:id="@+id/add_date_topic"
+        android:layout_width="180dp"
+        android:layout_height="70dp"
         android:layout_marginTop="76dp"
         android:text="Add Date"
+        android:textAlignment="center"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/date_hint"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/add_date_dateLinearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="216dp"
-        android:text="Date: "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:gravity="center"
+        android:paddingTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/add_date_topic">
 
-    <EditText
-        android:id="@+id/date_EditText"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/date_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="4dp"
+
+            android:text="@string/add_new_date_date"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/date_EditText"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/add_date_timeLinearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="56dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.227"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        android:gravity="center"
+        android:paddingTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/add_date_dateLinearLayout">
 
-    <EditText
-        android:id="@+id/time_EditText"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/time_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="4dp"
+
+            android:text="@string/add_new_date_time"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/time_EditText"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/add_date_descriptionLinearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="152dp"
-        android:layout_marginEnd="4dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.227"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        android:gravity="center"
+        android:paddingTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/add_date_timeLinearLayout">
 
+        <TextView
+            android:id="@+id/description_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="4dp"
 
-    <TextView
-        android:id="@+id/time_hint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginBottom="16dp"
-        android:text="Time: "
-        app:layout_constraintBottom_toBottomOf="@id/time_EditText"
-        app:layout_constraintStart_toStartOf="parent" />
+            android:text="@string/add_new_date_description"
+            android:textSize="30sp" />
 
-    <TextView
-        android:id="@+id/description_hint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
-        android:layout_marginBottom="8dp"
-        android:text="Description: "
-        app:layout_constraintBottom_toBottomOf="@id/description_EditText"
-        app:layout_constraintStart_toStartOf="parent" />
+        <EditText
+            android:id="@+id/description_EditText"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:textSize="24sp"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    <EditText
-        android:id="@+id/description_EditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="212dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/date_EditText"
-        app:layout_constraintTop_toBottomOf="@+id/date_EditText" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/saveDate_floatActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="184dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginBottom="42dp"
         android:background="@android:drawable/ic_menu_save"
         android:clickable="true"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.031"
-        app:layout_constraintStart_toEndOf="@id/discard_floatActionButton"
-        app:layout_constraintTop_toBottomOf="@id/description_EditText"
-        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@android:drawable/ic_menu_save" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/discard_floatActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginBottom="42dp"
         android:clickable="true"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/description_EditText"
-        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@android:drawable/ic_delete" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

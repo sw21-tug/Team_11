@@ -24,13 +24,12 @@ class PictureVideoAdapter(context : Context, private val dataSource: ArrayList<U
         {
             val thumbnail = ThumbnailUtils.createVideoThumbnail(element.path!!, MediaStore.Video.Thumbnails.MINI_KIND);
             picture_video_view.setImageBitmap(thumbnail)
-        //.createVideoThumbnail(videoFile, 0, 0); //Creation of Thumbnail of video
         }
         else
         {
             picture_video_view.setImageURI(element)
         }
-        picture_video_view.setScaleType(ImageView.ScaleType.CENTER_CROP)
+        picture_video_view.scaleType = ImageView.ScaleType.CENTER_CROP
         return picture_video_view
     }
 

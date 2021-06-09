@@ -1,6 +1,5 @@
 package com.example.justgo.Logic
 
-import com.example.justgo.Entitys.Destination
 import com.example.justgo.Entitys.Trip
 import com.example.justgo.Entitys.TripType
 
@@ -9,9 +8,9 @@ class TripManager {
         private var trips: ArrayList<Trip> = ArrayList()
 
         fun createSampleTrips(){
-            createTrip("Barcelona",TripType.created_by_others)
-            createTrip("New York",TripType.created_by_others)
-            createTrip("Paris",TripType.created_by_others)
+            createTrip("Barcelona",TripType.Sample)
+            createTrip("New York",TripType.Sample)
+            createTrip("Paris",TripType.Sample)
         }
         fun createTrip(name:String,tripType: TripType){
             var input: String = name
@@ -54,24 +53,6 @@ class TripManager {
 
         fun sortTripsbyName() {
             trips.sortWith(compareBy({ it.nameofTrip}))
-        }
-
-        fun sortTripsBySortingInput(input:String){
-            if(input == "trip name"){
-                trips.sortWith(compareBy({ it.nameofTrip}))
-            }
-            if(input == "start date"){
-
-            }
-            if(input == "end date"){
-
-            }
-            if(input == "total cost"){
-
-            }
-            if(input == "number of destinations"){
-
-            }
         }
 
         fun clearTrips() {
