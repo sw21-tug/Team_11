@@ -49,8 +49,8 @@ class TripManager {
             barcelona.addTripInformation(foods)
 
             var locations = TripDestination()
-            locations.destinations.add(Destination("Camp Nou", 2.122820, 41.380898))
-            locations.destinations.add(Destination("Sagrada Familia", 2.173504, 41.403706))
+            locations.destinations.add(Destination("Camp Nou", 2.122820, 41.380898, ""))
+            locations.destinations.add(Destination("Sagrada Familia", 2.173504, 41.403706, ""))
 
             barcelona.addTripInformation(locations)
 
@@ -114,11 +114,10 @@ class TripManager {
             newYork.addTripInformation(foods)
 
             locations = TripDestination()
-            locations.destinations.add(Destination("Times Square", -73.985130, 40.758896))
-            locations.destinations.add(Destination("Central Park", -73.968285, 	40.785091))
-            locations.destinations.add(Destination("Brooklyn Bridge", -73.997002,40.706001))
-            locations.destinations.add(Destination("Statue of Liberty", -74.044502, 40.689247
-            ))
+            locations.destinations.add(Destination("Times Square", -73.985130, 40.758896, ""))
+            locations.destinations.add(Destination("Central Park", -73.968285, 	40.785091, ""))
+            locations.destinations.add(Destination("Brooklyn Bridge", -73.997002,40.706001, ""))
+            locations.destinations.add(Destination("Statue of Liberty", -74.044502, 40.689247, ""))
 
             newYork.addTripInformation(locations)
 
@@ -175,11 +174,11 @@ class TripManager {
             paris.addTripInformation(dates)
 
             locations = TripDestination()
-            locations.destinations.add(Destination("Stuttgart", 9.183333, 48.783333))
-            locations.destinations.add(Destination("Eiffel Tower", 2.294694,48.858093))
-            locations.destinations.add(Destination("Graz airport", 15.4368,46.9892))
-            locations.destinations.add(Destination("Versailles", 2.130122, 48.801407))
-            locations.destinations.add(Destination("Le Havre", 0.100000, 49.490002))
+            locations.destinations.add(Destination("Stuttgart", 9.183333, 48.783333, "AirBnB"))
+            locations.destinations.add(Destination("Eiffel Tower", 2.294694,48.858093, ""))
+            locations.destinations.add(Destination("Graz airport", 15.4368,46.9892, ""))
+            locations.destinations.add(Destination("Versailles", 2.130122, 48.801407, ""))
+            locations.destinations.add(Destination("Le Havre", 0.100000, 49.490002, ""))
 
             paris.addTripInformation(locations)
 
