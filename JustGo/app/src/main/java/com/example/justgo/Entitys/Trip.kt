@@ -3,9 +3,9 @@ package com.example.justgo.Entitys
 import java.io.Serializable
 
 class Trip(name:String,tripType: TripType) : Serializable {
-    private var tripID:Int = 0
+    public var tripID:Int = 0
     var tripInformations: ArrayList<TripInformation> = ArrayList()
-    var possibleFields = mutableListOf<String>("Dates", "Locations", "Pictures and Videos", "Transportation", "Accommodation", "Activities", "Foods", "Co-Travellers")
+    var possibleFields = mutableListOf<String>("Dates", "Locations", "Pictures and Videos", "Foods", "Co-Travellers", "Costs")
     var nameofTrip:String = name
     var tripType:TripType = tripType
 

@@ -1,8 +1,7 @@
 package com.example.justgo
 
-import com.example.justgo.Entitys.Trip
 //import com.example.justgo.Entitys.TripDate
-import com.example.justgo.Entitys.TripDestination
+import com.example.justgo.Entitys.Trip
 import com.example.justgo.Entitys.TripType
 import com.example.justgo.Logic.TripManager
 import org.junit.Assert.assertEquals
@@ -12,7 +11,7 @@ class TripUnitTest {
    @Test
    fun createTrip() {
        TripManager.clearTrips()
-       TripManager.createTrip("New York", TripType.self_created)
+       TripManager.createTrip("New York", TripType.Sample)
        val result: Trip = TripManager.getAllTrips().first()
        assertEquals(result.toString(), "New York")
        TripManager.clearTrips()
@@ -23,9 +22,9 @@ class TripUnitTest {
         TripManager.clearTrips()
         var trips: ArrayList<Trip> = ArrayList()
 
-        TripManager.createTrip("New York", TripType.self_created)
-        TripManager.createTrip("New York", TripType.self_created)
-        TripManager.createTrip("Barcelona", TripType.self_created)
+        TripManager.createTrip("New York", TripType.Sample)
+        TripManager.createTrip("New York", TripType.Sample)
+        TripManager.createTrip("Barcelona", TripType.Sample)
 
         trips = TripManager.getTripbyName("New York")
 
@@ -40,11 +39,11 @@ class TripUnitTest {
         TripManager.clearTrips()
         var trips: ArrayList<Trip> = ArrayList()
 
-        TripManager.createTrip("New York", TripType.self_created)
-        TripManager.createTrip("New York", TripType.self_created)
-        TripManager.createTrip("Barcelona", TripType.shared_ones)
+        TripManager.createTrip("New York", TripType.Sample)
+        TripManager.createTrip("New York", TripType.Sample)
+        TripManager.createTrip("Barcelona", TripType.SelfCreated)
 
-        trips = TripManager.getTripsbyType(TripType.self_created)
+        trips = TripManager.getTripsbyType(TripType.Sample)
 
         trips.forEach {
             assertEquals(it.toString(), "New York")
@@ -56,9 +55,9 @@ class TripUnitTest {
     fun getAllTrips() {
         TripManager.clearTrips()
         var trips: ArrayList<Trip> = ArrayList()
-        TripManager.createTrip("New York", TripType.self_created)
-        TripManager.createTrip("New York", TripType.self_created)
-        TripManager.createTrip("Barcelona", TripType.shared_ones)
+        TripManager.createTrip("New York", TripType.Sample)
+        TripManager.createTrip("New York", TripType.Sample)
+        TripManager.createTrip("Barcelona", TripType.SelfCreated)
 
         trips = TripManager.getAllTrips()
 
@@ -71,11 +70,11 @@ class TripUnitTest {
     fun sortingTripsViaTripsReturnsRightTripOrder(){
         TripManager.clearTrips()
         var trips: ArrayList<Trip> = ArrayList()
-        TripManager.createTrip("Vienna", TripType.self_created)
-        TripManager.createTrip("Berlin", TripType.self_created)
-        TripManager.createTrip("Graz", TripType.self_created)
+        TripManager.createTrip("Vienna", TripType.Sample)
+        TripManager.createTrip("Berlin", TripType.Sample)
+        TripManager.createTrip("Graz", TripType.Sample)
 
-        TripManager.sortTripsBySortingInput("trip name")
+        TripManager.sortTripsbyName()
         trips = TripManager.getAllTrips()
 
         val rigth_result = arrayListOf("Berlin", "Graz", "Vienna")

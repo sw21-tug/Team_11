@@ -26,6 +26,7 @@ class MyFoodRecyclerViewAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
         holder.idView.text = item._foodName
+        holder.accomodation.text = item._location
     }
 
     override fun getItemCount(): Int = values.size
@@ -33,6 +34,7 @@ class MyFoodRecyclerViewAdapter(
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val idView: TextView = view.findViewById(R.id.item_number)
         val contentView: TextView = view.findViewById(R.id.content)
+        val accomodation: TextView = view.findViewById(R.id.accomodation)
 
         override fun toString(): String {
             return super.toString() + " '" + contentView.text + "'"

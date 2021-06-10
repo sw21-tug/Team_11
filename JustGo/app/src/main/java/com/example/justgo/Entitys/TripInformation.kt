@@ -69,7 +69,6 @@ class TripFood(name : String="Foods") : TripInformation(name, value=""){
 
     fun getFood(foodType: FoodType): ArrayList<Food>{
         var returnList: ArrayList<Food> = ArrayList()
-        println("testtesttest")
         foods.forEach {
             println(it.toString())
             if(it._foodType == foodType){
@@ -90,5 +89,17 @@ class TripFood(name : String="Foods") : TripInformation(name, value=""){
         if(found != null){
             foods.remove(found)
         }
+    }
+}
+
+class TripCost(name : String) : TripInformation(name, value=""){
+    var costs : MutableList<Cost> = mutableListOf()
+
+    fun addCost(cost: Cost){
+        costs.add(cost)
+    }
+
+    fun deleteCost(cost: Cost){
+        costs.remove(cost)
     }
 }

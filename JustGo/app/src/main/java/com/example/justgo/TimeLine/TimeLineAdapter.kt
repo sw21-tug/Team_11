@@ -36,11 +36,20 @@ class TimeLineAdapter(context: Context,
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val view = inflater.inflate(R.layout.list_item_date, parent, false)
         val name = view.rootView.findViewById<TextView>(R.id.date)
-        val date = (getItem(position) as Pair<*, *>).first as LocalDateTime
+        val descriptionView = view.rootView.findViewById<TextView>(R.id.text_timeline_title)
+        val dateTime = (getItem(position) as Pair<*, *>).first as LocalDateTime
         val description = (getItem(position) as Pair<*, *>).second
-        name.text = "${date.toString()} - ${description}"
+
+        name.text = "${dateTime.toLocalDate()} - ${dateTime.toLocalTime()}"
+        descriptionView.text = description.toString()
+
         val timeLine = view.rootView.findViewById<TimelineView>(R.id.timeline)
-        timeLine.initLine(0)
+        when(position){
+            0 -> timeLine.initLine(1)
+            count - 1 -> timeLine.initLine(2)
+            else -> timeLine.initLine(0)
+        }
+
         return view
     }
 }

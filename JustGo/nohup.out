@@ -11436,3 +11436,543 @@ java.lang.Throwable: Unexpected caret move request
 2021-05-13 10:08:46,585 [4017296]   WARN -            #com.android.ddmlib - Failed to start monitoring a2d9562f 
 2021-05-13 10:08:57,313 [4028024]   WARN -            #com.android.ddmlib - Failed to start monitoring a2d9562f 
 2021-05-13 10:11:04,137 [4154848]   WARN - pl.local.NativeFileWatcherImpl - File watcher is still alive. Doing a force quit. 
+2021-06-09 05:14:39,803 [   2694]   WARN - Container.ComponentManagerImpl - Do not use constructor injection (requestorClass=com.android.tools.idea.AndroidInitialConfigurator) 
+2021-06-09 05:14:42,751 [   5642]   WARN - nSystem.impl.ActionManagerImpl - keymap "ReSharper" not found [Plugin: com.android.tools.ndk] 
+2021-06-09 05:14:43,031 [   5922]   WARN - nsions.impl.ExtensionPointImpl - Extension to be removed not found: class org.jetbrains.plugins.gradle.execution.test.runner.TestClassGradleConfigurationProducer 
+2021-06-09 05:14:45,163 [   8054]   WARN - Container.ComponentManagerImpl - Do not use constructor injection (requestorClass=org.jetbrains.android.compose.AndroidComposeAutoDocumentation) 
+2021-06-09 05:14:45,382 [   8273]   WARN - Container.ComponentManagerImpl - Do not use constructor injection (requestorClass=com.android.tools.idea.apk.ApkProjectComponent) 
+2021-06-09 05:14:45,383 [   8274]   WARN - Container.ComponentManagerImpl - Do not use constructor injection (requestorClass=com.android.tools.idea.apk.issues.SetupIssueReporter) 
+2021-06-09 05:14:46,658 [   9549]   WARN - Container.ComponentManagerImpl - Do not use constructor injection (requestorClass=com.android.tools.idea.apk.symbols.DebugSymbolNotifications) 
+2021-06-09 05:14:48,858 [  11749]   WARN -            #com.android.ddmlib - * daemon not running; starting now at tcp:5037 
+2021-06-09 05:14:48,968 [  11859]   WARN - openapi.wm.impl.ToolWindowImpl - ToolWindow icons should be 13x13. Please fix ToolWindow (ID:  Android Emulator) or icon jar:file:/usr/local/android-studio/plugins/android/lib/artwork.jar!/studio/icons/shell/tool-windows/emulator.svg 
+2021-06-09 05:14:49,208 [  12099]   WARN -            #com.android.ddmlib - * daemon started successfully 
+2021-06-09 05:14:51,222 [  14113]   WARN - ugins.textmate.TextMateService - Missing builtin bundles, checked: 
+/home/bjornkare/.local/share/Google/AndroidStudio4.1/textmate/lib/bundles
+/usr/local/android-studio/plugins/textmate/lib/bundles 
+2021-06-09 05:14:52,402 [  15293]   WARN - com.intellij.util.xmlb.Binding - no accessors for class org.jetbrains.kotlin.idea.highlighter.KotlinDefaultHighlightingSettingsProvider 
+2021-06-09 05:14:53,918 [  16809]   WARN - Container.ComponentManagerImpl - Do not use constructor injection (requestorClass=com.android.tools.idea.gradle.notification.GeneratedFileNotificationProvider) 
+2021-06-09 05:14:53,974 [  16865]   WARN - Container.ComponentManagerImpl - Do not use constructor injection (requestorClass=com.android.tools.idea.apk.editor.notification.ApkReloadNotificationProvider) 
+2021-06-09 05:14:55,924 [  18815]   WARN - Container.ComponentManagerImpl - Do not use constructor injection (requestorClass=com.android.tools.idea.apk.ApkWritingAccessProvider) 
+2021-06-09 05:14:56,927 [  19818]   WARN - openapi.wm.impl.ToolWindowImpl - ToolWindow icons should be 13x13. Please fix ToolWindow (ID:  Problems View) or icon jar:file:/usr/local/android-studio/lib/icons.jar!/general/warning.svg 
+2021-06-09 05:15:01,249 [  24140]   WARN - .AbstractProgressIndicatorBase - This progress indicator is indeterminate, this may lead to visual inconsistency. Please call setIndeterminate(false) before you start progress.
+org.jetbrains.kotlin.idea.configuration.ui.KotlinConfigurationCheckerService$performProjectPostOpenActions$task$1.run(KotlinConfigurationCheckerService.kt:79) 
+2021-06-09 05:15:03,929 [  26820]   WARN - dering.imagepool.ImagePoolImpl - 0 maxSize for Bucket. This Bucket will not be used. 
+2021-06-09 05:15:11,213 [  34104]   WARN - Container.ComponentManagerImpl - Do not use constructor injection (requestorClass=com.android.tools.idea.lang.androidSql.room.RoomDependencyChecker) 
+2021-06-09 05:21:11,061 [ 393952]   WARN - ues.SyncIssueUsageReporterImpl - Multiple sync failures reported. Discarding: SDK_BUILD_TOOLS_TOO_LOW 
+2021-06-09 05:23:28,053 [ 530944]   WARN - idea.lint.common.LintIdeClient - Lint could not build AST for /fragment.kt; ignoring file 
+2021-06-09 05:23:31,675 [ 534566]   WARN - idea.lint.common.LintIdeClient - Lint could not build AST for /fragment.kt; ignoring file 
+2021-06-09 05:23:49,142 [ 552033]   WARN - idea.lint.common.LintIdeClient - Lint could not build AST for /fragment.kt; ignoring file 
+2021-06-09 05:23:50,746 [ 553637]   WARN - idea.lint.common.LintIdeClient - Lint could not build AST for /fragment.kt; ignoring file 
+2021-06-09 05:23:52,206 [ 555097]   WARN - com.intellij.util.xmlb.Binding - no accessors for class com.android.build.attribution.data.SuppressedWarnings 
+2021-06-09 05:23:54,970 [ 557861]   WARN - idea.lint.common.LintIdeClient - Lint could not build AST for /fragment.kt; ignoring file 
+2021-06-09 05:24:03,623 [ 566514]   WARN - rendering.ConfigurationMatcher - 'default' is not a best match for any device/locale combination for jar:///usr/local/android-studio/plugins/android/lib/layoutlib/data/framework_res.jar!/res/drawable/list_divider_material.xml.
+Displaying it with
+  , , , Left To Right, sw412dp, w412dp, h732dp, Normal Screen, Short screen aspect ratio, Not Round screen, , , Portrait Orientation, Normal, Day time, 420 DPI Density, Finger-based touchscreen, Soft keyboard, No keyboard, Hidden navigation, No navigation, Screen resolution 1920x1080, API Level 30
+which is compatible, but will actually be displayed with another more specific version of the layout. 
+2021-06-09 05:33:20,618 [1123509]   WARN - ntellij.ui.popup.AbstractPopup - popup preferred size is bigger than screen: 654x1055
+    com.intellij.ui.popup.AbstractPopup$MyContentPanel
+      com.intellij.openapi.editor.EditorMouseHoverPopupManager$WrapperPanel
+        javax.swing.JPanel
+          com.intellij.openapi.editor.EditorMouseHoverPopupManager$WrapperPanel
+            com.intellij.codeInsight.hint.LineTooltipRenderer$1MyPanel
+              com.intellij.ui.components.JBScrollPane
+                com.intellij.ui.components.JBViewport
+                  javax.swing.JEditorPane
+                com.intellij.ui.components.JBScrollBar
+                com.intellij.ui.components.JBScrollBar
+                com.intellij.ui.components.JBScrollPane$Corner
+                com.intellij.ui.components.JBScrollPane$Corner
+                com.intellij.ui.components.JBScrollPane$Corner
+                com.intellij.ui.components.JBScrollPane$Corner
+              javax.swing.JPanel
+                com.intellij.openapi.actionSystem.impl.ActionButton
+              com.intellij.codeInsight.daemon.impl.DaemonTooltipWithActionRenderer$createActionPanelWithBackground$wrapper$1
+                javax.swing.JPanel
+                  com.intellij.codeInsight.daemon.impl.DaemonTooltipWithActionRendererKt$createActionLabel$label$1
+                  com.intellij.codeInsight.daemon.impl.DaemonTooltipWithActionRenderer$createKeymapHint$fixHint$1
+                  com.intellij.codeInsight.daemon.impl.DaemonTooltipWithActionRendererKt$createActionLabel$label$1
+                  com.intellij.codeInsight.daemon.impl.DaemonTooltipWithActionRenderer$createKeymapHint$fixHint$1
+      javax.swing.JPanel
+        com.intellij.ui.CaptionPanel 
+2021-06-09 05:33:36,236 [1139127]   WARN - ntellij.ui.popup.AbstractPopup - popup preferred size is bigger than screen: 654x1055
+    com.intellij.ui.popup.AbstractPopup$MyContentPanel
+      com.intellij.openapi.editor.EditorMouseHoverPopupManager$WrapperPanel
+        javax.swing.JPanel
+          com.intellij.openapi.editor.EditorMouseHoverPopupManager$WrapperPanel
+            com.intellij.codeInsight.hint.LineTooltipRenderer$1MyPanel
+              com.intellij.ui.components.JBScrollPane
+                com.intellij.ui.components.JBViewport
+                  javax.swing.JEditorPane
+                com.intellij.ui.components.JBScrollBar
+                com.intellij.ui.components.JBScrollBar
+                com.intellij.ui.components.JBScrollPane$Corner
+                com.intellij.ui.components.JBScrollPane$Corner
+                com.intellij.ui.components.JBScrollPane$Corner
+                com.intellij.ui.components.JBScrollPane$Corner
+              javax.swing.JPanel
+                com.intellij.openapi.actionSystem.impl.ActionButton
+              com.intellij.codeInsight.daemon.impl.DaemonTooltipWithActionRenderer$createActionPanelWithBackground$wrapper$1
+                javax.swing.JPanel
+                  com.intellij.codeInsight.daemon.impl.DaemonTooltipWithActionRendererKt$createActionLabel$label$1
+                  com.intellij.codeInsight.daemon.impl.DaemonTooltipWithActionRenderer$createKeymapHint$fixHint$1
+                  com.intellij.codeInsight.daemon.impl.DaemonTooltipWithActionRendererKt$createActionLabel$label$1
+                  com.intellij.codeInsight.daemon.impl.DaemonTooltipWithActionRenderer$createKeymapHint$fixHint$1
+      javax.swing.JPanel
+        com.intellij.ui.CaptionPanel 
+2021-06-09 05:34:43,725 [1206616]   WARN - idea.lint.common.LintIdeClient - Lint could not build AST for /fragment.kt; ignoring file 
+2021-06-09 05:34:50,622 [1213513]   WARN - idea.lint.common.LintIdeClient - Lint could not build AST for /fragment.kt; ignoring file 
+2021-06-09 05:35:02,102 [1224993]   WARN - idea.lint.common.LintIdeClient - Lint could not build AST for /fragment.kt; ignoring file 
+2021-06-09 05:35:03,167 [1226058]   WARN - idea.lint.common.LintIdeClient - Lint could not build AST for /fragment.kt; ignoring file 
+2021-06-09 05:40:45,427 [1568318]   WARN -            #com.android.ddmlib - Failed to start monitoring a2d9562f 
+2021-06-09 06:53:10,393 [5913284]  ERROR - j.lang.folding.LanguageFolding - Element class com.intellij.psi.impl.source.tree.CompositeElement of type PROPERTY (class org.jetbrains.kotlin.psi.stubs.elements.KtPropertyElementType) 
+com.intellij.psi.PsiInvalidElementAccessException: Element class com.intellij.psi.impl.source.tree.CompositeElement of type PROPERTY (class org.jetbrains.kotlin.psi.stubs.elements.KtPropertyElementType)
+	at com.intellij.psi.PsiInvalidElementAccessException.createByNode(PsiInvalidElementAccessException.java:79)
+	at com.intellij.psi.impl.source.SubstrateRef$2.getContainingFile(SubstrateRef.java:101)
+	at com.intellij.extapi.psi.StubBasedPsiElementBase.getContainingFile(StubBasedPsiElementBase.java:253)
+	at org.jetbrains.kotlin.idea.decompiler.navigation.SourceNavigationHelper.navigateToDeclaration(SourceNavigationHelper.kt:298)
+	at org.jetbrains.kotlin.idea.decompiler.navigation.SourceNavigationHelper.getOriginalElement(SourceNavigationHelper.kt:287)
+	at org.jetbrains.kotlin.idea.decompiler.navigation.KotlinDeclarationNavigationPolicyImpl.getOriginalElement(KotlinDeclarationNavigationPolicyImpl.kt:12)
+	at org.jetbrains.kotlin.idea.decompiler.navigation.KotlinDeclarationNavigationPolicyImpl.getOriginalElement(KotlinDeclarationNavigationPolicyImpl.kt:11)
+	at org.jetbrains.kotlin.psi.KtDeclarationStub.getOriginalElement(KtDeclarationStub.java:72)
+	at org.jetbrains.uast.kotlin.KotlinConverter.convertDeclaration$uast_kotlin(KotlinUastLanguagePlugin.kt:489)
+	at org.jetbrains.uast.kotlin.KotlinConverter.convertDeclarationOrElement(KotlinUastLanguagePlugin.kt:625)
+	at org.jetbrains.uast.kotlin.KotlinUastLanguagePlugin.convertElementWithParent(KotlinUastLanguagePlugin.kt:92)
+	at org.jetbrains.uast.UastFacade.convertElementWithParent(UastContext.kt:81)
+	at org.jetbrains.uast.UastContextKt.toUElement(UastContext.kt:121)
+	at org.jetbrains.uast.kotlin.KotlinInternalUastUtilsKt.getMaybeLightElement(kotlinInternalUastUtils.kt:529)
+	at org.jetbrains.uast.kotlin.KotlinInternalUastUtilsKt.resolveToDeclaration(kotlinInternalUastUtils.kt:334)
+	at org.jetbrains.uast.kotlin.KotlinInternalUastUtilsKt.resolveToDeclaration(kotlinInternalUastUtils.kt:327)
+	at org.jetbrains.uast.kotlin.KotlinUSimpleReferenceExpression$resolvedDeclaration$2.invoke(KotlinUSimpleReferenceExpression.kt:41)
+	at org.jetbrains.uast.kotlin.KotlinUSimpleReferenceExpression$resolvedDeclaration$2.invoke(KotlinUSimpleReferenceExpression.kt:41)
+	at kotlin.SynchronizedLazyImpl.getValue(LazyJVM.kt:74)
+	at org.jetbrains.uast.kotlin.KotlinUSimpleReferenceExpression.getResolvedDeclaration(KotlinUSimpleReferenceExpression.kt:41)
+	at org.jetbrains.uast.kotlin.KotlinUSimpleReferenceExpression.resolve(KotlinUSimpleReferenceExpression.kt:45)
+	at org.jetbrains.kotlin.android.folding.ResourceFoldingBuilder.getFoldingDescriptor(ResourceFoldingBuilder.kt:102)
+	at org.jetbrains.kotlin.android.folding.ResourceFoldingBuilder.access$getFoldingDescriptor(ResourceFoldingBuilder.kt:52)
+	at org.jetbrains.kotlin.android.folding.ResourceFoldingBuilder$buildFoldRegions$1.visitSimpleNameReferenceExpression(ResourceFoldingBuilder.kt:91)
+	at org.jetbrains.uast.kotlin.KotlinUSimpleReferenceExpression.accept(KotlinUSimpleReferenceExpression.kt:51)
+	at org.jetbrains.uast.internal.ImplementationUtilsKt.acceptList(implementationUtils.kt:23)
+	at org.jetbrains.uast.kotlin.KotlinUFunctionCallExpression.accept(KotlinUFunctionCallExpression.kt:190)
+	at org.jetbrains.uast.internal.ImplementationUtilsKt.acceptList(implementationUtils.kt:23)
+	at org.jetbrains.uast.UBlockExpression$DefaultImpls.accept(UBlockExpression.kt:21)
+	at org.jetbrains.uast.kotlin.KotlinUBlockExpression.accept(KotlinUBlockExpression.kt:24)
+	at org.jetbrains.uast.UMethod$DefaultImpls.accept(UMethod.kt:41)
+	at org.jetbrains.uast.UMethodTypeSpecific$DefaultImpls.accept(UMethod.kt)
+	at org.jetbrains.uast.kotlin.declarations.KotlinUMethod.accept(KotlinUMethod.kt:31)
+	at org.jetbrains.uast.internal.ImplementationUtilsKt.acceptList(implementationUtils.kt:23)
+	at org.jetbrains.uast.kotlin.AbstractKotlinUClass.accept(KotlinUClass.kt:66)
+	at org.jetbrains.uast.internal.ImplementationUtilsKt.acceptList(implementationUtils.kt:23)
+	at org.jetbrains.uast.UFile$DefaultImpls.accept(UFile.kt:83)
+	at org.jetbrains.uast.kotlin.KotlinUFile.accept(KotlinUFile.kt:30)
+	at org.jetbrains.kotlin.android.folding.ResourceFoldingBuilder.buildFoldRegions(ResourceFoldingBuilder.kt:89)
+	at com.intellij.lang.folding.LanguageFolding.buildFoldingDescriptorsNoPlaceholderCaching(LanguageFolding.java:92)
+	at com.intellij.lang.folding.CompositeFoldingBuilder.buildFoldRegions(CompositeFoldingBuilder.java:37)
+	at com.intellij.lang.folding.LanguageFolding.buildFoldingDescriptorsNoPlaceholderCaching(LanguageFolding.java:92)
+	at com.intellij.lang.folding.LanguageFolding.buildFoldingDescriptors(LanguageFolding.java:75)
+	at com.intellij.codeInsight.folding.impl.FoldingUpdate.getFoldingsFor(FoldingUpdate.java:248)
+	at com.intellij.codeInsight.folding.impl.FoldingUpdate.getFoldingsFor(FoldingUpdate.java:228)
+	at com.intellij.codeInsight.folding.impl.FoldingUpdate.getUpdateResult(FoldingUpdate.java:82)
+	at com.intellij.codeInsight.folding.impl.FoldingUpdate.lambda$updateFoldRegions$0(FoldingUpdate.java:71)
+	at com.intellij.psi.impl.PsiCachedValueImpl.doCompute(PsiCachedValueImpl.java:54)
+	at com.intellij.util.CachedValueBase.lambda$getValueWithLock$1(CachedValueBase.java:235)
+	at com.intellij.openapi.util.RecursionManager$1.doPreventingRecursion(RecursionManager.java:113)
+	at com.intellij.openapi.util.RecursionManager.doPreventingRecursion(RecursionManager.java:72)
+	at com.intellij.util.CachedValueBase.getValueWithLock(CachedValueBase.java:236)
+	at com.intellij.psi.impl.PsiCachedValueImpl.getValue(PsiCachedValueImpl.java:43)
+	at com.intellij.util.CachedValuesManagerImpl.getCachedValue(CachedValuesManagerImpl.java:73)
+	at com.intellij.codeInsight.folding.impl.FoldingUpdate.updateFoldRegions(FoldingUpdate.java:68)
+	at com.intellij.codeInsight.folding.impl.CodeFoldingManagerImpl.updateFoldRegions(CodeFoldingManagerImpl.java:229)
+	at com.intellij.codeInsight.folding.impl.CodeFoldingManagerImpl.updateFoldRegionsAsync(CodeFoldingManagerImpl.java:215)
+	at com.intellij.codeInsight.daemon.impl.CodeFoldingPass.doCollectInformation(CodeFoldingPass.java:42)
+	at com.intellij.codeHighlighting.TextEditorHighlightingPass.collectInformation(TextEditorHighlightingPass.java:52)
+	at com.intellij.codeInsight.daemon.impl.PassExecutorService$ScheduledPass.lambda$null$1(PassExecutorService.java:442)
+	at com.intellij.openapi.application.impl.ApplicationImpl.tryRunReadAction(ApplicationImpl.java:1109)
+	at com.intellij.codeInsight.daemon.impl.PassExecutorService$ScheduledPass.lambda$doRun$2(PassExecutorService.java:435)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.registerIndicatorAndRun(CoreProgressManager.java:627)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.executeProcessUnderProgress(CoreProgressManager.java:572)
+	at com.intellij.openapi.progress.impl.ProgressManagerImpl.executeProcessUnderProgress(ProgressManagerImpl.java:61)
+	at com.intellij.codeInsight.daemon.impl.PassExecutorService$ScheduledPass.doRun(PassExecutorService.java:434)
+	at com.intellij.codeInsight.daemon.impl.PassExecutorService$ScheduledPass.lambda$run$0(PassExecutorService.java:410)
+	at com.intellij.openapi.application.impl.ReadMostlyRWLock.executeByImpatientReader(ReadMostlyRWLock.java:168)
+	at com.intellij.openapi.application.impl.ApplicationImpl.executeByImpatientReader(ApplicationImpl.java:168)
+	at com.intellij.codeInsight.daemon.impl.PassExecutorService$ScheduledPass.run(PassExecutorService.java:408)
+	at com.intellij.concurrency.JobLauncherImpl$VoidForkJoinTask$1.exec(JobLauncherImpl.java:171)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+2021-06-09 06:53:10,398 [5913289]  ERROR - j.lang.folding.LanguageFolding - Android Studio 4.1.3  Build #AI-201.8743.12.41.7199119 
+2021-06-09 06:53:10,399 [5913290]  ERROR - j.lang.folding.LanguageFolding - JDK: 1.8.0_242-release; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o 
+2021-06-09 06:53:10,399 [5913290]  ERROR - j.lang.folding.LanguageFolding - OS: Linux 
+2021-06-09 06:53:10,402 [5913293]  ERROR - j.lang.folding.LanguageFolding - Plugin to blame: Kotlin version: 1.4.32-release-Studio4.1-1 
+2021-06-09 06:53:10,402 [5913293]  ERROR - j.lang.folding.LanguageFolding - Last Action: EditorBackSpace 
+2021-06-09 06:53:10,470 [5913361]  ERROR - aemon.impl.PassExecutorService - Element class com.intellij.psi.impl.source.tree.CompositeElement of type PROPERTY (class org.jetbrains.kotlin.psi.stubs.elements.KtPropertyElementType) 
+com.intellij.psi.PsiInvalidElementAccessException: Element class com.intellij.psi.impl.source.tree.CompositeElement of type PROPERTY (class org.jetbrains.kotlin.psi.stubs.elements.KtPropertyElementType)
+	at com.intellij.psi.PsiInvalidElementAccessException.createByNode(PsiInvalidElementAccessException.java:79)
+	at com.intellij.psi.impl.source.SubstrateRef$2.getContainingFile(SubstrateRef.java:101)
+	at com.intellij.extapi.psi.StubBasedPsiElementBase.getContainingFile(StubBasedPsiElementBase.java:253)
+	at org.jetbrains.kotlin.idea.decompiler.navigation.SourceNavigationHelper.navigateToDeclaration(SourceNavigationHelper.kt:298)
+	at org.jetbrains.kotlin.idea.decompiler.navigation.SourceNavigationHelper.getOriginalElement(SourceNavigationHelper.kt:287)
+	at org.jetbrains.kotlin.idea.decompiler.navigation.KotlinDeclarationNavigationPolicyImpl.getOriginalElement(KotlinDeclarationNavigationPolicyImpl.kt:12)
+	at org.jetbrains.kotlin.idea.decompiler.navigation.KotlinDeclarationNavigationPolicyImpl.getOriginalElement(KotlinDeclarationNavigationPolicyImpl.kt:11)
+	at org.jetbrains.kotlin.psi.KtDeclarationStub.getOriginalElement(KtDeclarationStub.java:72)
+	at org.jetbrains.uast.kotlin.KotlinConverter.convertDeclaration$uast_kotlin(KotlinUastLanguagePlugin.kt:489)
+	at org.jetbrains.uast.kotlin.KotlinConverter.convertDeclarationOrElement(KotlinUastLanguagePlugin.kt:625)
+	at org.jetbrains.uast.kotlin.KotlinUastLanguagePlugin.convertElementWithParent(KotlinUastLanguagePlugin.kt:92)
+	at org.jetbrains.uast.UastFacade.convertElementWithParent(UastContext.kt:81)
+	at org.jetbrains.uast.UastContextKt.toUElement(UastContext.kt:121)
+	at org.jetbrains.uast.kotlin.KotlinInternalUastUtilsKt.getMaybeLightElement(kotlinInternalUastUtils.kt:529)
+	at org.jetbrains.uast.kotlin.KotlinInternalUastUtilsKt.resolveToDeclaration(kotlinInternalUastUtils.kt:334)
+	at org.jetbrains.uast.kotlin.KotlinInternalUastUtilsKt.resolveToDeclaration(kotlinInternalUastUtils.kt:327)
+	at org.jetbrains.uast.kotlin.KotlinUSimpleReferenceExpression$resolvedDeclaration$2.invoke(KotlinUSimpleReferenceExpression.kt:41)
+	at org.jetbrains.uast.kotlin.KotlinUSimpleReferenceExpression$resolvedDeclaration$2.invoke(KotlinUSimpleReferenceExpression.kt:41)
+	at kotlin.SynchronizedLazyImpl.getValue(LazyJVM.kt:74)
+	at org.jetbrains.uast.kotlin.KotlinUSimpleReferenceExpression.getResolvedDeclaration(KotlinUSimpleReferenceExpression.kt:41)
+	at org.jetbrains.uast.kotlin.KotlinUSimpleReferenceExpression.resolve(KotlinUSimpleReferenceExpression.kt:45)
+	at com.intellij.codeInspection.apiUsage.ApiUsageUastVisitor.visitSimpleNameReferenceExpression(ApiUsageUastVisitor.kt:40)
+	at org.jetbrains.uast.kotlin.KotlinUSimpleReferenceExpression.accept(KotlinUSimpleReferenceExpression.kt:51)
+	at com.intellij.uast.UastVisitorAdapter.visitElement(UastVisitorAdapter.java:48)
+	at org.jetbrains.kotlin.psi.KtElementImplStub.accept(KtElementImplStub.java:63)
+	at com.intellij.codeInspection.InspectionEngine.acceptElements(InspectionEngine.java:69)
+	at com.intellij.codeInspection.InspectionEngine.createVisitorAndAcceptElements(InspectionEngine.java:60)
+	at com.intellij.codeInsight.daemon.impl.LocalInspectionsPass.runToolOnElements(LocalInspectionsPass.java:297)
+	at com.intellij.codeInsight.daemon.impl.LocalInspectionsPass.lambda$null$3(LocalInspectionsPass.java:266)
+	at com.intellij.util.AstLoadingFilter.forceAllowTreeLoading(AstLoadingFilter.java:155)
+	at com.intellij.util.AstLoadingFilter.forceAllowTreeLoading(AstLoadingFilter.java:147)
+	at com.intellij.codeInsight.daemon.impl.LocalInspectionsPass.lambda$null$4(LocalInspectionsPass.java:265)
+	at com.intellij.util.AstLoadingFilter.disallowTreeLoading(AstLoadingFilter.java:126)
+	at com.intellij.util.AstLoadingFilter.disallowTreeLoading(AstLoadingFilter.java:115)
+	at com.intellij.codeInsight.daemon.impl.LocalInspectionsPass.lambda$visitPriorityElementsAndInit$5(LocalInspectionsPass.java:265)
+	at com.intellij.concurrency.ApplierCompleter.execAndForkSubTasks(ApplierCompleter.java:149)
+	at com.intellij.concurrency.ApplierCompleter.execAndForkSubTasks(ApplierCompleter.java:162)
+	at com.intellij.concurrency.ApplierCompleter.execAndForkSubTasks(ApplierCompleter.java:162)
+	at com.intellij.concurrency.ApplierCompleter.execAndForkSubTasks(ApplierCompleter.java:162)
+	at com.intellij.concurrency.ApplierCompleter.execAndForkSubTasks(ApplierCompleter.java:162)
+	at com.intellij.concurrency.ApplierCompleter.execAndForkSubTasks(ApplierCompleter.java:162)
+	at com.intellij.concurrency.ApplierCompleter.execAndForkSubTasks(ApplierCompleter.java:162)
+	at com.intellij.openapi.application.impl.ApplicationImpl.tryRunReadAction(ApplicationImpl.java:1109)
+	at com.intellij.concurrency.ApplierCompleter.lambda$wrapInReadActionAndIndicator$1(ApplierCompleter.java:105)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.registerIndicatorAndRun(CoreProgressManager.java:627)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.executeProcessUnderProgress(CoreProgressManager.java:572)
+	at com.intellij.openapi.progress.impl.ProgressManagerImpl.executeProcessUnderProgress(ProgressManagerImpl.java:61)
+	at com.intellij.concurrency.ApplierCompleter.wrapInReadActionAndIndicator(ApplierCompleter.java:117)
+	at com.intellij.concurrency.ApplierCompleter.lambda$compute$0(ApplierCompleter.java:96)
+	at com.intellij.openapi.application.impl.ReadMostlyRWLock.executeByImpatientReader(ReadMostlyRWLock.java:168)
+	at com.intellij.openapi.application.impl.ApplicationImpl.executeByImpatientReader(ApplicationImpl.java:168)
+	at com.intellij.concurrency.ApplierCompleter.compute(ApplierCompleter.java:96)
+	at java.util.concurrent.CountedCompleter.exec(CountedCompleter.java:731)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+2021-06-09 06:53:10,472 [5913363]  ERROR - aemon.impl.PassExecutorService - Android Studio 4.1.3  Build #AI-201.8743.12.41.7199119 
+2021-06-09 06:53:10,472 [5913363]  ERROR - aemon.impl.PassExecutorService - JDK: 1.8.0_242-release; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o 
+2021-06-09 06:53:10,472 [5913363]  ERROR - aemon.impl.PassExecutorService - OS: Linux 
+2021-06-09 06:53:10,472 [5913363]  ERROR - aemon.impl.PassExecutorService - Plugin to blame: Kotlin version: 1.4.32-release-Studio4.1-1 
+2021-06-09 06:53:10,472 [5913363]  ERROR - aemon.impl.PassExecutorService - Last Action: EditorBackSpace 
+2021-06-09 06:53:10,475 [5913366]  ERROR - aemon.impl.PassExecutorService - Element class com.intellij.psi.impl.source.tree.CompositeElement of type PROPERTY (class org.jetbrains.kotlin.psi.stubs.elements.KtPropertyElementType) 
+com.intellij.psi.PsiInvalidElementAccessException: Element class com.intellij.psi.impl.source.tree.CompositeElement of type PROPERTY (class org.jetbrains.kotlin.psi.stubs.elements.KtPropertyElementType)
+	at com.intellij.psi.PsiInvalidElementAccessException.createByNode(PsiInvalidElementAccessException.java:79)
+	at com.intellij.psi.impl.source.SubstrateRef$2.getContainingFile(SubstrateRef.java:101)
+	at com.intellij.extapi.psi.StubBasedPsiElementBase.getContainingFile(StubBasedPsiElementBase.java:253)
+	at org.jetbrains.kotlin.idea.decompiler.navigation.SourceNavigationHelper.navigateToDeclaration(SourceNavigationHelper.kt:298)
+	at org.jetbrains.kotlin.idea.decompiler.navigation.SourceNavigationHelper.getOriginalElement(SourceNavigationHelper.kt:287)
+	at org.jetbrains.kotlin.idea.decompiler.navigation.KotlinDeclarationNavigationPolicyImpl.getOriginalElement(KotlinDeclarationNavigationPolicyImpl.kt:12)
+	at org.jetbrains.kotlin.idea.decompiler.navigation.KotlinDeclarationNavigationPolicyImpl.getOriginalElement(KotlinDeclarationNavigationPolicyImpl.kt:11)
+	at org.jetbrains.kotlin.psi.KtDeclarationStub.getOriginalElement(KtDeclarationStub.java:72)
+	at org.jetbrains.uast.kotlin.KotlinConverter.convertDeclaration$uast_kotlin(KotlinUastLanguagePlugin.kt:489)
+	at org.jetbrains.uast.kotlin.KotlinConverter.convertDeclarationOrElement(KotlinUastLanguagePlugin.kt:625)
+	at org.jetbrains.uast.kotlin.KotlinUastLanguagePlugin.convertElementWithParent(KotlinUastLanguagePlugin.kt:92)
+	at org.jetbrains.uast.UastFacade.convertElementWithParent(UastContext.kt:81)
+	at org.jetbrains.uast.UastContextKt.toUElement(UastContext.kt:121)
+	at org.jetbrains.uast.kotlin.KotlinInternalUastUtilsKt.getMaybeLightElement(kotlinInternalUastUtils.kt:529)
+	at org.jetbrains.uast.kotlin.KotlinInternalUastUtilsKt.resolveToDeclaration(kotlinInternalUastUtils.kt:334)
+	at org.jetbrains.uast.kotlin.KotlinInternalUastUtilsKt.resolveToDeclaration(kotlinInternalUastUtils.kt:327)
+	at org.jetbrains.uast.kotlin.KotlinUSimpleReferenceExpression$resolvedDeclaration$2.invoke(KotlinUSimpleReferenceExpression.kt:41)
+	at org.jetbrains.uast.kotlin.KotlinUSimpleReferenceExpression$resolvedDeclaration$2.invoke(KotlinUSimpleReferenceExpression.kt:41)
+	at kotlin.SynchronizedLazyImpl.getValue(LazyJVM.kt:74)
+	at org.jetbrains.uast.kotlin.KotlinUSimpleReferenceExpression.getResolvedDeclaration(KotlinUSimpleReferenceExpression.kt:41)
+	at org.jetbrains.uast.kotlin.KotlinUSimpleReferenceExpression.resolve(KotlinUSimpleReferenceExpression.kt:45)
+	at com.intellij.codeInspection.apiUsage.ApiUsageUastVisitor.visitSimpleNameReferenceExpression(ApiUsageUastVisitor.kt:40)
+	at org.jetbrains.uast.kotlin.KotlinUSimpleReferenceExpression.accept(KotlinUSimpleReferenceExpression.kt:51)
+	at com.intellij.uast.UastVisitorAdapter.visitElement(UastVisitorAdapter.java:48)
+	at org.jetbrains.kotlin.psi.KtElementImplStub.accept(KtElementImplStub.java:63)
+	at com.intellij.codeInspection.InspectionEngine.acceptElements(InspectionEngine.java:69)
+	at com.intellij.codeInspection.InspectionEngine.createVisitorAndAcceptElements(InspectionEngine.java:60)
+	at com.intellij.codeInsight.daemon.impl.LocalInspectionsPass.runToolOnElements(LocalInspectionsPass.java:297)
+	at com.intellij.codeInsight.daemon.impl.LocalInspectionsPass.lambda$null$3(LocalInspectionsPass.java:266)
+	at com.intellij.util.AstLoadingFilter.forceAllowTreeLoading(AstLoadingFilter.java:155)
+	at com.intellij.util.AstLoadingFilter.forceAllowTreeLoading(AstLoadingFilter.java:147)
+	at com.intellij.codeInsight.daemon.impl.LocalInspectionsPass.lambda$null$4(LocalInspectionsPass.java:265)
+	at com.intellij.util.AstLoadingFilter.disallowTreeLoading(AstLoadingFilter.java:126)
+	at com.intellij.util.AstLoadingFilter.disallowTreeLoading(AstLoadingFilter.java:115)
+	at com.intellij.codeInsight.daemon.impl.LocalInspectionsPass.lambda$visitPriorityElementsAndInit$5(LocalInspectionsPass.java:265)
+	at com.intellij.concurrency.ApplierCompleter.execAndForkSubTasks(ApplierCompleter.java:149)
+	at com.intellij.concurrency.ApplierCompleter.execAndForkSubTasks(ApplierCompleter.java:162)
+	at com.intellij.concurrency.ApplierCompleter.execAndForkSubTasks(ApplierCompleter.java:162)
+	at com.intellij.concurrency.ApplierCompleter.execAndForkSubTasks(ApplierCompleter.java:162)
+	at com.intellij.concurrency.ApplierCompleter.execAndForkSubTasks(ApplierCompleter.java:162)
+	at com.intellij.concurrency.ApplierCompleter.execAndForkSubTasks(ApplierCompleter.java:162)
+	at com.intellij.concurrency.ApplierCompleter.execAndForkSubTasks(ApplierCompleter.java:162)
+	at com.intellij.openapi.application.impl.ApplicationImpl.tryRunReadAction(ApplicationImpl.java:1109)
+	at com.intellij.concurrency.ApplierCompleter.lambda$wrapInReadActionAndIndicator$1(ApplierCompleter.java:105)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.registerIndicatorAndRun(CoreProgressManager.java:627)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.executeProcessUnderProgress(CoreProgressManager.java:572)
+	at com.intellij.openapi.progress.impl.ProgressManagerImpl.executeProcessUnderProgress(ProgressManagerImpl.java:61)
+	at com.intellij.concurrency.ApplierCompleter.wrapInReadActionAndIndicator(ApplierCompleter.java:117)
+	at com.intellij.concurrency.ApplierCompleter.lambda$compute$0(ApplierCompleter.java:96)
+	at com.intellij.openapi.application.impl.ReadMostlyRWLock.executeByImpatientReader(ReadMostlyRWLock.java:168)
+	at com.intellij.openapi.application.impl.ApplicationImpl.executeByImpatientReader(ApplicationImpl.java:168)
+	at com.intellij.concurrency.ApplierCompleter.compute(ApplierCompleter.java:96)
+	at java.util.concurrent.CountedCompleter.exec(CountedCompleter.java:731)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+2021-06-09 06:53:10,476 [5913367]  ERROR - aemon.impl.PassExecutorService - Android Studio 4.1.3  Build #AI-201.8743.12.41.7199119 
+2021-06-09 06:53:10,476 [5913367]  ERROR - aemon.impl.PassExecutorService - JDK: 1.8.0_242-release; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o 
+2021-06-09 06:53:10,476 [5913367]  ERROR - aemon.impl.PassExecutorService - OS: Linux 
+2021-06-09 06:53:10,476 [5913367]  ERROR - aemon.impl.PassExecutorService - Plugin to blame: Kotlin version: 1.4.32-release-Studio4.1-1 
+2021-06-09 06:53:10,476 [5913367]  ERROR - aemon.impl.PassExecutorService - Last Action: EditorBackSpace 
+2021-06-09 06:53:11,103 [5913994]  ERROR - aemon.impl.PassExecutorService - Element class com.intellij.psi.impl.source.tree.CompositeElement of type PROPERTY (class org.jetbrains.kotlin.psi.stubs.elements.KtPropertyElementType) 
+com.intellij.psi.PsiInvalidElementAccessException: Element class com.intellij.psi.impl.source.tree.CompositeElement of type PROPERTY (class org.jetbrains.kotlin.psi.stubs.elements.KtPropertyElementType)
+	at com.intellij.psi.PsiInvalidElementAccessException.createByNode(PsiInvalidElementAccessException.java:79)
+	at com.intellij.psi.impl.source.SubstrateRef$2.getContainingFile(SubstrateRef.java:101)
+	at com.intellij.extapi.psi.StubBasedPsiElementBase.getContainingFile(StubBasedPsiElementBase.java:253)
+	at org.jetbrains.kotlin.idea.decompiler.navigation.SourceNavigationHelper.navigateToDeclaration(SourceNavigationHelper.kt:298)
+	at org.jetbrains.kotlin.idea.decompiler.navigation.SourceNavigationHelper.getOriginalElement(SourceNavigationHelper.kt:287)
+	at org.jetbrains.kotlin.idea.decompiler.navigation.KotlinDeclarationNavigationPolicyImpl.getOriginalElement(KotlinDeclarationNavigationPolicyImpl.kt:12)
+	at org.jetbrains.kotlin.idea.decompiler.navigation.KotlinDeclarationNavigationPolicyImpl.getOriginalElement(KotlinDeclarationNavigationPolicyImpl.kt:11)
+	at org.jetbrains.kotlin.psi.KtDeclarationStub.getOriginalElement(KtDeclarationStub.java:72)
+	at org.jetbrains.uast.kotlin.KotlinConverter.convertDeclaration$uast_kotlin(KotlinUastLanguagePlugin.kt:489)
+	at org.jetbrains.uast.kotlin.KotlinConverter.convertDeclarationOrElement(KotlinUastLanguagePlugin.kt:625)
+	at org.jetbrains.uast.kotlin.KotlinUastLanguagePlugin.convertElementWithParent(KotlinUastLanguagePlugin.kt:92)
+	at org.jetbrains.uast.UastFacade.convertElementWithParent(UastContext.kt:81)
+	at org.jetbrains.uast.UastContextKt.toUElement(UastContext.kt:121)
+	at org.jetbrains.uast.kotlin.KotlinInternalUastUtilsKt.getMaybeLightElement(kotlinInternalUastUtils.kt:529)
+	at org.jetbrains.uast.kotlin.KotlinInternalUastUtilsKt.resolveToDeclaration(kotlinInternalUastUtils.kt:334)
+	at org.jetbrains.uast.kotlin.KotlinInternalUastUtilsKt.resolveToDeclaration(kotlinInternalUastUtils.kt:327)
+	at org.jetbrains.uast.kotlin.KotlinUSimpleReferenceExpression$resolvedDeclaration$2.invoke(KotlinUSimpleReferenceExpression.kt:41)
+	at org.jetbrains.uast.kotlin.KotlinUSimpleReferenceExpression$resolvedDeclaration$2.invoke(KotlinUSimpleReferenceExpression.kt:41)
+	at kotlin.SynchronizedLazyImpl.getValue(LazyJVM.kt:74)
+	at org.jetbrains.uast.kotlin.KotlinUSimpleReferenceExpression.getResolvedDeclaration(KotlinUSimpleReferenceExpression.kt:41)
+	at org.jetbrains.uast.kotlin.KotlinUSimpleReferenceExpression.resolve(KotlinUSimpleReferenceExpression.kt:45)
+	at com.intellij.codeInspection.apiUsage.ApiUsageUastVisitor.visitSimpleNameReferenceExpression(ApiUsageUastVisitor.kt:40)
+	at org.jetbrains.uast.kotlin.KotlinUSimpleReferenceExpression.accept(KotlinUSimpleReferenceExpression.kt:51)
+	at com.intellij.uast.UastVisitorAdapter.visitElement(UastVisitorAdapter.java:48)
+	at org.jetbrains.kotlin.psi.KtElementImplStub.accept(KtElementImplStub.java:63)
+	at com.intellij.codeInspection.InspectionEngine.acceptElements(InspectionEngine.java:69)
+	at com.intellij.codeInspection.InspectionEngine.createVisitorAndAcceptElements(InspectionEngine.java:60)
+	at com.intellij.codeInsight.daemon.impl.LocalInspectionsPass.runToolOnElements(LocalInspectionsPass.java:297)
+	at com.intellij.codeInsight.daemon.impl.LocalInspectionsPass.lambda$null$3(LocalInspectionsPass.java:266)
+	at com.intellij.util.AstLoadingFilter.forceAllowTreeLoading(AstLoadingFilter.java:155)
+	at com.intellij.util.AstLoadingFilter.forceAllowTreeLoading(AstLoadingFilter.java:147)
+	at com.intellij.codeInsight.daemon.impl.LocalInspectionsPass.lambda$null$4(LocalInspectionsPass.java:265)
+	at com.intellij.util.AstLoadingFilter.disallowTreeLoading(AstLoadingFilter.java:126)
+	at com.intellij.util.AstLoadingFilter.disallowTreeLoading(AstLoadingFilter.java:115)
+	at com.intellij.codeInsight.daemon.impl.LocalInspectionsPass.lambda$visitPriorityElementsAndInit$5(LocalInspectionsPass.java:265)
+	at com.intellij.concurrency.ApplierCompleter.execAndForkSubTasks(ApplierCompleter.java:149)
+	at com.intellij.concurrency.ApplierCompleter.execAndForkSubTasks(ApplierCompleter.java:162)
+	at com.intellij.concurrency.ApplierCompleter.execAndForkSubTasks(ApplierCompleter.java:162)
+	at com.intellij.concurrency.ApplierCompleter.execAndForkSubTasks(ApplierCompleter.java:162)
+	at com.intellij.concurrency.ApplierCompleter.execAndForkSubTasks(ApplierCompleter.java:162)
+	at com.intellij.concurrency.ApplierCompleter.execAndForkSubTasks(ApplierCompleter.java:162)
+	at com.intellij.concurrency.ApplierCompleter.execAndForkSubTasks(ApplierCompleter.java:162)
+	at com.intellij.openapi.application.impl.ApplicationImpl.tryRunReadAction(ApplicationImpl.java:1109)
+	at com.intellij.concurrency.ApplierCompleter.lambda$wrapInReadActionAndIndicator$1(ApplierCompleter.java:105)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.registerIndicatorAndRun(CoreProgressManager.java:627)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.executeProcessUnderProgress(CoreProgressManager.java:572)
+	at com.intellij.openapi.progress.impl.ProgressManagerImpl.executeProcessUnderProgress(ProgressManagerImpl.java:61)
+	at com.intellij.concurrency.ApplierCompleter.wrapInReadActionAndIndicator(ApplierCompleter.java:117)
+	at com.intellij.concurrency.ApplierCompleter.lambda$compute$0(ApplierCompleter.java:96)
+	at com.intellij.openapi.application.impl.ReadMostlyRWLock.executeByImpatientReader(ReadMostlyRWLock.java:168)
+	at com.intellij.openapi.application.impl.ApplicationImpl.executeByImpatientReader(ApplicationImpl.java:168)
+	at com.intellij.concurrency.ApplierCompleter.compute(ApplierCompleter.java:96)
+	at java.util.concurrent.CountedCompleter.exec(CountedCompleter.java:731)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+2021-06-09 06:53:11,106 [5913997]  ERROR - aemon.impl.PassExecutorService - Android Studio 4.1.3  Build #AI-201.8743.12.41.7199119 
+2021-06-09 06:53:11,106 [5913997]  ERROR - aemon.impl.PassExecutorService - JDK: 1.8.0_242-release; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o 
+2021-06-09 06:53:11,106 [5913997]  ERROR - aemon.impl.PassExecutorService - OS: Linux 
+2021-06-09 06:53:11,107 [5913998]  ERROR - aemon.impl.PassExecutorService - Plugin to blame: Kotlin version: 1.4.32-release-Studio4.1-1 
+2021-06-09 06:53:11,107 [5913998]  ERROR - aemon.impl.PassExecutorService - Last Action: EditorDown 
+2021-06-09 06:53:11,107 [5913998]  ERROR - aemon.impl.PassExecutorService - Element class com.intellij.psi.impl.source.tree.CompositeElement of type PROPERTY (class org.jetbrains.kotlin.psi.stubs.elements.KtPropertyElementType) 
+com.intellij.psi.PsiInvalidElementAccessException: Element class com.intellij.psi.impl.source.tree.CompositeElement of type PROPERTY (class org.jetbrains.kotlin.psi.stubs.elements.KtPropertyElementType)
+	at com.intellij.psi.PsiInvalidElementAccessException.createByNode(PsiInvalidElementAccessException.java:79)
+	at com.intellij.psi.impl.source.SubstrateRef$2.getContainingFile(SubstrateRef.java:101)
+	at com.intellij.extapi.psi.StubBasedPsiElementBase.getContainingFile(StubBasedPsiElementBase.java:253)
+	at org.jetbrains.kotlin.idea.decompiler.navigation.SourceNavigationHelper.navigateToDeclaration(SourceNavigationHelper.kt:298)
+	at org.jetbrains.kotlin.idea.decompiler.navigation.SourceNavigationHelper.getOriginalElement(SourceNavigationHelper.kt:287)
+	at org.jetbrains.kotlin.idea.decompiler.navigation.KotlinDeclarationNavigationPolicyImpl.getOriginalElement(KotlinDeclarationNavigationPolicyImpl.kt:12)
+	at org.jetbrains.kotlin.idea.decompiler.navigation.KotlinDeclarationNavigationPolicyImpl.getOriginalElement(KotlinDeclarationNavigationPolicyImpl.kt:11)
+	at org.jetbrains.kotlin.psi.KtDeclarationStub.getOriginalElement(KtDeclarationStub.java:72)
+	at org.jetbrains.uast.kotlin.KotlinConverter.convertDeclaration$uast_kotlin(KotlinUastLanguagePlugin.kt:489)
+	at org.jetbrains.uast.kotlin.KotlinConverter.convertDeclarationOrElement(KotlinUastLanguagePlugin.kt:625)
+	at org.jetbrains.uast.kotlin.KotlinUastLanguagePlugin.convertElementWithParent(KotlinUastLanguagePlugin.kt:92)
+	at org.jetbrains.uast.UastFacade.convertElementWithParent(UastContext.kt:81)
+	at org.jetbrains.uast.UastContextKt.toUElement(UastContext.kt:121)
+	at org.jetbrains.uast.kotlin.KotlinInternalUastUtilsKt.getMaybeLightElement(kotlinInternalUastUtils.kt:529)
+	at org.jetbrains.uast.kotlin.KotlinInternalUastUtilsKt.resolveToDeclaration(kotlinInternalUastUtils.kt:334)
+	at org.jetbrains.uast.kotlin.KotlinInternalUastUtilsKt.resolveToDeclaration(kotlinInternalUastUtils.kt:327)
+	at org.jetbrains.uast.kotlin.KotlinUSimpleReferenceExpression$resolvedDeclaration$2.invoke(KotlinUSimpleReferenceExpression.kt:41)
+	at org.jetbrains.uast.kotlin.KotlinUSimpleReferenceExpression$resolvedDeclaration$2.invoke(KotlinUSimpleReferenceExpression.kt:41)
+	at kotlin.SynchronizedLazyImpl.getValue(LazyJVM.kt:74)
+	at org.jetbrains.uast.kotlin.KotlinUSimpleReferenceExpression.getResolvedDeclaration(KotlinUSimpleReferenceExpression.kt:41)
+	at org.jetbrains.uast.kotlin.KotlinUSimpleReferenceExpression.resolve(KotlinUSimpleReferenceExpression.kt:45)
+	at com.intellij.codeInspection.apiUsage.ApiUsageUastVisitor.visitSimpleNameReferenceExpression(ApiUsageUastVisitor.kt:40)
+	at org.jetbrains.uast.kotlin.KotlinUSimpleReferenceExpression.accept(KotlinUSimpleReferenceExpression.kt:51)
+	at com.intellij.uast.UastVisitorAdapter.visitElement(UastVisitorAdapter.java:48)
+	at org.jetbrains.kotlin.psi.KtElementImplStub.accept(KtElementImplStub.java:63)
+	at com.intellij.codeInspection.InspectionEngine.acceptElements(InspectionEngine.java:69)
+	at com.intellij.codeInspection.InspectionEngine.createVisitorAndAcceptElements(InspectionEngine.java:60)
+	at com.intellij.codeInsight.daemon.impl.LocalInspectionsPass.runToolOnElements(LocalInspectionsPass.java:297)
+	at com.intellij.codeInsight.daemon.impl.LocalInspectionsPass.lambda$null$3(LocalInspectionsPass.java:266)
+	at com.intellij.util.AstLoadingFilter.forceAllowTreeLoading(AstLoadingFilter.java:155)
+	at com.intellij.util.AstLoadingFilter.forceAllowTreeLoading(AstLoadingFilter.java:147)
+	at com.intellij.codeInsight.daemon.impl.LocalInspectionsPass.lambda$null$4(LocalInspectionsPass.java:265)
+	at com.intellij.util.AstLoadingFilter.disallowTreeLoading(AstLoadingFilter.java:126)
+	at com.intellij.util.AstLoadingFilter.disallowTreeLoading(AstLoadingFilter.java:115)
+	at com.intellij.codeInsight.daemon.impl.LocalInspectionsPass.lambda$visitPriorityElementsAndInit$5(LocalInspectionsPass.java:265)
+	at com.intellij.concurrency.ApplierCompleter.execAndForkSubTasks(ApplierCompleter.java:149)
+	at com.intellij.concurrency.ApplierCompleter.execAndForkSubTasks(ApplierCompleter.java:162)
+	at com.intellij.concurrency.ApplierCompleter.execAndForkSubTasks(ApplierCompleter.java:162)
+	at com.intellij.concurrency.ApplierCompleter.execAndForkSubTasks(ApplierCompleter.java:162)
+	at com.intellij.concurrency.ApplierCompleter.execAndForkSubTasks(ApplierCompleter.java:162)
+	at com.intellij.concurrency.ApplierCompleter.execAndForkSubTasks(ApplierCompleter.java:162)
+	at com.intellij.concurrency.ApplierCompleter.execAndForkSubTasks(ApplierCompleter.java:162)
+	at com.intellij.openapi.application.impl.ApplicationImpl.tryRunReadAction(ApplicationImpl.java:1109)
+	at com.intellij.concurrency.ApplierCompleter.lambda$wrapInReadActionAndIndicator$1(ApplierCompleter.java:105)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.registerIndicatorAndRun(CoreProgressManager.java:627)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.executeProcessUnderProgress(CoreProgressManager.java:572)
+	at com.intellij.openapi.progress.impl.ProgressManagerImpl.executeProcessUnderProgress(ProgressManagerImpl.java:61)
+	at com.intellij.concurrency.ApplierCompleter.wrapInReadActionAndIndicator(ApplierCompleter.java:117)
+	at com.intellij.concurrency.ApplierCompleter.lambda$compute$0(ApplierCompleter.java:96)
+	at com.intellij.openapi.application.impl.ReadMostlyRWLock.executeByImpatientReader(ReadMostlyRWLock.java:168)
+	at com.intellij.openapi.application.impl.ApplicationImpl.executeByImpatientReader(ApplicationImpl.java:168)
+	at com.intellij.concurrency.ApplierCompleter.compute(ApplierCompleter.java:96)
+	at java.util.concurrent.CountedCompleter.exec(CountedCompleter.java:731)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+2021-06-09 06:53:11,107 [5913998]  ERROR - aemon.impl.PassExecutorService - Android Studio 4.1.3  Build #AI-201.8743.12.41.7199119 
+2021-06-09 06:53:11,107 [5913998]  ERROR - aemon.impl.PassExecutorService - JDK: 1.8.0_242-release; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o 
+2021-06-09 06:53:11,107 [5913998]  ERROR - aemon.impl.PassExecutorService - OS: Linux 
+2021-06-09 06:53:11,107 [5913998]  ERROR - aemon.impl.PassExecutorService - Plugin to blame: Kotlin version: 1.4.32-release-Studio4.1-1 
+2021-06-09 06:53:11,108 [5913999]  ERROR - aemon.impl.PassExecutorService - Last Action: EditorDown 
+2021-06-09 06:58:19,062 [6221953]   WARN - idea.lint.common.LintIdeClient - Lint could not build AST for /fragment.kt; ignoring file 
+2021-06-09 06:58:25,604 [6228495]   WARN - idea.lint.common.LintIdeClient - Lint could not build AST for /fragment.kt; ignoring file 
+2021-06-09 07:03:38,930 [6541821]  ERROR - .openapi.editor.impl.CaretImpl - Unexpected caret move request 
+java.lang.Throwable: Unexpected caret move request
+	at com.intellij.openapi.diagnostic.Logger.error(Logger.java:146)
+	at com.intellij.openapi.editor.impl.CaretImpl.moveToLogicalPosition(CaretImpl.java:656)
+	at com.intellij.openapi.editor.impl.CaretImpl.lambda$moveToOffset$0(CaretImpl.java:128)
+	at com.intellij.openapi.editor.impl.CaretModelImpl.doWithCaretMerging(CaretModelImpl.java:402)
+	at com.intellij.openapi.editor.impl.CaretImpl.moveToOffset(CaretImpl.java:126)
+	at com.intellij.openapi.editor.CaretModel.moveToOffset(CaretModel.java:91)
+	at com.intellij.openapi.editor.CaretModel.moveToOffset(CaretModel.java:77)
+	at com.intellij.find.impl.livePreview.SelectionManager.updateSelection(SelectionManager.java:67)
+	at com.intellij.find.impl.livePreview.SearchResults.updateSelection(SearchResults.java:365)
+	at com.intellij.find.impl.livePreview.SearchResults.moveCursorTo(SearchResults.java:658)
+	at com.intellij.find.impl.livePreview.SearchResults.caretPositionChanged(SearchResults.java:56)
+	at sun.reflect.GeneratedMethodAccessor193.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.intellij.util.EventDispatcher.dispatchVoidMethod(EventDispatcher.java:127)
+	at com.intellij.util.EventDispatcher.access$000(EventDispatcher.java:21)
+	at com.intellij.util.EventDispatcher$1.invoke(EventDispatcher.java:85)
+	at com.sun.proxy.$Proxy118.caretPositionChanged(Unknown Source)
+	at com.intellij.openapi.editor.impl.CaretModelImpl.fireCaretPositionChanged(CaretModelImpl.java:523)
+	at com.intellij.openapi.editor.impl.CaretImpl.doMoveToLogicalPosition(CaretImpl.java:502)
+	at com.intellij.openapi.editor.impl.CaretImpl.moveToLogicalPosition(CaretImpl.java:664)
+	at com.intellij.openapi.editor.impl.CaretImpl.lambda$moveToLogicalPosition$2(CaretImpl.java:351)
+	at com.intellij.openapi.editor.impl.CaretModelImpl.doWithCaretMerging(CaretModelImpl.java:402)
+	at com.intellij.openapi.editor.impl.CaretImpl.moveToLogicalPosition(CaretImpl.java:351)
+	at com.intellij.openapi.editor.CaretModel.moveToLogicalPosition(CaretModel.java:59)
+	at com.intellij.openapi.editor.actions.EditorActionUtil.moveToPreviousCaretStop(EditorActionUtil.java:823)
+	at com.intellij.openapi.editor.actions.EditorActionUtil.moveCaretToPreviousWord(EditorActionUtil.java:788)
+	at com.intellij.openapi.editor.actions.NextPrevWordHandler.doExecute(NextPrevWordHandler.java:62)
+	at com.intellij.openapi.editor.actionSystem.EditorActionHandler.lambda$null$2(EditorActionHandler.java:191)
+	at com.intellij.openapi.editor.actionSystem.EditorActionHandler.doIfEnabled(EditorActionHandler.java:88)
+	at com.intellij.openapi.editor.actionSystem.EditorActionHandler.lambda$execute$3(EditorActionHandler.java:190)
+	at com.intellij.openapi.editor.impl.CaretModelImpl.lambda$runForEachCaret$3(CaretModelImpl.java:298)
+	at com.intellij.openapi.editor.impl.CaretModelImpl.doWithCaretMerging(CaretModelImpl.java:407)
+	at com.intellij.openapi.editor.impl.CaretModelImpl.runForEachCaret(CaretModelImpl.java:307)
+	at com.intellij.openapi.editor.impl.CaretModelImpl.runForEachCaret(CaretModelImpl.java:282)
+	at com.intellij.openapi.editor.actionSystem.EditorActionHandler.execute(EditorActionHandler.java:188)
+	at com.intellij.openapi.editor.actionSystem.EditorAction.lambda$actionPerformed$0(EditorAction.java:98)
+	at com.intellij.openapi.command.impl.CoreCommandProcessor.executeCommand(CoreCommandProcessor.java:220)
+	at com.intellij.openapi.command.impl.CoreCommandProcessor.executeCommand(CoreCommandProcessor.java:178)
+	at com.intellij.openapi.editor.actionSystem.EditorAction.actionPerformed(EditorAction.java:107)
+	at com.intellij.openapi.editor.actionSystem.EditorAction.actionPerformed(EditorAction.java:82)
+	at com.intellij.openapi.actionSystem.ex.ActionUtil.performActionDumbAware(ActionUtil.java:280)
+	at com.intellij.openapi.keymap.impl.IdeKeyEventDispatcher$1.performAction(IdeKeyEventDispatcher.java:609)
+	at com.intellij.openapi.keymap.impl.IdeKeyEventDispatcher.lambda$processAction$3(IdeKeyEventDispatcher.java:670)
+	at com.intellij.openapi.application.TransactionGuardImpl.performUserActivity(TransactionGuardImpl.java:94)
+	at com.intellij.openapi.keymap.impl.IdeKeyEventDispatcher.processAction(IdeKeyEventDispatcher.java:669)
+	at com.intellij.openapi.keymap.impl.IdeKeyEventDispatcher.processAction(IdeKeyEventDispatcher.java:619)
+	at com.intellij.openapi.keymap.impl.IdeKeyEventDispatcher.processActionOrWaitSecondStroke(IdeKeyEventDispatcher.java:516)
+	at com.intellij.openapi.keymap.impl.IdeKeyEventDispatcher.inInitState(IdeKeyEventDispatcher.java:470)
+	at com.intellij.openapi.keymap.impl.IdeKeyEventDispatcher.dispatchKeyEvent(IdeKeyEventDispatcher.java:219)
+	at com.intellij.ide.IdeEventQueue.lambda$new$5(IdeEventQueue.java:233)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:805)
+	at com.intellij.ide.IdeKeyboardFocusManager.dispatchEvent(IdeKeyboardFocusManager.java:40)
+	at java.awt.Component.dispatchEventImpl(Component.java:4770)
+	at java.awt.Container.dispatchEventImpl(Container.java:2297)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4721)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:766)
+	at java.awt.EventQueue.access$500(EventQueue.java:98)
+	at java.awt.EventQueue$3.run(EventQueue.java:715)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:84)
+	at java.awt.EventQueue$4.run(EventQueue.java:739)
+	at java.awt.EventQueue$4.run(EventQueue.java:737)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:736)
+	at com.intellij.ide.IdeEventQueue.defaultDispatchEvent(IdeEventQueue.java:974)
+	at com.intellij.ide.IdeEventQueue.dispatchKeyEvent(IdeEventQueue.java:900)
+	at com.intellij.ide.IdeEventQueue._dispatchEvent(IdeEventQueue.java:841)
+	at com.intellij.ide.IdeEventQueue.lambda$null$8(IdeEventQueue.java:449)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.computePrioritized(CoreProgressManager.java:741)
+	at com.intellij.ide.IdeEventQueue.lambda$dispatchEvent$9(IdeEventQueue.java:448)
+	at com.intellij.openapi.application.impl.ApplicationImpl.runIntendedWriteActionOnCurrentThread(ApplicationImpl.java:831)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent(IdeEventQueue.java:502)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:205)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+2021-06-09 07:03:38,931 [6541822]  ERROR - .openapi.editor.impl.CaretImpl - Android Studio 4.1.3  Build #AI-201.8743.12.41.7199119 
+2021-06-09 07:03:38,931 [6541822]  ERROR - .openapi.editor.impl.CaretImpl - JDK: 1.8.0_242-release; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o 
+2021-06-09 07:03:38,931 [6541822]  ERROR - .openapi.editor.impl.CaretImpl - OS: Linux 
+2021-06-09 07:03:38,932 [6541823]  ERROR - .openapi.editor.impl.CaretImpl - Last Action: EditorPreviousWord 
+2021-06-09 07:03:38,932 [6541823]  ERROR - .openapi.editor.impl.CaretImpl - Current Command: Move Caret to Previous Word 
+2021-06-09 07:03:53,174 [6556065]   WARN - .AbstractProgressIndicatorBase - This progress indicator is indeterminate, this may lead to visual inconsistency. Please call setIndeterminate(false) before you start progress.
+org.jetbrains.kotlin.idea.codeInsight.KotlinOptimizeImportsRefactoringHelper$CollectUnusedImportsTask.run(KotlinOptimizeImportsRefactoringHelper.kt:46) 
+2021-06-09 07:06:33,907 [6716798]   WARN - idea.lint.common.LintIdeClient - Lint could not build AST for /fragment.kt; ignoring file 
+2021-06-09 07:07:27,246 [6770137]   WARN - idea.lint.common.LintIdeClient - Lint could not build AST for /fragment.kt; ignoring file 
+2021-06-09 07:07:31,140 [6774031]   WARN - idea.lint.common.LintIdeClient - Lint could not build AST for /fragment.kt; ignoring file 
+2021-06-09 07:07:46,190 [6789081]   WARN - idea.lint.common.LintIdeClient - Lint could not build AST for /fragment.kt; ignoring file 
+2021-06-09 07:07:52,637 [6795528]   WARN - idea.lint.common.LintIdeClient - Lint could not build AST for /fragment.kt; ignoring file 
+2021-06-09 07:08:01,739 [6804630]   WARN - idea.lint.common.LintIdeClient - Lint could not build AST for /fragment.kt; ignoring file 
+2021-06-09 07:08:13,568 [6816459]   WARN - idea.lint.common.LintIdeClient - Lint could not build AST for /fragment.kt; ignoring file 
+2021-06-09 07:08:16,505 [6819396]   WARN - idea.lint.common.LintIdeClient - Lint could not build AST for /fragment.kt; ignoring file 
+2021-06-09 07:08:24,325 [6827216]   WARN - idea.lint.common.LintIdeClient - Lint could not build AST for /fragment.kt; ignoring file 
+2021-06-09 07:08:36,767 [6839658]   WARN - idea.lint.common.LintIdeClient - Lint could not build AST for /fragment.kt; ignoring file 
+2021-06-09 07:08:37,676 [6840567]   WARN - idea.lint.common.LintIdeClient - Lint could not build AST for /fragment.kt; ignoring file 
+2021-06-09 07:09:18,108 [6880999]   WARN - idea.lint.common.LintIdeClient - Lint could not build AST for /fragment.kt; ignoring file 
+2021-06-09 07:09:19,424 [6882315]   WARN - idea.lint.common.LintIdeClient - Lint could not build AST for /fragment.kt; ignoring file 
+2021-06-09 07:11:04,107 [6986998]   WARN - actions.CopyTBXReferenceAction - Cannot find TBX tool for IDE: AndroidStudio 
+2021-06-09 07:11:04,166 [6987057]   WARN - actions.CopyTBXReferenceAction - Cannot find TBX tool for IDE: AndroidStudio 
+2021-06-09 07:12:45,091 [7087982]   WARN - idea.lint.common.LintIdeClient - Lint could not build AST for /fragment.kt; ignoring file 
+2021-06-09 07:12:57,184 [7100075]   WARN - idea.lint.common.LintIdeClient - Lint could not build AST for /fragment.kt; ignoring file 
+2021-06-09 07:13:02,174 [7105065]   WARN - idea.lint.common.LintIdeClient - Lint could not build AST for /fragment.kt; ignoring file 
+2021-06-09 07:14:54,996 [7217887]   WARN - .diagnostic.PerformanceWatcher - UI was frozen for 18245ms, details saved to /home/bjornkare/.cache/Google/AndroidStudio4.1/log/threadDumps-freeze-20210609-071441-AI-201.8743.12.41.7199119-XRBackendNative.putMaskNative-18sec 
+2021-06-09 07:15:19,332 [7242223]   WARN - .diagnostic.PerformanceWatcher - UI was frozen for 19207ms, details saved to /home/bjornkare/.cache/Google/AndroidStudio4.1/log/threadDumps-freeze-20210609-071505-AI-201.8743.12.41.7199119-Blit.Blit-19sec 

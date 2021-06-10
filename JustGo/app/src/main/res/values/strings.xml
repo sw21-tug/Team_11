@@ -29,6 +29,7 @@
     <string name="btn_language">RU</string>
     <string name="txtfield_name">Name: </string>
     <string name="txtfield_dest">Destinations</string>
+    <string name="txtfield_accomodation">Accomodation</string>
     <string name="title_activity_destinations">Map</string>
 
     <string name="pictures_and_videos_topic">Pictures and Videos</string>
@@ -51,4 +52,9 @@
     <string name="add_new_date_date">Date: </string>
     <string name="add_new_date_time">Time: </string>
     <string name="add_new_date_description">Description: </string>
+
+    <string name="costs_topic">Costs</string>
+    <string name="add_new_cost_topic">Add Cost</string>
+    <string name="add_new_cost_description">Description: </string>
+    <string name="add_new_cost_amount">Amount: </string>
 </resources>

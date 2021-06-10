@@ -49,8 +49,8 @@ class TripManager {
             barcelona.addTripInformation(foods)
 
             var locations = TripDestination()
-            locations.destinations.add(Destination("Camp Nou", 2.122820, 41.380898))
-            locations.destinations.add(Destination("Sagrada Familia", 2.173504, 41.403706))
+            locations.destinations.add(Destination("Camp Nou", 2.122820, 41.380898, ""))
+            locations.destinations.add(Destination("Sagrada Familia", 2.173504, 41.403706, ""))
 
             barcelona.addTripInformation(locations)
 
@@ -63,14 +63,14 @@ class TripManager {
 
             var coTravellersList = CoTravellersList()
             var cotraveller = CoTraveller("Mike")
-            cotraveller.addSpending("Hotel, 170€")
-            cotraveller.addSpending("Tickets for Sagrada Familia, 30€")
-            cotraveller.addSpending("Tickets for football game, 70€")
+            cotraveller.addSpending("Hotel: 170€")
+            cotraveller.addSpending("Tickets for Sagrada Familia: 30€")
+            cotraveller.addSpending("Tickets for football game: 70€")
             cotraveller.addTask("Find restaurant for third day")
             coTravellersList.addCoTraveller(cotraveller)
 
             cotraveller = CoTraveller("Adam")
-            cotraveller.addSpending("Plane tickets, 170€")
+            cotraveller.addSpending("Plane tickets: 170€")
             cotraveller.addTask("Buy tickets for public transport")
             cotraveller.addTask("Find restaurant for third day")
             coTravellersList.addCoTraveller(cotraveller)
@@ -114,22 +114,21 @@ class TripManager {
             newYork.addTripInformation(foods)
 
             locations = TripDestination()
-            locations.destinations.add(Destination("Times Square", -73.985130, 40.758896))
-            locations.destinations.add(Destination("Central Park", -73.968285, 	40.785091))
-            locations.destinations.add(Destination("Brooklyn Bridge", -73.997002,40.706001))
-            locations.destinations.add(Destination("Statue of Liberty", -74.044502, 40.689247
-            ))
+            locations.destinations.add(Destination("Times Square", -73.985130, 40.758896, ""))
+            locations.destinations.add(Destination("Central Park", -73.968285, 	40.785091, ""))
+            locations.destinations.add(Destination("Brooklyn Bridge", -73.997002,40.706001, ""))
+            locations.destinations.add(Destination("Statue of Liberty", -74.044502, 40.689247, ""))
 
             newYork.addTripInformation(locations)
 
             coTravellersList = CoTravellersList()
             cotraveller = CoTraveller("Maria")
-            cotraveller.addSpending("Hotel, 470€")
+            cotraveller.addSpending("Hotel: 470€")
             cotraveller.addTask("Get Empire State tickets")
             coTravellersList.addCoTraveller(cotraveller)
 
             cotraveller = CoTraveller("Hanne")
-            cotraveller.addSpending("Plane tickets, 220€")
+            cotraveller.addSpending("Plane tickets: 220€")
             cotraveller.addTask("Buy christmas presents")
             cotraveller.addTask("Find christmas decorations for hotel room")
             coTravellersList.addCoTraveller(cotraveller)
@@ -175,11 +174,11 @@ class TripManager {
             paris.addTripInformation(dates)
 
             locations = TripDestination()
-            locations.destinations.add(Destination("Stuttgart", 9.183333, 48.783333))
-            locations.destinations.add(Destination("Eiffel Tower", 2.294694,48.858093))
-            locations.destinations.add(Destination("Graz airport", 15.4368,46.9892))
-            locations.destinations.add(Destination("Versailles", 2.130122, 48.801407))
-            locations.destinations.add(Destination("Le Havre", 0.100000, 49.490002))
+            locations.destinations.add(Destination("Stuttgart", 9.183333, 48.783333, "AirBnB"))
+            locations.destinations.add(Destination("Eiffel Tower", 2.294694,48.858093, ""))
+            locations.destinations.add(Destination("Graz airport", 15.4368,46.9892, ""))
+            locations.destinations.add(Destination("Versailles", 2.130122, 48.801407, ""))
+            locations.destinations.add(Destination("Le Havre", 0.100000, 49.490002, ""))
 
             paris.addTripInformation(locations)
 
@@ -199,15 +198,15 @@ class TripManager {
 
             coTravellersList = CoTravellersList()
             cotraveller = CoTraveller("John")
-            cotraveller.addSpending("Hotel, 170€")
-            cotraveller.addSpending("AirBnB, 40€")
-            cotraveller.addSpending("Arpege dinner, 700€")
+            cotraveller.addSpending("Hotel: 170€")
+            cotraveller.addSpending("AirBnB: 40€")
+            cotraveller.addSpending("Arpege dinner: 700€")
             cotraveller.addTask("Plan route for driving")
 
             coTravellersList.addCoTraveller(cotraveller)
 
             cotraveller = CoTraveller("Mark")
-            cotraveller.addSpending("Rental car, 300€")
+            cotraveller.addSpending("Rental car: 300€")
             cotraveller.addTask("Check covid status border crossings")
             coTravellersList.addCoTraveller(cotraveller)
 

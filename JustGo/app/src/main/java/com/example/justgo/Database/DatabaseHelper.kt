@@ -16,7 +16,7 @@ import java.time.LocalDateTime
 
 class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     companion object {
-        private val DATABASE_VERSION = 5
+        private val DATABASE_VERSION = 10
 
         private val DATABASE_NAME = "TripDatabase"
         private val TABLE_TRIP = "TRIP"
@@ -24,6 +24,7 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
         private val TABLE_LOCATION = "LOCATION"
         private val TABLE_DATE = "TIME"
         private val TABLE_PICTURE = "PICTURE"
+        private val TABLE_COST = "COST"
 
 
 
@@ -35,9 +36,11 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
         private val FOREIGNKEY_TRIPID = "tripID"
         private val KEY_LAT = "lat"
         private val KEY_LONG = "longi"
+        private val KEY_ACCOMODATION = "acc"
         private val KEY_DATE = "date"
         private val KEY_URI = "uri"
         private val KEY_PICTUREVIDEOTYPE = "picturevideotype"
+        private val KEY_COST = "cost"
 
     }
     override fun onCreate(db: SQLiteDatabase?) {
@@ -53,7 +56,7 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
         db?.execSQL(CREATE_FOOD_TABLE)
 
         val CREATE_LOCATION_TABLE = ("CREATE TABLE " + TABLE_LOCATION + "("
-                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_NAME + " TEXT," + KEY_LAT + " TEXT,"+
+                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_NAME + " TEXT," + KEY_ACCOMODATION + " TEXT," + KEY_LAT + " TEXT,"+
                 KEY_LONG +" TEXT,"+ FOREIGNKEY_TRIPID +" INTEGER, FOREIGN KEY("+ FOREIGNKEY_TRIPID +") REFERENCES "+ TABLE_TRIP + "("+ KEY_ID +"))")
         db?.execSQL(CREATE_LOCATION_TABLE)
 
@@ -66,6 +69,11 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
                 + KEY_URI + " String PRIMARY KEY," + KEY_PICTUREVIDEOTYPE + " TEXT,"
                 + FOREIGNKEY_TRIPID +" INTEGER, FOREIGN KEY("+ FOREIGNKEY_TRIPID +") REFERENCES "+ TABLE_TRIP + "("+ KEY_ID +"))")
         db?.execSQL(CREATE_PICTURE_TABLE)
+
+        val CREATE_COST_TABLE = ("CREATE TABLE " + TABLE_COST + "("
+                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_NAME + " TEXT," + KEY_COST + " TEXT,"
+                + FOREIGNKEY_TRIPID +" INTEGER, FOREIGN KEY("+ FOREIGNKEY_TRIPID +") REFERENCES "+ TABLE_TRIP + "("+ KEY_ID +"))")
+        db?.execSQL(CREATE_COST_TABLE)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
@@ -75,6 +83,7 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
         db!!.execSQL("DROP TABLE IF EXISTS " + TABLE_LOCATION)
         db!!.execSQL("DROP TABLE IF EXISTS " + TABLE_DATE)
         db!!.execSQL("DROP TABLE IF EXISTS " + TABLE_PICTURE)
+        db!!.execSQL("DROP TABLE IF EXISTS " + TABLE_COST)
         onCreate(db)
     }
     fun addPictureorVideo(picture: Picture, trip:Trip):Long{
@@ -188,6 +197,69 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
         return tripfood
     }
 
+    fun addCost(cost: Cost, trip:Trip):Long{
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(KEY_NAME, cost._costName)
+        contentValues.put(KEY_COST, cost._costValue)
+        contentValues.put(FOREIGNKEY_TRIPID,trip.getID())
+
+        // Inserting Row
+        val success = db.insert(TABLE_COST, null, contentValues)
+        //2nd argument is String containing nullColumnHack
+        db.close() // Closing database connection
+        return success
+    }
+
+    fun deleteCost(cost: Cost):Int{
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(KEY_ID, cost.costID)
+        val success = db.delete(TABLE_COST, "id=" + cost.costID, null)
+        db.close()
+        return success
+    }
+
+    fun viewCostbyTrip(trip: Trip): TripCost? {
+
+        val tripcost = TripCost("Costs")
+        try {
+            val selectQuery = "SELECT  * FROM ${TABLE_COST} where " + FOREIGNKEY_TRIPID + "=" + trip.getID()
+            val db = this.readableDatabase
+            var cursor: Cursor? = null
+            try {
+                cursor = db.rawQuery(selectQuery, null)
+            } catch (e: SQLiteException) {
+                db.execSQL(selectQuery)
+                return null
+            }
+            var name: String
+            var value: String
+            if (cursor.moveToFirst()) {
+                do {
+                    name = cursor.getString(cursor.getColumnIndex(KEY_NAME))
+                    value = cursor.getString(cursor.getColumnIndex(KEY_COST))
+                    val cost = Cost(name, value)
+                    cost.costID = cursor.getInt(cursor.getColumnIndex(KEY_ID))
+                    tripcost.costs.add(cost)
+                } while (cursor.moveToNext())
+            }
+        }catch (e:SQLiteException){
+            if (e.message?.contains("no such table") == true){
+                Log.e(ContentValues.TAG, "Creating table " + TABLE_FOOD + "because it doesn't exist!" )
+                println("Creating table " + TABLE_FOOD + "because it doesn't exist!" )
+                // create table
+                // re-run query, etc.
+            }
+        }
+        return tripcost
+    }
+
+
+
+
+
+
     //method to insert data
     fun addTrip(trip: Trip):Long{
         val db = this.writableDatabase
@@ -201,6 +273,16 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
         db.close() // Closing database connection
         return success
     }
+
+    fun deleteTrip(trip: Trip):Int{
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(KEY_ID, trip.tripID)
+        val success = db.delete(TABLE_TRIP, "id=" + trip.tripID, null)
+        db.close()
+        return success
+    }
+
     fun viewTrip():ArrayList<Trip>{
         val tripList:ArrayList<Trip> = ArrayList()
         val selectQuery = "SELECT  * FROM $TABLE_TRIP"
@@ -236,6 +318,7 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
         contentValues.put(KEY_NAME, destination.name_)
         contentValues.put(KEY_LONG, destination.longit_)
         contentValues.put(KEY_LAT, destination.letit_)
+        contentValues.put(KEY_ACCOMODATION, destination.accomodation)
         contentValues.put(FOREIGNKEY_TRIPID, trip.getID())
 
 
@@ -271,13 +354,15 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
             var name: String
             var longi: String
             var lat: String
+            var accomodation: String
             if (cursor.moveToFirst()) {
                 do {
                     name = cursor.getString(cursor.getColumnIndex(KEY_NAME))
                     longi = cursor.getString(cursor.getColumnIndex(KEY_LONG))
                     //ID = cursor.getInt(cursor.getColumnIndex("id"))
                     lat = cursor.getString(cursor.getColumnIndex(KEY_LAT))
-                    val destination = Destination(name, longi.toDouble(), lat.toDouble())
+                    accomodation = cursor.getString(cursor.getColumnIndex(KEY_ACCOMODATION))
+                    val destination = Destination(name, longi.toDouble(), lat.toDouble(), accomodation)
                     destination.destinationID = cursor.getInt(cursor.getColumnIndex(KEY_ID))
                     tripDestination.destinations.add(destination)
                 } while (cursor.moveToNext())
