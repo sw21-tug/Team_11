@@ -1,16 +1,16 @@
-package com.example.justgo
+package com.example.justgo.Food
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Spinner
+import androidx.appcompat.app.AppCompatActivity
+import com.example.justgo.Entitys.Food
 import com.example.justgo.Entitys.FoodType
 import com.example.justgo.Entitys.Trip
-import com.example.justgo.Entitys.TripType
-import com.example.justgo.Logic.TripManager
+import com.example.justgo.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class AddNewFoodActivity : AppCompatActivity() {
@@ -37,24 +37,15 @@ class AddNewFoodActivity : AppCompatActivity() {
         val save : FloatingActionButton
         save=findViewById(R.id.saveFood_floatActionButton)
         save.setOnClickListener {
-            val name: EditText
-            name=findViewById(R.id.foodName_EditText)
-            var location: EditText
-            location = findViewById(R.id.foodLocation_EditText)
+            val name: EditText = findViewById(R.id.foodName_EditText)
+            val location: EditText = findViewById(R.id.foodLocation_EditText)
 
             if(!(name.text.toString().equals("")) && !(location.text.toString().equals(""))) {
-
-                trip.addFood(name.text.toString(), location.text.toString(), food_dropdown.selectedItem as FoodType)
-
-                TripManager.replaceTrip(
-                    TripManager.getTripbyName(trip.nameofTrip).first(),
-                    trip
-                )
-
-                val intent = Intent(this, FoodsActivity::class.java)
-                intent.putExtra("trip", trip)
-                startActivity(intent)
-
+                val resultIntent = Intent()
+                val food = Food(name.text.toString(), location.text.toString(), food_dropdown.selectedItem as FoodType)
+                resultIntent.putExtra("foods", food)
+                setResult(Activity.RESULT_OK, resultIntent)
+                finish()
             }
         }
     }

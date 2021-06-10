@@ -1,6 +1,7 @@
 package com.example.justgo
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -32,6 +33,12 @@ class MainActivity : AppCompatActivity() {
     private val LOCALE_PREF_KEY = "localePref"
 
     private lateinit var locale: Locale
+
+    var trips:ArrayList<Trip> = ArrayList()
+    private lateinit var myTripsButton : Button
+    private lateinit var sampleTripsButton : Button
+
+    @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -49,27 +56,26 @@ class MainActivity : AppCompatActivity() {
         val layoutid : Int = android.R.layout.simple_list_item_1
         list_view_of_trips = ListViewerTrips(
             this, layoutid, findViewById(R.id.list_view_of_trips), TripManager.getTripsbyType(
-                TripType.created_by_others
+                TripType.Sample
             )
         )
+        myTripsButton = findViewById(R.id.my_trips_button)
+        sampleTripsButton = findViewById(R.id.sample_trips_button)
         list_view_of_trips.startListView()
 
         val sp = getSharedPreferences(LOCALE_PREF_KEY, Context.MODE_PRIVATE)
         val localeString = sp.getString(LOCALE_KEY, ENGLISH_LOCALE)
 
-        val create_trip : FloatingActionButton
-        create_trip = findViewById(R.id.createtripFloatingActionButton)
-        create_trip.setOnClickListener {
+        val createTrip : FloatingActionButton = findViewById(R.id.createtripFloatingActionButton)
+        createTrip.setOnClickListener {
             val intent = Intent(this, CreateTrip::class.java)
             startActivity(intent)
         }
-        val searchTrip: FloatingActionButton
-        searchTrip = findViewById(R.id.SearchForTripBt)
+
+        val searchTrip: FloatingActionButton = findViewById(R.id.SearchForTripBt)
         searchTrip.setOnClickListener {
 
-            var tripname:TextView
-            var trips:ArrayList<Trip>
-            tripname=findViewById(R.id.SearchbyNameEditText)
+            val tripname:TextView = findViewById(R.id.SearchbyNameEditText)
             if(!tripname.text.toString().equals("")){
                 trips = TripManager.getTripbyName(tripname.text.toString())
                 trips.forEach {
@@ -78,82 +84,42 @@ class MainActivity : AppCompatActivity() {
                 list_view_of_trips.changeTripsList(trips)
                 list_view_of_trips.startListView()
             }
-
-
         }
 
-        val language: Button
-        language = findViewById(R.id.language_btn)
+        val language: Button = findViewById(R.id.language_btn)
         language.setOnClickListener {
             changeLanguage()
         }
 
-        var current_trip_type: TripType
-        current_trip_type = TripType.created_by_others
+        var currentTripType: TripType = TripType.Sample
         val list_view_trips_description: TextView
         list_view_trips_description = findViewById(R.id.list_view_description)
 
 
-        val my_trips: Button
-        my_trips = findViewById(R.id.my_trips_button)
-        my_trips.setOnClickListener {
+        myTripsButton.setOnClickListener {
             list_view_trips_description.text = this.getString(R.string.btn_mytrips)
-            current_trip_type = TripType.self_created
-            var trips:ArrayList<Trip>
-            trips = TripManager.getTripsbyType(TripType.self_created)
-            trips.forEach {
-                println(it.toString())
-            }
+            currentTripType = TripType.SelfCreated
+            trips = TripManager.getTripsbyType(TripType.SelfCreated)
+
             list_view_of_trips.changeTripsList(trips)
             list_view_of_trips.startListView()
-            my_trips.isClickable = false
-            val sampleTrips: Button
-            sampleTrips = findViewById(R.id.sample_trips_button)
-            sampleTrips.isClickable = true
-            val sharedTrips: Button
-            sharedTrips = findViewById(R.id.shared_trips_button)
-            sharedTrips.isClickable = true
-        }
-        val sample_trips: Button
-        sample_trips = findViewById(R.id.sample_trips_button)
-        sample_trips.setOnClickListener {
-            list_view_trips_description.text = this.getString(R.string.btn_sampletrips)
-            current_trip_type = TripType.created_by_others
-            var trips:ArrayList<Trip>
-            trips = TripManager.getTripsbyType(TripType.created_by_others)
-            list_view_of_trips.changeTripsList(trips)
-            list_view_of_trips.startListView()
-            sample_trips.isClickable = false
-            val myTrips: Button
-            myTrips = findViewById(R.id.my_trips_button)
-            myTrips.isClickable = true
-            val sharedTrips: Button
-            sharedTrips = findViewById(R.id.shared_trips_button)
-            sharedTrips.isClickable = true
-        }
-        val shared_trips: Button
-        shared_trips = findViewById(R.id.shared_trips_button)
-        shared_trips.setOnClickListener {
-            list_view_trips_description.text = this.getString(R.string.btn_sharedtrips)
-            current_trip_type = TripType.shared_ones
-            var trips:ArrayList<Trip>
-            trips = TripManager.getTripsbyType(TripType.shared_ones)
-            trips.forEach {
-                println(it.toString())
-            }
-            list_view_of_trips.changeTripsList(trips)
-            list_view_of_trips.startListView()
-            shared_trips.isClickable = false
-            val sampleTrips: Button
-            sampleTrips = findViewById(R.id.sample_trips_button)
-            sampleTrips.isClickable = true
-            val myTrips: Button
-            myTrips = findViewById(R.id.my_trips_button)
-            myTrips.isClickable = true
+
+            myTripsButton.isClickable = false
+            sampleTripsButton.isClickable = true
         }
 
-        val dropdown_menu: Spinner
-        dropdown_menu = findViewById(R.id.sorting_dropdown)
+        sampleTripsButton.setOnClickListener {
+            list_view_trips_description.text = this.getString(R.string.btn_sampletrips)
+            currentTripType = TripType.Sample
+            trips = TripManager.getTripsbyType(TripType.Sample)
+            list_view_of_trips.changeTripsList(trips)
+            list_view_of_trips.startListView()
+
+            sampleTripsButton.isClickable = false
+            myTripsButton.isClickable = true
+        }
+
+        val dropdown_menu: Spinner = findViewById(R.id.sorting_dropdown)
         val array_ = resources.getStringArray(R.array.dropdown_string_array)
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, array_)
         dropdown_menu.adapter = adapter
@@ -166,18 +132,11 @@ class MainActivity : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
-                //Toast.makeText(this@MainActivity, "${parent?.getItemAtPosition(position).toString()}", Toast.LENGTH_LONG).show()
                 if(parent?.getItemAtPosition(position).toString().equals("trip name")){
                     TripManager.sortTripsbyName()
-                    list_view_of_trips.changeTripsList(TripManager.getTripsbyType(current_trip_type))
+                    list_view_of_trips.changeTripsList(TripManager.getTripsbyType(currentTripType))
                     list_view_of_trips.startListView()
                 }
-
-                /*
-                mit:  parent?.getItemAtPosition(position).toString()  lesen welches dropdown item ausgewählt ist
-                dann
-                TripManager.sortTripsbyName() / TripManager.sortTripsbyInput()...
-                 */
             }
         }
     }
@@ -208,13 +167,12 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         // This ensures the trips are updated after returning from the singleTripActivity
-        list_view_of_trips.changeTripsList(TripManager.getTripsbyType(TripType.created_by_others))
+        list_view_of_trips.changeTripsList(TripManager.getTripsbyType(TripType.Sample))
         list_view_of_trips.startListView()
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
     private fun setupPermissions() {
-        print("Hello")
         val permissionInternet = ContextCompat.checkSelfPermission(
             this,
             Manifest.permission.INTERNET
@@ -223,7 +181,6 @@ class MainActivity : AppCompatActivity() {
             println("Permission to record denied")
         }
         else{
-            print("Hello")
             var string :ArrayList<String> = ArrayList<String>()
             string.add(android.Manifest.permission.INTERNET)
             var array = arrayOf<String>()

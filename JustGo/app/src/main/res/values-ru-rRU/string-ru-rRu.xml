@@ -10,8 +10,11 @@
     <string name="add_item">добавить элемент</string>
     <string name="add_date">установить дату</string>
 
+    <string name="create_trip_topic">Создать поездку</string>
+    <string name="create_trip_name">Имя: </string>
+
     <string name="addFood_topic">добавить еду</string>
-    <string name="foodName_textView">название:</string>
+    <string name="foodName_textView">Имя:</string>
     <string name="foodLocation_textView">место расположения:</string>
     <string name="foodType_textView">тип:</string>
     <string name="food_topic">еду</string>
@@ -32,5 +35,33 @@
     <string name="btn_language">EN</string>
     <string name="txtfield_name">Имя: </string>
     <string name="title_activity_destinations">карта</string>
+    <string name="txtfield_accomodation">размещение</string>
     <string name="txtfield_dest">Направления</string>
+
+    <string name="pictures_and_videos_topic">Фотографии и видео</string>
+    <string name="pictures_and_videos_button_before">Перед</string>
+    <string name="pictures_and_videos_button_from">Из</string>
+    <string name="pictures_and_videos_button_back">назад</string>
+    <string name="pictures_and_videos_button_delete">Удалить</string>
+
+    <string name="co_travellers_text_view">Путешественники</string>
+    <string name="add_new_co_travellers_topic">Новый попутчик</string>
+    <string name="add_new_co_travellers_name">Имя: </string>
+
+    <string name="name_heading">название:</string>
+    <string name="cost_heading">траты:</string>
+    <string name="tasks_heading">задачи:</string>
+    <string name="cost_text_prompt">нажмите здесь, чтобы добавить расходы</string>
+    <string name="task_text_prompt">Нажмите здесь, чтобы добавить задачу...</string>
+    <string name="food_string">Еда</string>
+    <string name="food_finder">Поиск продуктов</string>
+
+    <string name="add_new_date_date">Дата: </string>
+    <string name="add_new_date_time">Время: </string>
+    <string name="add_new_date_description">Описание: </string>
+
+    <string name="costs_topic">Расходы</string>
+    <string name="add_new_cost_topic">Добавить затраты</string>
+    <string name="add_new_cost_description">Описание: </string>
+    <string name="add_new_cost_amount">Количество: </string>
 </resources>

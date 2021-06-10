@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PictureVideoActivity">
+
+    <TextView
+        android:id="@+id/pictures_and_videos_topic_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/pictures_and_videos_topic"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/pictures_and_videos_before_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/pictures_and_videos_button_before"
+        app:layout_constraintEnd_toStartOf="@+id/pictures_and_videos_from_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pictures_and_videos_topic_textView"
+        />
+
+    <Button
+        android:id="@+id/pictures_and_videos_from_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/pictures_and_videos_button_from"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pictures_and_videos_topic_textView"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/pictures_and_videos_add_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:clickable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pictures_and_videos_from_button"
+        app:layout_constraintTop_toBottomOf="@+id/pictures_and_videos_topic_textView"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <GridView
+        android:id="@+id/pictures_and_videos_gridView_before"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pictures_and_videos_add_button"
+        android:numColumns="2"
+        android:horizontalSpacing="4dp"
+        android:verticalSpacing="4dp">
+
+    </GridView>
+
+    <GridView
+        android:id="@+id/pictures_and_videos_gridView_from"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pictures_and_videos_add_button"
+        android:numColumns="2"
+        android:horizontalSpacing="4dp"
+        android:verticalSpacing="4dp">
+
+    </GridView>
+
+    <ImageView
+        android:id="@+id/preview_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:padding="3dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/pictures_and_videos_back_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:srcCompat="@tools:sample/backgrounds/scenic"
+        android:scaleType="fitCenter"/>
+
+    <VideoView
+        android:id="@+id/preview_videoView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/pictures_and_videos_back_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        android:background="#000000"
+        android:padding="3dp"/>
+
+    <Button
+        android:id="@+id/pictures_and_videos_back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/pictures_and_videos_button_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pictures_and_videos_topic_textView" />
+
+    <Button
+        android:id="@+id/pictures_and_videos_delete_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="40dp"
+        android:text="@string/pictures_and_videos_button_delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pictures_and_videos_topic_textView" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

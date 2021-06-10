@@ -60,8 +60,7 @@ Junior Dev: David Marterer
 <br />
 
 **Features in progress:**
-
-- Sorting the list - https://github.com/sw21-tug/Team_11/issues/8
+- None
 
 <br />
 <br />
@@ -89,3 +88,34 @@ Junior Dev: David Marterer
 - Adding dates with description - https://github.com/sw21-tug/Team_11/issues/16
 
 - Adding items to food category - https://github.com/sw21-tug/Team_11/issues/18
+
+- Adding pictures and videos - https://github.com/sw21-tug/Team_11/issues/17
+
+- Sorting the list - https://github.com/sw21-tug/Team_11/issues/8
+
+- Option to delete and making the app consistent - https://github.com/sw21-tug/Team_11/issues/41
+
+- Improving the UI - https://github.com/sw21-tug/Team_11/issues/45
+
+- Adding Co-Travellers - https://github.com/sw21-tug/Team_11/issues/40
+
+- Storing the trips locally - https://github.com/sw21-tug/Team_11/issues/35
+
+- Adding costs to a trip - https://github.com/sw21-tug/Team_11/issues/44
+
+- Add accommodation field to the destination - https://github.com/sw21-tug/Team_11/issues/39
+
+- Sample trips - https://github.com/sw21-tug/Team_11/issues/46
+
+<br />
+<br />
+
+**Rejected Featues:**
+
+- Adding activities - https://github.com/sw21-tug/Team_11/issues/36 - Picture complexity
+
+- Marking costs - https://github.com/sw21-tug/Team_11/issues/48 - Not enough time
+
+- Add start date of a trip in the main view - https://github.com/sw21-tug/Team_11/issues/47 - Not enough time
+
+- Add picture to a trip in the main view - https://github.com/sw21-tug/Team_11/issues/38 - Not enough time

@@ -1,1 +1,5 @@
-<resources></resources>
+<resources>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="subtext">8dp</dimen>
+    <dimen name="tab">50dp</dimen>
+</resources>

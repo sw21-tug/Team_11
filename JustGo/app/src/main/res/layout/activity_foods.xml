@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-    tools:context=".FoodsActivity"
+    tools:context=".Food.FoodsActivity"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
@@ -29,42 +29,35 @@
         android:clickable="true"
         android:layout_marginEnd="8dp"/>
 
-    <Button android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="@string/breakfast_button"
-        android:layout_marginTop="16dp"
-        android:id="@+id/breakfast_button"
-        app:layout_constraintTop_toBottomOf="@+id/food_topic"
-        android:layout_marginStart="64dp"/>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/foods_linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/add_food_button">
 
-    <Button android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/lunch_dinner_button"
-        android:layout_marginTop="16dp"
-        android:id="@+id/lunch_dinner_button"
-        android:layout_marginEnd="64dp"
-        app:layout_constraintTop_toBottomOf="@+id/food_topic"/>
+        <Button android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/breakfast_button"
+            android:id="@+id/breakfast_button"
+            android:layout_marginHorizontal="16dp"/>
 
-    <ListView android:layout_height="0dp"
+        <Button android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/lunch_dinner_button"
+            android:id="@+id/lunch_dinner_button"
+            android:layout_marginHorizontal="16dp"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.recyclerview.widget.RecyclerView android:layout_height="0dp"
         android:layout_width="match_parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"
         android:id="@+id/food_listview"
-        app:layout_constraintTop_toBottomOf="@+id/lunch_dinner_button"
+        app:layout_constraintTop_toBottomOf="@+id/foods_linearLayout"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/food_back_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:clickable="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/abc_vector_test" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

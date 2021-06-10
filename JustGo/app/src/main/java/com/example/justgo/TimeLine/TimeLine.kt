@@ -8,12 +8,13 @@ import android.widget.Button
 import android.widget.ListView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.example.justgo.Database.DatabaseHelper
 import com.example.justgo.Entitys.Trip
 import com.example.justgo.Entitys.TripDates
 import com.example.justgo.Logic.TripManager
 import com.example.justgo.R
-import java.time.LocalDateTime
 import java.io.Serializable
+import java.time.LocalDateTime
 
 class TimeLine : AppCompatActivity() {
     private lateinit var trip : Trip
@@ -58,6 +59,9 @@ class TimeLine : AppCompatActivity() {
 
                 val date = data.getSerializableExtra("date") as LocalDateTime
                 val description = data.getSerializableExtra("description") as String
+
+                var timelineDatabaseHelper = DatabaseHelper(this)
+                timelineDatabaseHelper.addDate(description, date.toString(), trip)
 
                 dates.dates[date] = description
 
